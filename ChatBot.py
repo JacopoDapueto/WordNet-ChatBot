@@ -1,26 +1,40 @@
-# chatbot main
+# Useful libraries
 import nltk
 import aiml
+import sys
 import os
 
-nltk.download('wordnet')
+# Library used to build the chatbot
+from programy.clients.embed.basic import EmbeddedDataFileBot
 
+# define folders containing the main files
+files = {'aiml': ['y-bot/storage/categories'],
+         'learnf': ['y-bot/storage/learnf'],
+         'properties': 'y-bot/storage/properties/properties.txt',
+         'defaults': 'y-bot/storage/properties/defaults.txt',
+         'sets': ['y-bot/storage/sets'],
+         'maps': ['y-bot/storage/maps'],
+         'rdfs': ['y-bot/storage/rdfs'],
+         'denormals': 'y-bot/storage/lookups/denormal.txt',
+         'normals': 'y-bot/storage/lookups/normal.txt',
+         'genders': 'y-bot/storage/lookups/gender.txt',
+         'persons': 'y-bot/storage/lookups/person.txt',
+         'person2s': 'y-bot/storage/lookups/person2.txt',
+         'regexes': 'y-bot/storage/regex/regex-templates.txt',
+         'spellings': 'y-bot/storage/spelling/corpus.txt',
+         'preprocessors': 'y-bot/storage/processing/preprocessors.conf',
+         'postprocessors': 'y-bot/storage/processing/postprocessors.conf',
+         'postquestionprocessors': 'y-bot/storage/processing/postquestionprocessors.conf'
+         }
 
-kernel = aiml.Kernel()
+bot = EmbeddedDataFileBot(files)
 
-if os.path.isfile("bot_brain.brn"):
-    kernel.bootstrap(brainFile = "bot_brain.brn")
-else:
-    kernel.bootstrap(learnFiles = "std-startup.xml", commands = "load aiml b")
-    kernel.saveBrain("bot_brain.brn")
-
-# kernel now ready for use
 while True:
-    message = input("Enter your message to the bot: ")
+
+    message = input("> ")
+    response = bot.ask_question(message)
+    if response: 
+        print("> Guido: {}".format(response))
+    
     if message == "quit":
-        exit()
-    elif message == "save":
-        kernel.saveBrain("bot_brain.brn")
-    else:
-        bot_response = kernel.respond(message)
-        # Do something with bot_response
+        break

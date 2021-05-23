@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="2.0">
+
+<!-- START: Basic/Initial interaction -->
+
+<category>
+	<pattern>HI</pattern>
+	<template>Hi! <srai>WHO ARE YOU</srai></template>
+</category>
+
+<category>
+	<pattern>MY NAME IS *</pattern>
+	<template>Nice to meet you, <set name="username"><star/></set><srai>WHO ARE YOU</srai></template>
+</category>
+
+
+<category>
+	<pattern>WHO ARE YOU</pattern>
+	<template>I'm Guido, I'm here to help you in finding a guided tour led by a professional guide</template>
+</category>
+
+
+
+<!-- END: Basic/Initial interaction -->
+
+<!--START: Categories to learn Lexical semantics -->
+
+<category>
+	<pattern>* IS SYNONYM OF *</pattern>
+
+	<template>
+		<learn>
+			<category>
+				<pattern><eval><star/></eval></pattern>
+				<template>
+					<srai><eval><star index="2"/></eval></srai>
+				</template>
+			</category>
+		</learn>
+	</template>
+</category>
+
+<category>
+	<pattern>* IS HYPONYM OF *</pattern>
+	<template>
+		<learn>
+			<category>
+				<pattern><eval><star/></eval></pattern>
+				<template>
+					<srai><eval><star index="2"/></eval></srai>
+				</template>
+			</category>
+		</learn>
+	</template>
+</category>
+
+<category>
+	<pattern>* IS HYPERNYM OF *</pattern>
+
+	<template>
+		<learn>
+			<category>
+				<pattern><eval><star/></eval></pattern>
+				<template>
+					<srai><eval><star index="2"/></eval></srai>
+				</template>
+			</category>
+		</learn>
+	</template>
+</category>
+
+<!-- END: Categories to learn Lexical semantics -->
+
+
+<!-- Ultimate Default Category -->
+<category>
+	<pattern>*</pattern>
+	<template>
+	<random>
+		<li>What was that?</li>
+		<li>I don’t understand</li>
+		<li>Can you say that more clearly?</li>
+	</random>
+	</template>
+</category>
+
+
+</aiml>
+
