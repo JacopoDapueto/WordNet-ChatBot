@@ -1,5 +1,4 @@
 console:
-  bot:  bot
   prompt: ">>>"
 
   scheduler:
@@ -158,7 +157,6 @@ console:
 
       brains:
         brain:
-
           # Overrides
           overrides:
             allow_system_aiml: true
@@ -170,7 +168,6 @@ console:
             default_get: unknown
             default_property: unknown
             default_map: unknown
-            learn-filename: ./storage/categories/learnf.aiml
 
           # Binary
           binaries:

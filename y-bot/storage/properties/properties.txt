@@ -1,0 +1,7 @@
+
+
+default_get:unknown
+default_property:unknown
+default_map:unknown
+learn-filename:learn.aiml
+

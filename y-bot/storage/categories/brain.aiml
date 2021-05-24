@@ -19,6 +19,12 @@
 	<template>I'm Guido, I'm here to help you in finding a guided tour led by a professional guide</template>
 </category>
 
+<category>
+    <pattern>HOW MANY CATEGORIES DO YOU KNOW</pattern>
+    <template>
+        My brain contains<size /> categories.
+    </template>
+</category>
 
 
 <!-- END: Basic/Initial interaction -->
@@ -26,14 +32,20 @@
 <!--START: Categories to learn Lexical semantics -->
 
 <category>
-	<pattern>* IS SYNONYM OF *</pattern>
+	<pattern>_ IS SYNONYM OF *</pattern>
 
 	<template>
+
+		<think>
+                <set var="first"><first><star/></first></set>
+                <set var="second"><rest><star index="2"/></rest></set>
+         </think>
+
 		<learn>
 			<category>
-				<pattern><eval><star/></eval></pattern>
+				<pattern><get var="first" /></pattern>
 				<template>
-					<srai><eval><star index="2"/></eval></srai>
+					<srai><get var="second" /></srai>
 				</template>
 			</category>
 		</learn>
@@ -42,10 +54,11 @@
 
 <category>
 	<pattern>* IS HYPONYM OF *</pattern>
+
 	<template>
 		<learn>
 			<category>
-				<pattern><eval><star/></eval></pattern>
+				<pattern><eval><star index="1" /></eval></pattern>
 				<template>
 					<srai><eval><star index="2"/></eval></srai>
 				</template>
@@ -60,7 +73,7 @@
 	<template>
 		<learn>
 			<category>
-				<pattern><eval><star/></eval></pattern>
+				<pattern><eval><star index="1" /></eval></pattern>
 				<template>
 					<srai><eval><star index="2"/></eval></srai>
 				</template>
