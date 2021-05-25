@@ -1,3 +1,3 @@
 <aiml version="2.0">
 
-</aiml>
+<category><pattern>CIAO</pattern><topic>*</topic><that>*</that><template><srai><eval><star index="2" /></eval></srai></template></category><category><pattern> CIAO</pattern><topic>*</topic><that>*</that><template><srai><eval><get name="secondword" /></eval></srai></template></category></aiml>
