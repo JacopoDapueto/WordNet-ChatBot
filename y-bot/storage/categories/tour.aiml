@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="2.0">
+
+
+<!--
+<category>
+	<pattern> * TOUR * <set>locations</set></pattern>
+	<template><set name="topic">tours</set></template>
+</category>
+
+-->
+
+<category>
+		<pattern># NO ^</pattern>
+		<that>DO YOU HAVE ANY PARTICULAR INTEREST</that>
+		<template>
+			<condition name="location">
+				<li value="*">Okay, Now you just need to find a  </li>
+				<li>Do you want to go to a particular city or region?</li>
+			</condition>
+		</template>
+	</category>
+
+<category>
+		<pattern># YES * <set>disciplines</set></pattern>
+		<that>DO YOU HAVE ANY PARTICULAR INTEREST</that>
+		<template>
+			<condition name="location">
+				<li value="*">We <srai></srai></li>
+				<li>Do you want to go to a particular city or region?</li>
+			</condition>
+		</template>
+</category>
+
+<category>
+		<pattern># YES * </pattern>
+		<that>DO YOU HAVE ANY PARTICULAR INTEREST</that>
+		<template>
+			I'm sorry, we don't have tours for such interest.
+			<condition name="location">
+				<li value="*">But We <srai></srai></li>
+				<li>Anyway, Do you want to go to a particular city or region?</li>
+			</condition>
+		</template>
+</category>
+
+<category>
+	<pattern>* FOUND * <iset words="LIKE, LOVE, INTERESTED" /> ^ </pattern>
+	<template>Now you just need to select an activity and join or create a group of at least 5 people. <br/>
+	Enjoy your experience!</template>
+</category>
+
+<category>
+	<pattern>* WANT * TOUR * <set>locations</set> </pattern>
+	<template>
+		<think><set name="location"><star index="4"/></set></think>
+		There are many tours in <get name="location"/> you can join!<br/>
+	</template>
+</category>
+
+<category>
+	<pattern>* WANT * TOUR * </pattern>
+	<template>Oh, There are no tours in that place<br/></template>
+</category>
+
+<category>
+		<pattern> * <iset words="LIKE, LOVE, INTERESTED" /> ^ <set>disciplines</set></pattern>
+		<template>
+			A lot of people in our community love <set name="topic"><star index="4"/></set> too! <br/>
+			<srai>START <star index="4"/></srai>
+		</template>
+</category>
+
+<category>
+		<pattern> * <iset words="LIKE, LOVE, INTERESTED" /> *</pattern>
+		<template>It's a pity, we have no tours regarding <star index="3"/></template>
+</category>
+
+<category>
+	<pattern></pattern>
+	<template></template>
+</category>
+
+<category>
+		<pattern> * SUGGEST ^ </pattern>
+		<template><srai>DO YOU HAVE SOMETHING TO SUGGEST <star index="2"/></srai></template>
+</category>
+
+<category>
+		<pattern> DO YOU HAVE SOMETHING TO SUGGEST ^ </pattern>
+		<template>Do you have any particular interest?</template>
+</category>
+
+
+<category>
+		<pattern>* <iset words="LIKED, LOVED, ENJOYED" /> * TOUR</pattern>
+		<template>Oh well, I'm pleased to hear so</template>
+<category>
+
+
+
+</aiml>
+
