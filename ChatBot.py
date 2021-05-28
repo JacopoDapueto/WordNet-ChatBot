@@ -31,6 +31,7 @@ files = {'aiml': ['y-bot/storage/categories'],
 
 bot = EmbeddedDataFileBot(files, defaults=True) # EmbeddedDataFileBot(files)
 
+words_list = ["tour"]
 while True:
 
     message = input("> ")

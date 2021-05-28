@@ -136,7 +136,7 @@
 	<pattern>*</pattern>
 	<template>
 	<random>
-		<li>What was that?</li>
+		<li>Can you repeat, please?</li>
 		<li>I don’t understand</li>
 		<li>Can you say that more clearly?</li>
 	</random>

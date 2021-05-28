@@ -10,76 +10,41 @@
 
 -->
 
+
 <category>
 		<pattern># NO ^</pattern>
 		<that>DO YOU HAVE ANY PARTICULAR INTEREST</that>
 		<template>
 			<condition name="location">
-				<li value="*">Okay, Now you just need to find a  </li>
-				<li>Do you want to go to a particular city or region?</li>
-			</condition>
-		</template>
-	</category>
-
-<category>
-		<pattern># YES * <set>disciplines</set></pattern>
-		<that>DO YOU HAVE ANY PARTICULAR INTEREST</that>
-		<template>
-			<condition name="location">
-				<li value="*">We <srai></srai></li>
+				<li value="*">Okay, Now <srai>I NEED TO FIND A TOUR</srai>  </li>
 				<li>Do you want to go to a particular city or region?</li>
 			</condition>
 		</template>
 </category>
 
 <category>
-		<pattern># YES * </pattern>
+		<pattern># YES ^ <set>disciplines</set> ^</pattern>
+		<that>DO YOU HAVE ANY PARTICULAR INTEREST</that>
+		<template>
+			<condition name="location">
+				<li value="*">Very nice, <srai>I NEED TO FIND A TOUR</srai></li>
+				<li>Do you want to go to a particular city or region?</li>
+			</condition>
+		</template>
+</category>
+
+<category>
+		<pattern># YES ^ </pattern>
 		<that>DO YOU HAVE ANY PARTICULAR INTEREST</that>
 		<template>
 			I'm sorry, we don't have tours for such interest.
 			<condition name="location">
-				<li value="*">But We <srai></srai></li>
+				<li value="*">But you can <srai>I NEED TO FIND A TOUR</srai> in <get></li>
 				<li>Anyway, Do you want to go to a particular city or region?</li>
 			</condition>
 		</template>
 </category>
 
-<category>
-	<pattern>* FOUND * <iset words="LIKE, LOVE, INTERESTED" /> ^ </pattern>
-	<template>Now you just need to select an activity and join or create a group of at least 5 people. <br/>
-	Enjoy your experience!</template>
-</category>
-
-<category>
-	<pattern>* WANT * TOUR * <set>locations</set> </pattern>
-	<template>
-		<think><set name="location"><star index="4"/></set></think>
-		There are many tours in <get name="location"/> you can join!<br/>
-	</template>
-</category>
-
-<category>
-	<pattern>* WANT * TOUR * </pattern>
-	<template>Oh, There are no tours in that place<br/></template>
-</category>
-
-<category>
-		<pattern> * <iset words="LIKE, LOVE, INTERESTED" /> ^ <set>disciplines</set></pattern>
-		<template>
-			A lot of people in our community love <set name="topic"><star index="4"/></set> too! <br/>
-			<srai>START <star index="4"/></srai>
-		</template>
-</category>
-
-<category>
-		<pattern> * <iset words="LIKE, LOVE, INTERESTED" /> *</pattern>
-		<template>It's a pity, we have no tours regarding <star index="3"/></template>
-</category>
-
-<category>
-	<pattern></pattern>
-	<template></template>
-</category>
 
 <category>
 		<pattern> * SUGGEST ^ </pattern>
@@ -93,10 +58,110 @@
 
 
 <category>
-		<pattern>* <iset words="LIKED, LOVED, ENJOYED" /> * TOUR</pattern>
-		<template>Oh well, I'm pleased to hear so</template>
-<category>
+		<pattern> * <iset words="LIKE, LOVE, INTERESTED" /> ^ <set>disciplines</set></pattern>
+		<template>
+			A lot of people in our community love <set name="topic"><star index="4"/></set> too! <br/>
+			<srai>I LIKE <star index="4"/></srai>
+		</template>
+</category>
 
+
+<category>
+	<pattern> * <iset words="LIKE, LOVE, INTERESTED" /> ^ <set>locations</set></pattern>
+	<template>
+		<think><set name="location"><star index="4"/></set></think>
+		<random>
+			<li>There are many tours in <get name="location"/> you can join!</li>
+			<li>Have a look at the available tours in <get name="location"/></li>
+		</random>
+		
+	</template>
+</category>
+
+<category>
+		<pattern> * <iset words="LIKE, LOVE, INTERESTED" /> ^ </pattern>
+		<template>It's a pity we have no tours regarding <star index="3"/></template>
+</category>
+
+<category>
+		<pattern>* <iset words="LIKED, LOVED, ENJOYED" /> * TOUR</pattern>
+		<template>Very good, I'm pleased to hear so</template>
+</category>
+
+<category>
+	<pattern>* WANT * TOUR * <set>locations</set> </pattern>
+	<template>
+		<srai><star/> LIKE <star index="3"/> <star index="4"/></srai>
+	</template>
+</category>
+
+<category>
+	<pattern>* WANT * TOUR * </pattern>
+	<template>Oh, There are no tours in that place</template>
+</category>
+
+<category>
+	<pattern>* GO ^ <set>locations</set></pattern>
+	<template>Great! <srai><star/> LIKE <star index="2"/> <star index="3"/></srai></template>
+</category>
+
+<category>
+	<pattern>* GO ^ </pattern>
+	<template>I'm sorry we have no tour there. <srai>TELL ME AVAILABLE CITIES</srai></template>
+</category>
+
+<category>
+	<pattern>* AVAILABLE CITIES ^</pattern>
+	<template>The available cities are Genoa, Milan, Abruzzo, Florence, Puglia, Piemonte, Campania and Paris</template>
+</category>
+
+<category>
+	<pattern>* AVAILABLE CITY ^</pattern>
+	<template>
+		One of the available cities is
+		<random>
+			<li>Genoa</li>
+			<li>Milan</li>
+			<li>Abruzzo</li>
+			<li>Florence</li>
+			<li>Puglia</li>
+			<li>Piemonte</li>
+			<li>Campania</li>
+			<li>Paris</li>
+		</random>
+	</template>
+</category>
+
+<category>
+	<pattern>* READY * TOUR ^</pattern>
+	<template>Wow, enjoy your experience and make new friends!</template>
+</category>
+
+<category>
+	<pattern>* FIND ^ <iset words="TOUR, ACTIVITY" /> ^ </pattern>
+	<template>Choose the tour that best suits you</template>
+</category>
+
+<category>
+	<pattern>* FOUND * <iset words="LIKE, LOVE, INTERESTED" /> ^ </pattern>
+	<template>Now you just need to select a date and join or create a group of at least 5 people. <br/>
+	Enjoy your experience!</template>
+</category>
+
+<category>
+	<pattern>* MINIMUM * <iset words="GROUP, PEOPLE" /> ^ </pattern>
+	<template><srai>WHICH IS THE MINIMUM NUMBER OF PEOPLE</srai></template>
+</category>
+
+<category>
+	<pattern>HOW MANY PEOPLE * </pattern>
+	<template><srai>WHICH IS THE MINIMUM NUMBER OF PEOPLE</srai></template>
+</category>
+
+<category>
+	<pattern>WHICH IS THE MINIMUM NUMBER OF PEOPLE</pattern>
+	<template>You must be in a group of at least 5 people</template>
+</category>
 
 
 </aiml>

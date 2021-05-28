@@ -5,7 +5,7 @@
 <topic name= "art">
 
 	<category>
-		<pattern>START ART</pattern>
+		<pattern>I LIKE ART</pattern>
 		<template>What are you interested in?</template>
 	</category>
 	
