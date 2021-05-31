@@ -2,22 +2,27 @@
 <aiml version="2.0">
 
 
-<!--
-<category>
-	<pattern> * TOUR * <set>locations</set></pattern>
-	<template><set name="topic">tours</set></template>
-</category>
-
--->
-
 
 <category>
 		<pattern># NO ^</pattern>
 		<that>DO YOU HAVE ANY PARTICULAR INTEREST</that>
 		<template>
 			<condition name="location">
-				<li value="*">Okay, Now <srai>I NEED TO FIND A TOUR</srai>  </li>
-				<li>Do you want to go to a particular city or region?</li>
+				<li value="unknown">Do you want to go to a particular city or region?</li>
+				<li>Okay, Now <srai>I NEED TO FIND A TOUR</srai>  </li>
+			</condition>
+		</template>
+</category>
+
+
+<category>
+		<pattern># YES ^ </pattern>
+		<that>DO YOU HAVE ANY PARTICULAR INTEREST</that>
+		<template>
+			I'm sorry, we don't have tours for such interest.
+			<condition name="location">
+				<li value="unknown">Anyway, Do you want to go to a particular city or region?</li>
+				<li>But you can <srai>I NEED TO FIND A TOUR</srai> in <get name="location"/></li>
 			</condition>
 		</template>
 </category>
@@ -27,24 +32,11 @@
 		<that>DO YOU HAVE ANY PARTICULAR INTEREST</that>
 		<template>
 			<condition name="location">
-				<li value="*">Very nice, <srai>I NEED TO FIND A TOUR</srai></li>
-				<li>Do you want to go to a particular city or region?</li>
+				<li value="unknown">Do you want to go to a particular city or region?</li>
+				<li > Very nice, <srai>I NEED TO FIND A TOUR</srai></li>
 			</condition>
 		</template>
 </category>
-
-<category>
-		<pattern># YES ^ </pattern>
-		<that>DO YOU HAVE ANY PARTICULAR INTEREST</that>
-		<template>
-			I'm sorry, we don't have tours for such interest.
-			<condition name="location">
-				<li value="*">But you can <srai>I NEED TO FIND A TOUR</srai> in <get></li>
-				<li>Anyway, Do you want to go to a particular city or region?</li>
-			</condition>
-		</template>
-</category>
-
 
 <category>
 		<pattern> * SUGGEST ^ </pattern>
@@ -56,6 +48,16 @@
 		<template>Do you have any particular interest?</template>
 </category>
 
+<category>
+	<pattern> * <iset words="LIKE, LOVE, INTERESTED" /> ^ <set>locations</set></pattern>
+	<template>
+		<think><set name="location"><star index="4"/></set></think>
+		<random>
+			<li>There are many tours in <get name="location"/> you can join!</li>
+			<li>Have a look at the available tours in <get name="location"/></li>
+		</random>
+	</template>
+</category>
 
 <category>
 		<pattern> * <iset words="LIKE, LOVE, INTERESTED" /> ^ <set>disciplines</set></pattern>
@@ -65,19 +67,6 @@
 		</template>
 </category>
 
-
-<category>
-	<pattern> * <iset words="LIKE, LOVE, INTERESTED" /> ^ <set>locations</set></pattern>
-	<template>
-		<think><set name="location"><star index="4"/></set></think>
-		<random>
-			<li>There are many tours in <get name="location"/> you can join!</li>
-			<li>Have a look at the available tours in <get name="location"/></li>
-		</random>
-		
-	</template>
-</category>
-
 <category>
 		<pattern> * <iset words="LIKE, LOVE, INTERESTED" /> ^ </pattern>
 		<template>It's a pity we have no tours regarding <star index="3"/></template>
@@ -85,7 +74,7 @@
 
 <category>
 		<pattern>* <iset words="LIKED, LOVED, ENJOYED" /> * TOUR</pattern>
-		<template>Very good, I'm pleased to hear so</template>
+		<template>Very good, I'm pleased to hear so!</template>
 </category>
 
 <category>
@@ -111,8 +100,13 @@
 </category>
 
 <category>
+	<pattern>WHERE *</pattern>
+	<template>THE AVAILABLE CITIES</template>
+</category>
+
+<category>
 	<pattern>* AVAILABLE CITIES ^</pattern>
-	<template>The available cities are Genoa, Milan, Abruzzo, Florence, Puglia, Piemonte, Campania and Paris</template>
+	<template>The available cities providing are Genoa, Milan, Abruzzo, Florence, Puglia, Piemonte, Campania and Paris</template>
 </category>
 
 <category>
@@ -133,6 +127,11 @@
 </category>
 
 <category>
+	<pattern>CAN YOU TELL MORE ABOUT THE HERITAGE DISCIPLINE </pattern>
+	<template>We provide tours involving different topics: such as art, architecture, history, archeology, science, nature and gastronomy. </template>
+</category>
+
+<category>
 	<pattern>* READY * TOUR ^</pattern>
 	<template>Wow, enjoy your experience and make new friends!</template>
 </category>
@@ -143,7 +142,7 @@
 </category>
 
 <category>
-	<pattern>* FOUND * <iset words="LIKE, LOVE, INTERESTED" /> ^ </pattern>
+	<pattern>* FOUND ^ TOUR * <iset words="LIKE, LOVE, INTERESTED" /> ^ </pattern>
 	<template>Now you just need to select a date and join or create a group of at least 5 people. <br/>
 	Enjoy your experience!</template>
 </category>
@@ -159,7 +158,7 @@
 </category>
 
 <category>
-	<pattern>WHICH IS THE MINIMUM NUMBER OF PEOPLE</pattern>
+	<pattern>WHICH IS THE MINIMUM NUMBER OF PEOPLE </pattern>
 	<template>You must be in a group of at least 5 people</template>
 </category>
 
