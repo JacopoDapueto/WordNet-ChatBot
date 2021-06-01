@@ -127,6 +127,11 @@
 </category>
 
 <category>
+	<pattern>* HERITAGE DISCIPLINE</pattern>
+	<template></template>
+</category>
+
+<category>
 	<pattern>CAN YOU TELL MORE ABOUT THE HERITAGE DISCIPLINE </pattern>
 	<template>We provide tours involving different topics: such as art, architecture, history, archeology, science, nature and gastronomy. </template>
 </category>
@@ -162,6 +167,15 @@
 	<template>You must be in a group of at least 5 people</template>
 </category>
 
+<category>
+	<pattern>TIPO DOVE ALLOGGIARE</pattern>
+	<template></template>
+</category>
+
+<category>
+	<pattern>BOOK qualcosa</pattern>
+	<template></template>
+</category>
 
 </aiml>
 

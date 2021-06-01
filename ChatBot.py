@@ -1,6 +1,7 @@
 # Useful libraries
 import nltk
 from nltk.tokenize import RegexpTokenizer
+from nltk.stem import WordNetLemmatizer
 from nltk.corpus import wordnet as wn
 import sys
 import os
@@ -69,16 +70,12 @@ def learn_pattern(chatbot, message):
     hyponym_string = " is hyponym of "
     hypernym_string = " is hypernym of "
 
-    # possible words that make sense to be substituted, for efficiency purpose
-    noun_list = ["tour", "art", "discipline", "city"]
-    verb_list = ["organize"]
-
     # tokenizer that discard punctuation
     tokenizer = RegexpTokenizer(r'\w+')
     words_list = tokenizer.tokenize(message)
 
     # find synonym
-    is_syn, new_message = synonym_relation(words_list, noun_list, message)
+    is_syn, new_message = find_lexical_relation(words_list, message, "synonym")
 
     # learn the new pattern and return 
     if is_syn:
@@ -88,10 +85,10 @@ def learn_pattern(chatbot, message):
         # the new category can be learned
         if not new_response in default_patterns:
             chatbot.ask_question(message + synonym_string + new_message)
-            #return True
+            return True
         
     # find hyponym
-    is_hypo, new_message = hyponym_relation(words_list, noun_list, message)
+    is_hypo, new_message = find_lexical_relation(words_list, message, "hyponym")
 
     # learn the new pattern and return 
     if is_hypo:
@@ -101,10 +98,10 @@ def learn_pattern(chatbot, message):
         # the new category can be learned
         if not new_response in default_patterns:
             chatbot.ask_question(message + hyponym_string + new_message)
-            #return True
+            return True
 
     # find hypernym
-    is_hyper, new_message = hypernym_relation(words_list, noun_list, message)
+    is_hyper, new_message = find_lexical_relation(words_list, message, "hypernym")
 
     # learn the new pattern and return 
     if is_hyper:
@@ -114,9 +111,75 @@ def learn_pattern(chatbot, message):
         # the new category can be learned
         if not new_response in default_patterns:
             chatbot.ask_question(message + hypernym_string + new_message)
-            #return True
+            return True
 
     return False
+
+
+def find_lexical_relation(words_list, message, type="synonym"):
+
+    # possible words that make sense to be substituted, for efficiency purpose
+    noun_list = ["tour", "art", "discipline", "city"]
+    verb_list = ["organize", "book"]
+
+    # Lemming using WordNet 
+    lemmatizer = WordNetLemmatizer()
+
+    # Lemming words as Nouns
+    words_noun_list = Lemmatization(lemmatizer, words_list, "n")
+
+    # Lemmin words as Verbs
+    words_verb_list = Lemmatization(lemmatizer, words_list, "v")
+
+    # Synonym relation
+    if type == "synonym":
+
+        # find synonym for Nouns
+        is_syn, new_message = synonym_relation(words_noun_list, noun_list, message)
+
+        if is_syn:
+            return True, new_message
+
+        # find synonym for Verbs
+        is_syn, new_message = synonym_relation(words_verb_list, verb_list, message, wn.VERB)
+
+        if is_syn:
+            return True, new_message
+
+     # Hyponymy relation
+    if type == "hyponym":
+
+        # find hyponym for Noun
+        is_hypo, new_message = hyponym_relation(words_noun_list, noun_list, message)
+
+        if is_hypo:
+            return True, new_message
+
+        # find hyponym for Verb
+        is_hypo, new_message = hyponym_relation(words_verb_list, verb_list, message, wn.VERB)
+
+        if is_hypo:
+            return True, new_message
+
+
+     # Synonym relation
+    if type == "hypernym":
+
+        # find hypernym for Noun
+        is_hyper, new_message = hypernym_relation(words_noun_list, noun_list, message)
+
+        if is_hyper:
+            return True, new_message
+
+        # find hypernym for Verb
+        is_hyper, new_message = hypernym_relation(words_verb_list, verb_list, message, wn.VERB)
+
+        if is_hyper:
+            return True, new_message
+
+
+    return False, ""
+
 
 # return True is there is a synonym relation and return also the sentence the chatbot is already able to recognise
 def synonym_relation(words_list, baseline_words, message, key = wn.NOUN):
@@ -219,6 +282,10 @@ def hypernym_relation(words_list, baseline_words, message, key = wn.NOUN):
     else:
         return rel_found, ""
 
+
+def Lemmatization(lemmatizer, word_list, pos):
+
+    return [lemmatizer.lemmatize(word, pos = pos) for word in word_list]
 
 # run main
 if __name__ == "__main__":

@@ -73,7 +73,7 @@
                 <set name="firstword"><star/></set>
                 <set name="secondword"><star index="2"/></set>
             </think>
-            <learnf>
+            <learn>
                 <category>
                     <pattern>
                         <eval><get name="firstword"/></eval>
@@ -82,7 +82,7 @@
                         <srai><eval><get name="secondword"/></eval></srai>
                     </template>
                 </category>
-            </learnf>
+            </learn>
         </template>
   </category>
 
@@ -94,7 +94,7 @@
                 <set name="firstword"><star/></set>
                 <set name="secondword"><star index="2"/></set>
             </think>
-            <learnf>
+            <learn>
                 <category>
                     <pattern>
                         <eval><get name="firstword"/></eval>
@@ -103,7 +103,7 @@
                         <srai><eval><get name="secondword"/></eval></srai>
                     </template>
                 </category>
-            </learnf>
+            </learn>
         </template>
 </category>
 
@@ -115,7 +115,7 @@
                 <set name="firstword"><star/></set>
                 <set name="secondword"><star index="2"/></set>
             </think>
-            <learnf>
+            <learn>
                 <category>
                     <pattern>
                         <eval><get name="firstword"/></eval>
@@ -124,7 +124,7 @@
                         <srai><eval><get name="secondword"/></eval></srai>
                     </template>
                 </category>
-            </learnf>
+            </learn>
         </template>
 </category>
 

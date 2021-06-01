@@ -8,12 +8,22 @@
 		<pattern>I LIKE ART</pattern>
 		<template>What are you interested in?</template>
 	</category>
+
+	<category>
+		<pattern>WHAT IS ART</pattern>
+		<template>What are you interested in?</template>
+	</category>
+
+	<category>
+		<pattern>qualcosa coi musei</pattern>
+		<template>What are you interested in?</template>
+	</category>
 	
 </topic>
 
 <!--
 
-<topic name= "food">
+<topic name= "gastronomy">
 
 	<category>
 		<pattern></pattern>
