@@ -2,17 +2,35 @@
 <aiml version="2.0">
 
 
+<category>
+	<pattern>^ TELL ME MORE ABOUT ^ <set>disciplines</set> </pattern>
+	<template><srai>WHAT IS <star index="3"/></srai></template>
+</category>
+
+<category>
+	<pattern>WHAT IS <set>disciplines</set></pattern>
+	<template><srai>WHAT IS <set name="topic"><star/></set></srai></template>
+</category>
+
+
 <topic name= "art">
 
 	<category>
-		<pattern>I LIKE ART</pattern>
-		<template>What are you interested in?</template>
+		<pattern>WHAT IS ART</pattern>
+		<template><srai>I LIKE ART</srai></template>
 	</category>
 
 	<category>
-		<pattern>WHAT IS ART</pattern>
-		<template>What are you interested in?</template>
+		<pattern>I LIKE ART</pattern>
+		<template>
+			For example we provide guided tours in
+			<random>
+				<li>art galleries</li>
+				<li>museum</li>
+			</random>
+		</template>
 	</category>
+
 
 	<category>
 		<pattern>qualcosa coi musei</pattern>
@@ -21,48 +39,78 @@
 	
 </topic>
 
-<!--
-
 <topic name= "gastronomy">
 
 	<category>
-		<pattern></pattern>
-		<template>What are you interested in?</template>
+		<pattern>WHAT IS GASTRONOMY</pattern>
+		<template>There are trips with emphasis on visits to food producers, food festivals where you can taste typical and local food products</template>
+	</category>
+
 	<category>
+		<pattern>I LIKE GASTRONOMY</pattern>
+		<template>Do you like wine?</template>
+	</category>
+
+	<category>
+		<pattern> # YES ^</pattern>
+		<that>DO YOU LIKE WINE</that>
+		<template>We offer also visits whose purpose is visiting vineyards, wineries, tasting, consuming and/or purchasing wine, often at or near the source. For example in Liguria, 5 Terre.  </template>
+	</category>
+
+	<category>
+		<pattern> # NO ^ </pattern>
+		<that>DO YOU LIKE WINE</that>
+		<template>neg gne</template>
+	</category>
+
 </topic>
+
+<!--
+
+
 
 <topic name= "history">
 
 	<category>
-		<pattern></pattern>
+		<pattern>WHAT IS HISTORY</pattern>
 		<template>What are you interested in?</template>
-	<category>
+	</category>
 </topic>
 
 <topic name= "nature">
 
 	<category>
-		<pattern></pattern>
+		<pattern>WHAT IS NATURE</pattern>
 		<template>What are you interested in?</template>
-	<category>
+	</category>
 </topic>
 
 <topic name= "science">
 
 	<category>
-		<pattern></pattern>
+		<pattern>WHAT IS SCINCE</pattern>
 		<template>What are you interested in?</template>
-	<category>
+	</category>
 </topic>
 
 <topic name= "literature">
 
 	<category>
-		<pattern></pattern>
+		<pattern>LITERATURE</pattern>
 		<template>What are you interested in?</template>
-	<category>
+	</category>
+</topic>
+
+<topic  name="archeology">
+
+</topic>
+
+<topic  name="architecture">
+
 </topic>
 -->
+
+
 
 </aiml>
 

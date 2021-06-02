@@ -1,16 +1,21 @@
 # Useful libraries
+import sys
+import os
 import nltk
 from nltk.tokenize import RegexpTokenizer
 from nltk.stem import WordNetLemmatizer
 from nltk.corpus import wordnet as wn
-import sys
-import os
+
 
 # Library used to build the chatbot
 from programy.clients.embed.basic import EmbeddedDataFileBot
 
 # the default responses if no pattern matches
 default_patterns = ["Can you repeat, please?", "I don’t understand", "Can you say that more clearly?"] 
+
+# possible words that make sense to be substituted, for efficiency purpose
+noun_list = ["tour", "art", "discipline", "city", "lodging"]
+verb_list = ["organize", "book", "suggest"]
 
 def main():
 
@@ -70,7 +75,7 @@ def learn_pattern(chatbot, message):
     hyponym_string = " is hyponym of "
     hypernym_string = " is hypernym of "
 
-    # tokenizer that discard punctuation
+    # tokenizer that discard punctuation and white spaces
     tokenizer = RegexpTokenizer(r'\w+')
     words_list = tokenizer.tokenize(message)
 
@@ -83,7 +88,7 @@ def learn_pattern(chatbot, message):
         new_response = chatbot.ask_question(new_message)
 
         # the new category can be learned
-        if not new_response in default_patterns:
+        if new_response not in default_patterns:
             chatbot.ask_question(message + synonym_string + new_message)
             return True
         
@@ -96,7 +101,7 @@ def learn_pattern(chatbot, message):
         new_response = chatbot.ask_question(new_message)
 
         # the new category can be learned
-        if not new_response in default_patterns:
+        if new_response not in default_patterns:
             chatbot.ask_question(message + hyponym_string + new_message)
             return True
 
@@ -109,7 +114,7 @@ def learn_pattern(chatbot, message):
         new_response = chatbot.ask_question(new_message)
 
         # the new category can be learned
-        if not new_response in default_patterns:
+        if new_response not in default_patterns:
             chatbot.ask_question(message + hypernym_string + new_message)
             return True
 
@@ -118,9 +123,6 @@ def learn_pattern(chatbot, message):
 
 def find_lexical_relation(words_list, message, type="synonym"):
 
-    # possible words that make sense to be substituted, for efficiency purpose
-    noun_list = ["tour", "art", "discipline", "city"]
-    verb_list = ["organize", "book"]
 
     # Lemming using WordNet 
     lemmatizer = WordNetLemmatizer()
@@ -130,6 +132,9 @@ def find_lexical_relation(words_list, message, type="synonym"):
 
     # Lemmin words as Verbs
     words_verb_list = Lemmatization(lemmatizer, words_list, "v")
+
+    # converts all characters into lowercase
+    message = message.lower()
 
     # Synonym relation
     if type == "synonym":
@@ -184,8 +189,6 @@ def find_lexical_relation(words_list, message, type="synonym"):
 # return True is there is a synonym relation and return also the sentence the chatbot is already able to recognise
 def synonym_relation(words_list, baseline_words, message, key = wn.NOUN):
 
-    # converts all characters into lowercase
-    message = message.lower()
 
     # initialized so that if no correspondence are found, properly values are returned
     rel_found = False
@@ -215,8 +218,6 @@ def synonym_relation(words_list, baseline_words, message, key = wn.NOUN):
     
 def hyponym_relation(words_list, baseline_words, message, key = wn.NOUN):
     
-    # converts all characters into lowercase
-    message = message.lower()
 
     # initialized so that if no correspondence are found, properly values are returned
     rel_found = False
@@ -248,9 +249,6 @@ def hyponym_relation(words_list, baseline_words, message, key = wn.NOUN):
         return rel_found, ""
 
 def hypernym_relation(words_list, baseline_words, message, key = wn.NOUN):
-    
-    # converts all characters into lowercase
-    message = message.lower()
 
     # initialized so that if no correspondence are found, properly values are returned
     rel_found = False
@@ -265,7 +263,6 @@ def hypernym_relation(words_list, baseline_words, message, key = wn.NOUN):
             # check if there is a synset containing both it means they have same meaning
             for synset in synset_list:
                 hypers = synset.hypernyms()
-                print(hypers)
                 for hyper in hypers:
 
                     if word in hyper.lemma_names():

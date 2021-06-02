@@ -41,7 +41,7 @@
 
 <category>
     <pattern>HOW * HELP ^</pattern>
-    <template>Guido helps you to find a guided tour wherever you are, whereby you can join in a group to save money and time</template>
+    <template><srai>WHICH SERVICES DO YOU PROVIDE</srai></template>
 </category>
 
 
@@ -59,6 +59,11 @@
 				3- Share your choiche<br/>
 				4- Enjoy now heritage with new friends
 	</template>
+</category>
+
+<category>
+    <pattern>WHICH ^ SERVICES ^ PROVIDE</pattern>
+    <template>Guido helps you to find a guided tour wherever you are, whereby you can join in a group to save money and time</template>
 </category>
 
 

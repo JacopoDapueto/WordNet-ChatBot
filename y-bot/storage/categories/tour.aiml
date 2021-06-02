@@ -128,7 +128,7 @@
 
 <category>
 	<pattern>* HERITAGE DISCIPLINE</pattern>
-	<template></template>
+	<template><srai>CAN YOU TELL MORE ABOUT THE HERITAGE DISCIPLINE</srai></template>
 </category>
 
 <category>
@@ -168,14 +168,31 @@
 </category>
 
 <category>
-	<pattern>TIPO DOVE ALLOGGIARE</pattern>
-	<template></template>
+	<pattern>* BOOK ^ TOUR ^</pattern>
+	<template><srai> HOW CAN I BOOK A TOUR <star index="3"/> </srai></template>
 </category>
 
 <category>
-	<pattern>BOOK qualcosa</pattern>
-	<template></template>
+	<pattern> HOW CAN I BOOK A TOUR ^</pattern>
+	<template>Once you find the tour you like, select a date and your native language so that you will be put together with poeple speaking your preferred language. Now you just need to invite friends in order to save money!</template>
 </category>
 
+<category>
+	<pattern> # HOW ^ GET TO ^ <set>locations</set></pattern>
+	<template>I cannot find a means of transport to get to <star index="4"/></template>
+</category>
+
+<category>
+	<pattern> * LODGING ^</pattern>
+	<template><srai>DO YOU CAN FIND ME A LODGING <star index="2"/></srai></template>
+</category>
+
+<category>
+	<pattern>DO YOU CAN FIND ME A LODGING ^</pattern>
+	<template>Ouh, We don't provide such a service, I'm sorry but findind an accomodation it's up to you. Our services regards only guided tours</template>
+</category>
+
+
+sightseeing
 </aiml>
 
