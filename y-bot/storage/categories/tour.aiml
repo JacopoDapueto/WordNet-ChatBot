@@ -74,8 +74,9 @@
 
 <category>
 		<pattern>* <iset words="LIKED, LOVED, ENJOYED" /> * TOUR</pattern>
-		<template>Very good, I'm pleased to hear so!</template>
+		<template>Very good, I'm pleased to hear so! Now you can rate it</template>
 </category>
+
 
 <category>
 	<pattern>* WANT * TOUR * <set>locations</set> </pattern>
@@ -177,10 +178,13 @@
 	<template>Once you find the tour you like, select a date and your native language so that you will be put together with poeple speaking your preferred language. Now you just need to invite friends in order to save money!</template>
 </category>
 
+
 <category>
 	<pattern> # HOW ^ GET TO ^ <set>locations</set></pattern>
 	<template>I cannot find a means of transport to get to <star index="4"/></template>
 </category>
+
+
 
 <category>
 	<pattern> * LODGING ^</pattern>
@@ -192,7 +196,48 @@
 	<template>Ouh, We don't provide such a service, I'm sorry but findind an accomodation it's up to you. Our services regards only guided tours</template>
 </category>
 
+<category>
+	<pattern>* RATE ^ TOUR ^</pattern>
+	<template><srai>HOW CAN I RATE A TOUR</srai></template>
+</category>
 
-sightseeing
+
+<category>
+	<pattern>HOW CAN I RATE A TOUR</pattern>
+	<template>You can rate a tour after you partecipate to it, just go to web page dedicated to it and you'll be given the possibility to assign a vote from 1 to 5 and eventually leave a comment</template>
+</category>
+
+
+<category>
+	<pattern>* SIGHTSEEING ^ <set>locations</set></pattern>
+	<template> <srai> <star index="1"/>LOOKING FOR SIGHTSEEING IN <star index="3"/></srai></template>
+
+</category>
+
+<category>
+	<pattern>* LOOKING FOR SIGHTSEEING IN <set>locations</set></pattern>
+	<template>
+		<think><set name="location"><star index="2"/></set></think>
+		We provide sighseeing in <star index="2"/> thanks to local guides, such trips include urban walks and they usually belong to the Architecture and Gastronomy disciplines</template>
+</category>
+
+<category>
+	<pattern>* LOOKING FOR SIGHTSEEING IN *</pattern>
+	<template>Ouh we don't offer tours in <star index="2"/> yet</template>
+</category>
+
+<category>
+	<pattern>ARE THERE ANY EXCURSION IN <set>locations</set></pattern>
+	<template>
+		<think><set name="location"><star/></set></think>
+		It could be, let's check out on the web page. Usually they are related to Nature, Archeology disciplines
+	</template>
+</category>
+
+<category>
+	<pattern>ARE THERE ANY EXCURSION</pattern>
+	<template>Including in our tour there are excursions like the natural trail from Agerola to Nocelle in Campania</template>
+</category>
+
 </aiml>
 

@@ -3,12 +3,17 @@
 
 
 <category>
-	<pattern>^ TELL ME MORE ABOUT ^ <set>disciplines</set> </pattern>
+	<pattern># TELL ME MORE ABOUT ^ <set>disciplines</set> </pattern>
 	<template><srai>WHAT IS <star index="3"/></srai></template>
 </category>
 
 <category>
 	<pattern>WHAT IS <set>disciplines</set></pattern>
+	<template><srai>WHAT IS <set name="topic"><star/></set></srai></template>
+</category>
+
+<category>
+	<pattern>WHAT ABOUT <set>disciplines</set></pattern>
 	<template><srai>WHAT IS <set name="topic"><star/></set></srai></template>
 </category>
 
@@ -39,11 +44,13 @@
 	
 </topic>
 
+
 <topic name= "gastronomy">
 
 	<category>
 		<pattern>WHAT IS GASTRONOMY</pattern>
-		<template>There are trips with emphasis on visits to food producers, food festivals where you can taste typical and local food products</template>
+		<template>There are trips with emphasis on visits to food producers, food festivals where you can taste typical and local food products
+		</template>
 	</category>
 
 	<category>
@@ -65,8 +72,31 @@
 
 </topic>
 
-<!--
 
+<topic name= "literature">
+
+	<category>
+		<pattern>I LIKE LITERATURE</pattern>
+		<template>qualcosa con librerie antiche, case di poeti blah blah
+			<random>
+				<li>art galleries</li>
+				<li>museum</li>
+			</random>
+		</template>
+	</category>
+</topic>
+
+<topic  name="architecture">
+
+	<category>
+		<pattern>I LIKE SCINCE</pattern>
+		<template>cacciaci pompei</template>
+	</category>
+
+</topic>
+
+
+<!--
 
 
 <topic name= "history">
@@ -93,21 +123,17 @@
 	</category>
 </topic>
 
-<topic name= "literature">
-
-	<category>
-		<pattern>LITERATURE</pattern>
-		<template>What are you interested in?</template>
-	</category>
-</topic>
 
 <topic  name="archeology">
 
+	<category>
+		<pattern>WHAT IS SCINCE</pattern>
+		<template>What are you interested in?</template>
+	</category>
+
 </topic>
 
-<topic  name="architecture">
 
-</topic>
 -->
 
 

@@ -14,8 +14,8 @@ from programy.clients.embed.basic import EmbeddedDataFileBot
 default_patterns = ["Can you repeat, please?", "I don’t understand", "Can you say that more clearly?"] 
 
 # possible words that make sense to be substituted, for efficiency purpose
-noun_list = ["tour", "art", "discipline", "city", "lodging"]
-verb_list = ["organize", "book", "suggest"]
+noun_list = ["tour", "art", "discipline", "city", "lodging", "sightseeing", "excursion"]
+verb_list = ["organize", "book", "suggest", "rate"]
 
 def main():
 
