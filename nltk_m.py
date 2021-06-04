@@ -12,6 +12,8 @@ noun_list = ["tour", "art", "lodging", "book"]
 print("_" in "franco_pino")
 print("FRANCO_pinO".replace("_", " "))
 
+print("pino pano" in "pino pano pono", "pino pono" in "pino pano pono")
+
 # Lemming using WordNet 
 lemmatizer = WordNetLemmatizer()
 

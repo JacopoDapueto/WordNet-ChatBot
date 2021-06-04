@@ -244,7 +244,19 @@ def Lemmatization(lemmatizer, word_list, pos):
 
     return [lemmatizer.lemmatize(word, pos = pos) for word in word_list]
 
-def isThere_collocation(baseline, message):
+def isThere_collocation(word, baseline, message):
+
+    # in the corpus the collocations are separated by _
+    if("_" in baseline):
+
+        baseline = baseline.replace("_", " ")
+
+        # the collocation is in the message
+        if word in baseline:
+            print("fare qualcosa")
+            #message = message.replace()
+
+    return message
 
 
 
