@@ -185,7 +185,6 @@
 </category>
 
 
-
 <category>
 	<pattern> * LODGING ^</pattern>
 	<template><srai>DO YOU CAN FIND ME A LODGING <star index="2"/></srai></template>
@@ -238,6 +237,13 @@
 	<pattern>ARE THERE ANY EXCURSION</pattern>
 	<template>Including in our tour there are excursions like the natural trail from Agerola to Nocelle in Campania</template>
 </category>
+
+<category>
+	<pattern>ARE THERE TOURS ABROAD</pattern>
+	<template>Yes! We have some tours placed in Paris, they can be carried out both in italian and french</template>
+</category>
+
+
 
 </aiml>
 

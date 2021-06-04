@@ -14,7 +14,7 @@ from programy.clients.embed.basic import EmbeddedDataFileBot
 default_patterns = ["Can you repeat, please?", "I don’t understand", "Can you say that more clearly?"] 
 
 # possible words that make sense to be substituted, for efficiency purpose
-noun_list = ["tour", "art", "discipline", "city", "lodging", "sightseeing", "excursion"]
+noun_list = ["tour", "art", "discipline", "city", "lodging", "sightseeing", "excursion", "abroad", "guide"]
 verb_list = ["organize", "book", "suggest", "rate"]
 
 def main():
@@ -136,58 +136,26 @@ def find_lexical_relation(words_list, message, type="synonym"):
     # converts all characters into lowercase
     message = message.lower()
 
-    # Synonym relation
-    if type == "synonym":
+    # Lexical relation 
+    
+    # find relation for Nouns
+    is_rel, new_message = lexical_relation(words_noun_list, noun_list, message, wn.NOUN, type)
 
-        # find synonym for Nouns
-        is_syn, new_message = synonym_relation(words_noun_list, noun_list, message)
+    if is_rel:
+        return True, new_message
 
-        if is_syn:
-            return True, new_message
+    # find relation for Verbs
+    is_rel, new_message = lexical_relation(words_verb_list, verb_list, message, wn.VERB, type)
 
-        # find synonym for Verbs
-        is_syn, new_message = synonym_relation(words_verb_list, verb_list, message, wn.VERB)
-
-        if is_syn:
-            return True, new_message
-
-     # Hyponymy relation
-    if type == "hyponym":
-
-        # find hyponym for Noun
-        is_hypo, new_message = hyponym_relation(words_noun_list, noun_list, message)
-
-        if is_hypo:
-            return True, new_message
-
-        # find hyponym for Verb
-        is_hypo, new_message = hyponym_relation(words_verb_list, verb_list, message, wn.VERB)
-
-        if is_hypo:
-            return True, new_message
-
-
-     # Synonym relation
-    if type == "hypernym":
-
-        # find hypernym for Noun
-        is_hyper, new_message = hypernym_relation(words_noun_list, noun_list, message)
-
-        if is_hyper:
-            return True, new_message
-
-        # find hypernym for Verb
-        is_hyper, new_message = hypernym_relation(words_verb_list, verb_list, message, wn.VERB)
-
-        if is_hyper:
-            return True, new_message
+    if is_rel:
+        return True, new_message
 
 
     return False, ""
 
 
-# return True is there is a synonym relation and return also the sentence the chatbot is already able to recognise
-def synonym_relation(words_list, baseline_words, message, key = wn.NOUN):
+# return True is there is a lexical relation and return also the sentence the chatbot is already able to recognise
+def lexical_relation(words_list, baseline_words, message, key = wn.NOUN, type="synonym" ):
 
 
     # initialized so that if no correspondence are found, properly values are returned
@@ -195,94 +163,90 @@ def synonym_relation(words_list, baseline_words, message, key = wn.NOUN):
 
     for word in words_list:
     
-        # check if "word" is synonym of any word of interest in baseline_words
+        # check if "word" is related with any word of interest in baseline_words
         
         for baseline in baseline_words:
             synset_list = wn.synsets(baseline, pos=key)
 
-            # check if there is a synset containing both it means they have same meaning
+            # check if there is a synset containing both relating "word" and "baseline"
             for synset in synset_list:
-                if word in synset.lemma_names():
 
-                    # relation found
+                if type == "synonym":
+                    replaced , message = replace_synonymy(word, baseline, message, synset)
+
+                if type == "hyponym":
+                    replaced , message = replace_hyponymy(word, baseline, message, synset)
+
+                if type == "hypernym":
+                    replaced , message = replace_hypernym(word, baseline, message, synset)
+
+                if replaced:
                     rel_found = True
-                    
-                    # replace all instances of "word" with "baseline"
-                    message = message.replace(word, baseline)
-            
 
     if rel_found:
         return rel_found, message
     else:
         return rel_found, ""
-    
-def hyponym_relation(words_list, baseline_words, message, key = wn.NOUN):
-    
+  
 
-    # initialized so that if no correspondence are found, properly values are returned
+
+
+def replace_synonymy(word, baseline, message, synset):
+
     rel_found = False
 
-    for word in words_list:
+    if word in synset.lemma_names():
     
-        # check if "word" is synonym of any word of interest in baseline_words
-        
-        for baseline in baseline_words:
-            synset_list = wn.synsets(baseline, pos=key)
-
-            # check if there is a synset containing both it means they have same meaning
-            for synset in synset_list:
-                hypos = synset.hyponyms()
-                for hypo in hypos:
-
-                    if word in hypo.lemma_names():
-
-                        # relation found
-                        rel_found = True
+        # relation found
+        rel_found = True
                     
-                        # replace all instances of "word" with "baseline"
-                        message = message.replace(word, baseline)
+        # replace all instances of "word" with "baseline"
+        message = message.replace(word, baseline)
 
+    return rel_found, message
 
-    if rel_found:
-        return rel_found, message
-    else:
-        return rel_found, ""
+def replace_hyponymy(word, baseline, message, synset):
 
-def hypernym_relation(words_list, baseline_words, message, key = wn.NOUN):
-
-    # initialized so that if no correspondence are found, properly values are returned
     rel_found = False
 
-    for word in words_list:
-    
-        # check if "word" is synonym of any word of interest in baseline_words
-        
-        for baseline in baseline_words:
-            synset_list = wn.synsets(baseline, pos=key)
+    hypos = synset.hyponyms()
+    for hypo in hypos:
 
-            # check if there is a synset containing both it means they have same meaning
-            for synset in synset_list:
-                hypers = synset.hypernyms()
-                for hyper in hypers:
+        if word in hypo.lemma_names():
 
-                    if word in hyper.lemma_names():
-
-                        # relation found
-                        rel_found = True
+            # relation found
+            rel_found = True
                     
-                        # replace all instances of "word" with "baseline"
-                        message = message.replace(word, baseline)
+            # replace all instances of "word" with "baseline"
+            message = message.replace(word, baseline)
 
 
-    if rel_found:
-        return rel_found, message
-    else:
-        return rel_found, ""
+    return rel_found, message
 
+def replace_hypernym(word, baseline, message, synset):
+
+    rel_found = False
+
+    hypers = synset.hypernyms()
+    for hyper in hypers:
+
+        if word in hyper.lemma_names():
+
+            # relation found
+            rel_found = True
+                    
+            # replace all instances of "word" with "baseline"
+            message = message.replace(word, baseline)
+
+    return rel_found, message
 
 def Lemmatization(lemmatizer, word_list, pos):
 
     return [lemmatizer.lemmatize(word, pos = pos) for word in word_list]
+
+def isThere_collocation(baseline, message):
+
+
 
 # run main
 if __name__ == "__main__":
