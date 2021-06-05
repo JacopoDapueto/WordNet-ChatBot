@@ -14,22 +14,27 @@ print("FRANCO_pinO".replace("_", " "))
 
 print("pino pano" in "pino pano pono", "pino pono" in "pino pano pono")
 
+print("living" in "living_accomodation")
+
 # Lemming using WordNet 
 lemmatizer = WordNetLemmatizer()
 
 for word in noun_list: 
 
-    lemmatizer.lemmatize(word, pos = "v")
+    lemmatizer.lemmatize(word, pos = "n")
 
     print()
     print()
     print(word)
     print()
 
-    syn = wn.synsets(word, pos=wn.VERB)
+    syn = wn.synsets(word, pos=wn.NOUN)
 
     print("Synsets")
-    print(syn)
+
+    for s in syn:
+
+        print(s.lemma_names())
 
 
     print()

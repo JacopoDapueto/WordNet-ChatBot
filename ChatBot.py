@@ -199,9 +199,22 @@ def replace_synonymy(word, baseline, message, synset):
     
         # relation found
         rel_found = True
-                    
+
         # replace all instances of "word" with "baseline"
-        message = message.replace(word, baseline)
+        message = message.replace(word, baseline, message)
+
+    # if no correspondence found it may be a collocation
+    if not rel_found:
+        for lemma in synset.lemma_names():
+
+            is_in = isThere_collocation(word, lemma, message)
+
+            if is_in:
+
+                # replace all instances of "word" with "baseline"
+                message = message.replace(lemma, baseline, message)
+
+                rel_found = True
 
     return rel_found, message
 
@@ -216,10 +229,22 @@ def replace_hyponymy(word, baseline, message, synset):
 
             # relation found
             rel_found = True
-                    
-            # replace all instances of "word" with "baseline"
-            message = message.replace(word, baseline)
 
+            # replace all instances of "word" with "baseline"
+            message = message.replace(word, baseline, message)
+                    
+    # if no correspondence found it may be a collocation
+    if not rel_found:
+        for lemma in hypo.lemma_names():
+
+            is_in = isThere_collocation(word, lemma, message)
+
+            if is_in:
+
+                # replace all instances of "word" with "baseline"
+                message = message.replace(lemma, baseline, message)
+                
+                rel_found = True
 
     return rel_found, message
 
@@ -234,9 +259,22 @@ def replace_hypernym(word, baseline, message, synset):
 
             # relation found
             rel_found = True
-                    
+
             # replace all instances of "word" with "baseline"
-            message = message.replace(word, baseline)
+            message = message.replace(word, baseline, message)
+
+    # if no correspondence found it may be a collocation
+    if not rel_found:
+        for lemma in hyper.lemma_names():
+
+            is_in = isThere_collocation(word, lemma, message)
+
+            if is_in:
+
+                # replace all instances of "word" with "baseline"
+                message = message.replace(lemma, baseline, message)
+
+                rel_found = True
 
     return rel_found, message
 
@@ -252,13 +290,11 @@ def isThere_collocation(word, baseline, message):
         baseline = baseline.replace("_", " ")
 
         # the collocation is in the message
-        if word in baseline:
-            print("fare qualcosa")
-            #message = message.replace()
+        if word in baseline and baseline in message:
 
-    return message
+            return True, message
 
-
+    return False, message
 
 # run main
 if __name__ == "__main__":
