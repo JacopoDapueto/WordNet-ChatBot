@@ -8,6 +8,7 @@
 	<template>Hi! <srai>WHO ARE YOU</srai></template>
 </category>
 
+
 <category>
 	<pattern>MY NAME IS *</pattern>
 	<template>Nice to meet you, <set name="username"><star/></set><srai>WHO ARE YOU</srai></template>

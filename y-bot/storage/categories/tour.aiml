@@ -200,7 +200,6 @@
 	<template><srai>HOW CAN I RATE A TOUR</srai></template>
 </category>
 
-
 <category>
 	<pattern>HOW CAN I RATE A TOUR</pattern>
 	<template>You can rate a tour after you partecipate to it, just go to web page dedicated to it and you'll be given the possibility to assign a vote from 1 to 5 and eventually leave a comment</template>
@@ -233,6 +232,7 @@
 	</template>
 </category>
 
+
 <category>
 	<pattern>ARE THERE ANY EXCURSION</pattern>
 	<template>Including in our tour there are excursions like the natural trail from Agerola to Nocelle in Campania</template>
@@ -244,11 +244,45 @@
 </category>
 
 <category>
-	<pattern>CAN I CONTACT I GUIDE FOR FURTHER INFORMATIONS ABOUT A TOUR</pattern>
-	<template>Each professional guide of our community has its own profile containing the </template>
+	<pattern>HOW WILL I KNOW HOW MUCH TO PAY</pattern>
+	<template>You will know this at the start of the tour. To start with you have the guarantee of an adaptable tariff because if there are too few participants, the tour will not take place.</template>
+</category>
+
+<category>
+	<pattern>IS THERE A GUARANTEED MAXIMUM TARIFF I WILL PAY FOR A TOUR</pattern>
+	<template>Ideally we would never want to charge more than 8-10 euros per person/hour of the tour</template>
+</category>
+
+<category>
+	<pattern>WHEN WILL I RECEIVE CONFIRMATION * TOUR</pattern>
+	<template>Confirmation of the start of the tour will be sent by sms or by electronic post when at least 5 participants have been added to the tour</template>
+</category>
+
+<category>
+	<pattern>IS IT POSSIBLE TO CANCEL A RESERVATION FOR A TOUR</pattern>
+	<template>If the tour has not yet been confirmed, you can cancel partipation by writing to email of the related guide</template>
 </category>
 
 
+<category>
+	<pattern>WHO ARE THE GUIDES</pattern>
+	<template><srai>HOW DO YOU CHOOSE THE GUIDES</srai></template>
+</category>
+
+<category>
+	<pattern>HOW DO YOU CHOOSE THE GUIDES</pattern>
+	<template>The guides of our community are all professional guides, they could be a Licensed Tourist Guide or a Licensed Mountain Guide, according to the theme of the visit which you have chosen</template>
+</category>
+
+<category>
+	<pattern>HOW CAN I CONTACT GUIDES FOR FURTHER INFORMATIONS ABOUT A TOUR</pattern>
+	<template>Each professional guide of our community has its own profile containing the email you can contact them with </template>
+</category>
+
+<category>
+	<pattern>HOW CAN I JOIN THE COMMUNITY AS A GUIDE</pattern>
+	<template>If you want to be a guide of our community</template>
+</category>
 
 </aiml>
 
