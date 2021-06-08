@@ -42,6 +42,7 @@ def main():
 
     chatbot = EmbeddedDataFileBot(files, defaults=True) 
 
+    chatbot.ask_question("set the splitter off")
 
     while True:
         message = input("> ")
@@ -57,7 +58,9 @@ def main():
 
                 # if a new pattern is learned then retrieve the new response of that pattern
                 if learned: 
+                    
                     response = chatbot.ask_question(message)
+                    #print("eccomi qua: ", response)
 
             # in any case print the response 
             print("> Guido: {}".format(response))
@@ -70,6 +73,11 @@ def main():
 
 def learn_pattern(chatbot, message):
 
+    # categories to enable/disable sentence splitting
+    enable_splitting = "set the splitter on"
+    disable_splitting = "set the splitter off"
+
+
     # categories in order to be able to learn
     synonym_string = " is synonym of "
     hyponym_string = " is hyponym of "
@@ -80,42 +88,47 @@ def learn_pattern(chatbot, message):
     words_list = tokenizer.tokenize(message)
 
     # find synonym
-    is_syn, new_message = find_lexical_relation(words_list, message, "synonym")
+    is_syn, base_message = find_lexical_relation(words_list, message, "synonym")
 
     # learn the new pattern and return 
     if is_syn:
-        # first check that such a pattern already exist
-        new_response = chatbot.ask_question(new_message)
 
+        # first check that such a pattern already exist
+        new_response = chatbot.ask_question(base_message)
+        #print("gen gne: ", new_response)
         # the new category can be learned
         if new_response not in default_patterns:
-            chatbot.ask_question(message + synonym_string + new_message)
+            #print(message + synonym_string + base_message)
+            chatbot.ask_question(disable_splitting)
+            #print(chatbot.ask_question("(" + message + ")" + synonym_string + "(" + base_message + ")"))
+            print(chatbot.ask_question( message + synonym_string + base_message ))
+            chatbot.ask_question(enable_splitting)
             return True
         
     # find hyponym
-    is_hypo, new_message = find_lexical_relation(words_list, message, "hyponym")
+    is_hypo, base_message = find_lexical_relation(words_list, message, "hyponym")
 
     # learn the new pattern and return 
     if is_hypo:
         # first check that such a pattern already exist
-        new_response = chatbot.ask_question(new_message)
+        new_response = chatbot.ask_question(base_message)
 
         # the new category can be learned
         if new_response not in default_patterns:
-            chatbot.ask_question(message + hyponym_string + new_message)
+            chatbot.ask_question(message + hyponym_string + base_message)
             return True
 
     # find hypernym
-    is_hyper, new_message = find_lexical_relation(words_list, message, "hypernym")
+    is_hyper, base_message = find_lexical_relation(words_list, message, "hypernym")
 
     # learn the new pattern and return 
     if is_hyper:
         # first check that such a pattern already exist
-        new_response = chatbot.ask_question(new_message)
+        new_response = chatbot.ask_question(base_message)
 
         # the new category can be learned
         if new_response not in default_patterns:
-            chatbot.ask_question(message + hypernym_string + new_message)
+            chatbot.ask_question(message + hypernym_string + base_message)
             return True
 
     return False
@@ -157,10 +170,6 @@ def find_lexical_relation(words_list, message, type="synonym"):
 # return True is there is a lexical relation and return also the sentence the chatbot is already able to recognise
 def lexical_relation(words_list, baseline_words, message, key = wn.NOUN, type="synonym" ):
 
-
-    # initialized so that if no correspondence are found, properly values are returned
-    rel_found = False
-
     for word in words_list:
     
         # check if "word" is related with any word of interest in baseline_words
@@ -172,115 +181,103 @@ def lexical_relation(words_list, baseline_words, message, key = wn.NOUN, type="s
             for synset in synset_list:
 
                 if type == "synonym":
-                    replaced , message = replace_synonymy(word, baseline, message, synset)
+                    replaced , new_message = replace_synonymy(word, baseline, message, synset)
 
                 if type == "hyponym":
-                    replaced , message = replace_hyponymy(word, baseline, message, synset)
+                    replaced , new_message = replace_hyponymy(word, baseline, message, synset)
 
                 if type == "hypernym":
-                    replaced , message = replace_hypernym(word, baseline, message, synset)
+                    replaced , new_message = replace_hypernym(word, baseline, message, synset)
 
                 if replaced:
-                    rel_found = True
+                    return True, new_message
 
-    if rel_found:
-        return rel_found, message
-    else:
-        return rel_found, ""
+    
+    return False, ""
   
 
 
 
 def replace_synonymy(word, baseline, message, synset):
 
-    rel_found = False
-
     if word in synset.lemma_names():
-    
-        # relation found
-        rel_found = True
 
         # replace all instances of "word" with "baseline"
-        message = message.replace(word, baseline, message)
+        new_message = message.replace(word, baseline)
+
+        return True, new_message
 
     # if no correspondence found it may be a collocation
-    if not rel_found:
-        for lemma in synset.lemma_names():
+    replaced, new_message = replace_collocation(synset.lemma_names(), word, baseline, message)
 
-            is_in = isThere_collocation(word, lemma, message)
+    if replaced:
+        return True, new_message
 
-            if is_in:
-
-                # replace all instances of "word" with "baseline"
-                message = message.replace(lemma, baseline, message)
-
-                rel_found = True
-
-    return rel_found, message
+    return False, ""
 
 def replace_hyponymy(word, baseline, message, synset):
-
-    rel_found = False
 
     hypos = synset.hyponyms()
     for hypo in hypos:
 
         if word in hypo.lemma_names():
 
-            # relation found
-            rel_found = True
-
             # replace all instances of "word" with "baseline"
-            message = message.replace(word, baseline, message)
+            new_message = message.replace(word, baseline)
+
+            return True, new_message
                     
     # if no correspondence found it may be a collocation
-    if not rel_found:
-        for lemma in hypo.lemma_names():
+    for hypo in hypos:
+       replaced, new_message = replace_collocation(hypo.lemma_names(), word, baseline, message)
 
-            is_in = isThere_collocation(word, lemma, message)
+       if replaced:
+            return True, new_message
 
-            if is_in:
-
-                # replace all instances of "word" with "baseline"
-                message = message.replace(lemma, baseline, message)
-                
-                rel_found = True
-
-    return rel_found, message
+    return False, ""
 
 def replace_hypernym(word, baseline, message, synset):
-
-    rel_found = False
 
     hypers = synset.hypernyms()
     for hyper in hypers:
 
         if word in hyper.lemma_names():
 
-            # relation found
-            rel_found = True
-
             # replace all instances of "word" with "baseline"
-            message = message.replace(word, baseline, message)
+            new_message = message.replace(word, baseline)
+
+            return True, new_message
 
     # if no correspondence found it may be a collocation
-    if not rel_found:
-        for lemma in hyper.lemma_names():
+    for hyper in hypers:
+        replaced, new_message = replace_collocation(hyper.lemma_names(), word, baseline, message)
 
+        if replaced:
+            return True, new_message
+
+    return False, ""
+
+def Lemmatization(lemmatizer, word_list, pos):
+
+    return [lemmatizer.lemmatize(word, pos = pos) for word in word_list]
+
+
+
+def replace_collocation(lemma_names, word, baseline, message):
+
+    for lemma in lemma_names:
+    
             is_in = isThere_collocation(word, lemma, message)
 
             if is_in:
 
                 # replace all instances of "word" with "baseline"
-                message = message.replace(lemma, baseline, message)
+                new_message = message.replace(lemma, baseline)
 
-                rel_found = True
+                return True, new_message
 
-    return rel_found, message
+    return False, ""
 
-def Lemmatization(lemmatizer, word_list, pos):
-
-    return [lemmatizer.lemmatize(word, pos = pos) for word in word_list]
 
 def isThere_collocation(word, baseline, message):
 
@@ -292,9 +289,10 @@ def isThere_collocation(word, baseline, message):
         # the collocation is in the message
         if word in baseline and baseline in message:
 
-            return True, message
+            return True
 
-    return False, message
+    return False
+
 
 # run main
 if __name__ == "__main__":
