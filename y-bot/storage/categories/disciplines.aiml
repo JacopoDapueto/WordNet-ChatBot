@@ -31,7 +31,7 @@
 			For example we provide guided tours in
 			<random>
 				<li>art galleries</li>
-				<li>museum</li>
+				<li>museums</li>
 			</random>
 		</template>
 	</category>
@@ -55,19 +55,21 @@
 
 	<category>
 		<pattern>I LIKE GASTRONOMY</pattern>
-		<template>Do you like wine?</template>
+		<template>And do you like wine?</template>
 	</category>
 
 	<category>
 		<pattern> # YES ^</pattern>
 		<that>DO YOU LIKE WINE</that>
-		<template>We offer also visits whose purpose is visiting vineyards, wineries, tasting, consuming and/or purchasing wine, often at or near the source. For example in Liguria, 5 Terre.  </template>
+		<template>
+			In this case we offer also visits whose purpose is visiting vineyards, wineries, tasting, consuming and/or purchasing wine, often at or near the source. For example in Liguria, 5 Terre.  
+		</template>
 	</category>
 
 	<category>
 		<pattern> # NO ^ </pattern>
 		<that>DO YOU LIKE WINE</that>
-		<template>neg gne</template>
+		<template>Oh in any case we provide experiences for every tastes!</template>
 	</category>
 
 </topic>
@@ -77,19 +79,22 @@
 
 	<category>
 		<pattern>I LIKE LITERATURE</pattern>
-		<template>qualcosa con librerie antiche, case di poeti blah blah
-			<random>
-				<li>art galleries</li>
-				<li>museum</li>
-			</random>
+		<template>
+			qualcosa con librerie antiche, case di poeti blah blah
+			If you are interested in literature there are visits to ancient libraries or tours completely devoted to poets in our artistic cities
 		</template>
+	</category>
+
+	<category>
+		<pattern>ARE THERE TOUR DEDICATED TO A FAMOUS POET</pattern>
+		<template>Yes! For example our community in Florence organizes tours about Dante's life </template>
 	</category>
 </topic>
 
 <topic  name="architecture">
 
 	<category>
-		<pattern>I LIKE SCINCE</pattern>
+		<pattern>I LIKE ARCHITECTURE</pattern>
 		<template>cacciaci pompei</template>
 	</category>
 
@@ -118,7 +123,7 @@
 <topic name= "science">
 
 	<category>
-		<pattern>WHAT IS SCINCE</pattern>
+		<pattern>WHAT IS SCIENCE</pattern>
 		<template>What are you interested in?</template>
 	</category>
 </topic>
@@ -127,7 +132,7 @@
 <topic  name="archeology">
 
 	<category>
-		<pattern>WHAT IS SCINCE</pattern>
+		<pattern>WHAT IS ARCHEOLOGY</pattern>
 		<template>What are you interested in?</template>
 	</category>
 

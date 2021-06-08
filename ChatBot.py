@@ -15,7 +15,7 @@ default_patterns = ["Can you repeat, please?", "I don’t understand", "Can you 
 
 # possible words that make sense to be substituted, for efficiency purpose
 noun_list = ["tour", "art", "discipline", "city", "lodging", "sightseeing", "excursion", "abroad", "guide", "tariff"]
-verb_list = ["organize", "book", "suggest", "rate"]
+verb_list = ["organize", "book", "suggest", "rate", "lead"]
 
 def main():
 

@@ -244,6 +244,11 @@
 </category>
 
 <category>
+	<pattern>* HOW MUCH * PAY ^</pattern>
+	<template><srai>HOW WILL I KNOW HOW MUCH TO PAY</srai></template>
+</category>
+
+<category>
 	<pattern>HOW WILL I KNOW HOW MUCH TO PAY</pattern>
 	<template>You will know this at the start of the tour. To start with you have the guarantee of an adaptable tariff because if there are too few participants, the tour will not take place.</template>
 </category>
@@ -253,14 +258,20 @@
 	<template>Ideally we would never want to charge more than 8-10 euros per person/hour of the tour</template>
 </category>
 
+
 <category>
 	<pattern>WHEN WILL I RECEIVE CONFIRMATION * TOUR</pattern>
-	<template>Confirmation of the start of the tour will be sent by sms or by electronic post when at least 5 participants have been added to the tour</template>
+	<template>Confirmation of the start of the tour will be sent by sms or by email when at least 5 participants have been added to the tour</template>
+</category>
+
+<category>
+	<pattern>* CANCEL A RESERVATION * TOUR</pattern>
+	<template><srai>IS IT POSSIBLE TO CANCEL A RESERVATION FOR A TOUR</srai></template>
 </category>
 
 <category>
 	<pattern>IS IT POSSIBLE TO CANCEL A RESERVATION FOR A TOUR</pattern>
-	<template>If the tour has not yet been confirmed, you can cancel partipation by writing to email of the related guide</template>
+	<template>Only if the tour has not yet been confirmed, you can cancel partipation by writing to the email of the related guide</template>
 </category>
 
 
@@ -271,7 +282,12 @@
 
 <category>
 	<pattern>HOW DO YOU CHOOSE THE GUIDES</pattern>
-	<template>The guides of our community are all professional guides, they could be a Licensed Tourist Guide or a Licensed Mountain Guide, according to the theme of the visit which you have chosen</template>
+	<template>The guides of our community are all professionals, they could be a Licensed Tourist Guide or a Licensed Mountain Guide, according to the theme of the visit which you have chosen</template>
+</category>
+
+<category>
+	<pattern>* CONTACT ^ GUIDE * INFORMATION * TOUR</pattern>
+	<template><srai>HOW CAN I CONTACT GUIDES FOR FURTHER INFORMATIONS ABOUT A TOUR</srai></template>
 </category>
 
 <category>
@@ -280,8 +296,23 @@
 </category>
 
 <category>
+	<pattern>HOW CAN I LEAD A TOUR</pattern>
+	<template><srai>HOW DO I LEAD A TOUR</srai></template>
+</category>
+
+<category>
+	<pattern>HOW DO I <iset words="LEAD, DESIGN" /> A TOUR</pattern>
+	<template>You should be a guide belonging to our community</template>
+</category>
+
+<category>
+	<pattern>I AM A GUIDE</pattern>
+	<template><srai>HOW CAN I JOIN THE COMMUNITY AS A GUIDE</srai></template>
+</category>
+
+<category>
 	<pattern>HOW CAN I JOIN THE COMMUNITY AS A GUIDE</pattern>
-	<template>If you want to be a guide of our community</template>
+	<template>If you want to be a guide of our community first you need to register yourself on our system and we will decide if you are okay, in this case you will be able to design your tours and propose them on the website</template>
 </category>
 
 </aiml>
