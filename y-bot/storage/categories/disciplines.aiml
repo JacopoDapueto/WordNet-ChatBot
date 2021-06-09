@@ -78,10 +78,16 @@
 <topic name= "literature">
 
 	<category>
+		<pattern>WHAT IS LITERATURE</pattern>
+		<template>
+			If you are interested in literature there are visits to ancient libraries or tours completely devoted to poets in our artistic cities.
+		</template>
+	</category>
+
+	<category>
 		<pattern>I LIKE LITERATURE</pattern>
 		<template>
-			qualcosa con librerie antiche, case di poeti blah blah
-			If you are interested in literature there are visits to ancient libraries or tours completely devoted to poets in our artistic cities
+			Our community of guides proposes a bunch of visits dedicated to artist and their written artworks in some of the most famous places of Italy
 		</template>
 	</category>
 
@@ -91,11 +97,38 @@
 	</category>
 </topic>
 
+<topic  name="archeology">
+
+	<category>
+		<pattern>WHAT IS ARCHEOLOGY</pattern>
+		<template>In italy we have many archeological sites we can explore with experts!</template>
+	</category>
+
+
+	<category>
+		<pattern>I LIKE ARCHEOLOGY</pattern>
+		<template>
+			If you are keen on archeology you must partecipate to one of the proposed guided visits in one of the most famous archeological site in the world! Pompei, in Campania
+		</template>
+	</category>
+
+</topic>
+
+
 <topic  name="architecture">
 
 	<category>
+		<pattern>WHAT IS ARCHITECTURE</pattern>
+		<template>
+			If you like 
+		</template>
+	</category>
+
+	<category>
 		<pattern>I LIKE ARCHITECTURE</pattern>
-		<template>cacciaci pompei</template>
+		<template>
+			boooh
+		</template>
 	</category>
 
 </topic>
@@ -126,16 +159,6 @@
 		<pattern>WHAT IS SCIENCE</pattern>
 		<template>What are you interested in?</template>
 	</category>
-</topic>
-
-
-<topic  name="archeology">
-
-	<category>
-		<pattern>WHAT IS ARCHEOLOGY</pattern>
-		<template>What are you interested in?</template>
-	</category>
-
 </topic>
 
 

@@ -16,8 +16,27 @@
 
 <category>
 	<pattern>WHO ARE YOU</pattern>
-	<template>I'm Guido, I'm here to help you in finding a guided tour led by a professional guide</template>
+	<template>I am Guido, are you a guide o an explorer?</template>
 </category>
+
+<category>
+    <pattern>I AM AN EXPLORER</pattern>
+    <that>I AM GUIDO ARE YOU A GUIDE O AN EXPLORER</that>
+    <template>
+        <think><set name="type">EXPLORER</set></think>
+        I am here to help you in finding a guided tour led by a professional guide
+    </template>
+</category>
+
+<category>
+    <pattern>I AM A GUIDE</pattern>
+    <that>I AM GUIDO ARE YOU A GUIDE O AN EXPLORER</that>
+    <template>
+        <think><set name="type">GUIDE</set></think>
+        I am a service bringing into direct contact the guide and visitors. I'm not an agency or a tour operator but a logistics tool to guide you. 
+    </template>
+</category>
+
 
 <category>
     <pattern>HOW MANY CATEGORIES DO YOU KNOW</pattern>
