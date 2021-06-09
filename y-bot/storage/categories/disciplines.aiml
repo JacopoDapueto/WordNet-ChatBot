@@ -120,49 +120,87 @@
 	<category>
 		<pattern>WHAT IS ARCHITECTURE</pattern>
 		<template>
-			If you like 
+			If you like architecture there are trips in cities which are meant to be an exploration of the buildings that make those cities marvellous
 		</template>
 	</category>
 
 	<category>
 		<pattern>I LIKE ARCHITECTURE</pattern>
 		<template>
-			boooh
+			You can choose a sighseeing of a city, like in Genoa, or you can opt to visit the architecure museum in Milan
 		</template>
 	</category>
 
 </topic>
 
 
-<!--
+<topic name= "nature">
+
+	<category>
+		<pattern>WHAT IS NATURE</pattern>
+		<template>
+			The tours mainly focused on nature are there to provide you a relazing experience where animals and plants are the main protagonists
+		</template>
+	</category>
+
+
+	<category>
+		<pattern>I LIKE NATURE</pattern>
+		<template>
+			If you like nature there are guided trips in protected parks as well as in botanical gardens
+		</template>
+	</category>
+
+	<category>
+		<pattern>ARE THERE ANY EXCURSION</pattern>
+		<template>In our community there are Licensed Mountain Guides that lead both relaxing excusions and others for exeperts hikers 
+		</template>
+
+	</category>
+
+</topic>
+
+
 
 
 <topic name= "history">
 
 	<category>
 		<pattern>WHAT IS HISTORY</pattern>
-		<template>What are you interested in?</template>
+		<template>
+			What are you interested in?
+		</template>
 	</category>
-</topic>
-
-<topic name= "nature">
 
 	<category>
-		<pattern>WHAT IS NATURE</pattern>
-		<template>What are you interested in?</template>
+		<pattern>I LIKE HISTORY</pattern>
+		<template>
+			You can choose a 
+		</template>
 	</category>
+
 </topic>
+
 
 <topic name= "science">
 
 	<category>
 		<pattern>WHAT IS SCIENCE</pattern>
-		<template>What are you interested in?</template>
+		<template>
+			What are you interested in?
+		</template>
 	</category>
+
+	<category>
+		<pattern>I LIKE SCIENCE</pattern>
+		<template>
+			You can choose a 
+		</template>
+	</category>
+
 </topic>
 
 
--->
 
 
 
