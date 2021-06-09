@@ -168,14 +168,14 @@
 	<category>
 		<pattern>WHAT IS HISTORY</pattern>
 		<template>
-			What are you interested in?
+			In such tours the exploration of historically important sites is the main focus and where the guide provides you with not well known information about the site
 		</template>
 	</category>
 
 	<category>
 		<pattern>I LIKE HISTORY</pattern>
 		<template>
-			You can choose a 
+			For example you can find tours  
 		</template>
 	</category>
 
