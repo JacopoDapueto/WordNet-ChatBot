@@ -9,12 +9,13 @@ from nltk.corpus import wordnet as wn
 
 # Library used to build the chatbot
 from programy.clients.embed.basic import EmbeddedDataFileBot
+from programy.clients.embed.configfile import EmbeddedConfigFileBot
 
 # the default responses if no pattern matches
 default_patterns = ["Can you repeat, please?", "I don’t understand", "Can you say that more clearly?"] 
 
 # possible words that make sense to be substituted, for efficiency purpose
-noun_list = ["tour", "art", "discipline", "city", "lodging", "sightseeing", "excursion", "abroad", "guide", "tariff"]
+noun_list = ["tour", "art", "discipline", "city", "lodging", "sightseeing", "excursion", "abroad", "guide", "tariff", "hi"]
 verb_list = ["organize", "book", "suggest", "rate", "lead"]
 
 def main():
@@ -42,11 +43,14 @@ def main():
 
     chatbot = EmbeddedDataFileBot(files, defaults=True) 
 
-    chatbot.ask_question("set the splitter off")
+    chatbot = EmbeddedConfigFileBot("y-bot/config.yaml")
 
-    while True:
-        message = input("> ")
-        response = chatbot.ask_question(message)
+    client_context = chatbot.create_client_context("testuser")
+
+    i = 0
+    while i < 2:
+        message = input("> You: ")
+        response = chatbot.process_question(client_context, message)
     
         # if response is not None
         if response: 
@@ -54,28 +58,25 @@ def main():
             # if no pattern matches it may be applied a learning
             if response in default_patterns: 
         
-                learned = learn_pattern(chatbot, message)
+                learned = learn_pattern(chatbot, client_context, message)
 
                 # if a new pattern is learned then retrieve the new response of that pattern
                 if learned: 
                     
-                    response = chatbot.ask_question(message)
+                    response = chatbot.process_question(client_context, message)
                     #print("eccomi qua: ", response)
 
             # in any case print the response 
             print("> Guido: {}".format(response))
 
+        i = i + 1
         # message to exit
         if message == "quit":
             break
 
 
 
-def learn_pattern(chatbot, message):
-
-    # categories to enable/disable sentence splitting
-    enable_splitting = "set the splitter on"
-    disable_splitting = "set the splitter off"
+def learn_pattern(chatbot, client_context, message):
 
 
     # categories in order to be able to learn
@@ -92,17 +93,9 @@ def learn_pattern(chatbot, message):
 
     # learn the new pattern and return 
     if is_syn:
+        learned = can_be_learned(chatbot, client_context, message, base_message, synonym_string)
 
-        # first check that such a pattern already exist
-        new_response = chatbot.ask_question(base_message)
-        #print("gen gne: ", new_response)
-        # the new category can be learned
-        if new_response not in default_patterns:
-            #print(message + synonym_string + base_message)
-            chatbot.ask_question(disable_splitting)
-            #print(chatbot.ask_question("(" + message + ")" + synonym_string + "(" + base_message + ")"))
-            print(chatbot.ask_question( message + synonym_string + base_message ))
-            chatbot.ask_question(enable_splitting)
+        if learned:
             return True
         
     # find hyponym
@@ -110,12 +103,9 @@ def learn_pattern(chatbot, message):
 
     # learn the new pattern and return 
     if is_hypo:
-        # first check that such a pattern already exist
-        new_response = chatbot.ask_question(base_message)
+        learned = can_be_learned(chatbot, client_context, message, base_message, hyponym_string)
 
-        # the new category can be learned
-        if new_response not in default_patterns:
-            chatbot.ask_question(message + hyponym_string + base_message)
+        if learned:
             return True
 
     # find hypernym
@@ -123,13 +113,31 @@ def learn_pattern(chatbot, message):
 
     # learn the new pattern and return 
     if is_hyper:
-        # first check that such a pattern already exist
-        new_response = chatbot.ask_question(base_message)
+        learned = can_be_learned(chatbot, client_context, message, base_message, hypernym_string)
 
-        # the new category can be learned
-        if new_response not in default_patterns:
-            chatbot.ask_question(message + hypernym_string + base_message)
+        if learned:
             return True
+
+    return False
+
+def can_be_learned(chatbot, client_context, message, base_message, relation):
+
+    # categories to enable/disable sentence splitting
+    enable_splitting = "set the splitter on"
+    disable_splitting = "set the splitter off"
+
+    # first check that such a pattern already exist
+    new_response = chatbot.process_question(client_context, base_message)
+    print("gen gne: ", new_response)
+    # the new category can be learned
+    if new_response not in default_patterns:
+        #print(message + synonym_string + base_message)
+        chatbot.process_question(client_context, disable_splitting)
+        #print(chatbot.ask_question("(" + message + ")" + synonym_string + "(" + base_message + ")"))
+        print("non è possibile: ", chatbot.process_question(client_context, "relation " + message + relation + base_message ))
+        chatbot.process_question(client_context, enable_splitting)
+        return True
+
 
     return False
 

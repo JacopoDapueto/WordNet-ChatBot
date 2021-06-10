@@ -83,7 +83,9 @@
 
 <category>
     <pattern>WHICH ^ SERVICES ^ PROVIDE</pattern>
-    <template>Guido helps you to find a guided tour wherever you are, whereby you can join in a group to save money and time</template>
+    <template>
+        Guido helps you to find a guided tour wherever you are, whereby you can join in a group to save money and time
+    </template>
 </category>
 
 
@@ -92,14 +94,14 @@
 <!--START: Categories to learn Lexical semantics -->
 
  <category>
-        <pattern>* IS SYNONYM OF *</pattern>
+        <pattern>RELATION * IS SYNONYM OF ^ </pattern>
         <template>
             <think>
                 <set name="firstword"><star index="1"/></set>
                 <set name="secondword"><star index="2"/></set>
             </think>
-                <star index="1"/>, <star index="2"/>
-            <!--<learn>
+                Passo di qua: <get name="firstword"/> , <get name="secondword"/> 
+            <learnf>
                 <category>
                     <pattern>
                         <eval><get name="firstword"/></eval>
@@ -108,12 +110,12 @@
                         <srai><eval><get name="secondword"/></eval></srai>
                     </template>
                 </category>
-            </learn>-->
+            </learnf>
         </template>
   </category>
 
 <category>
-	<pattern>* IS HYPONYM OF *</pattern>
+	<pattern>RELATION * IS HYPONYM OF ^</pattern>
 
 	<template>
             <think>
@@ -134,7 +136,7 @@
 </category>
 
 <category>
-	<pattern>* IS HYPERNYM OF *</pattern>
+	<pattern>RELATION * IS HYPERNYM OF ^</pattern>
 
 	<template>
             <think>

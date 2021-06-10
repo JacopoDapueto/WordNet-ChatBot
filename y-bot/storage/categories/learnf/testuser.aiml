@@ -1,5 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <aiml version="2.0">
 
-</aiml>
-
+<category><pattern> HELLO</pattern><topic>*</topic><that>*</that><template><srai><eval><get name="secondword" /></eval></srai></template></category><category><pattern> DO YOU CAN FIND ME A HOUSING?</pattern><topic>*</topic><that>*</that><template><srai><eval><get name="secondword" /></eval></srai></template></category><category><pattern> DO YOU CAN FIND ME A HOUSING</pattern><topic>*</topic><that>*</that><template><srai><eval><get name="secondword" /></eval></srai></template></category></aiml>

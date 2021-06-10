@@ -168,7 +168,7 @@
 	<category>
 		<pattern>WHAT IS HISTORY</pattern>
 		<template>
-			In such tours the exploration of historically important sites is the main focus and where the guide provides you with not well known information about the site
+			In such tours the exploration of historically important sites is the main focus and where the guide provides you with not well known informations about the site
 		</template>
 	</category>
 
@@ -180,28 +180,6 @@
 	</category>
 
 </topic>
-
-
-<topic name= "science">
-
-	<category>
-		<pattern>WHAT IS SCIENCE</pattern>
-		<template>
-			What are you interested in?
-		</template>
-	</category>
-
-	<category>
-		<pattern>I LIKE SCIENCE</pattern>
-		<template>
-			You can choose a 
-		</template>
-	</category>
-
-</topic>
-
-
-
 
 
 </aiml>
