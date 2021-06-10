@@ -62,8 +62,7 @@
 <category>
 		<pattern> * <iset words="LIKE, LOVE, INTERESTED" /> ^ <set>disciplines</set></pattern>
 		<template>
-			A lot of people in our community love <set name="topic"><star index="4"/></set> too! <br/>
-			<srai>I LIKE <star index="4"/></srai>
+			A lot of people in our community love <set name="topic"><star index="4"/></set> too! <srai>I LIKE <star index="4"/></srai>
 		</template>
 </category>
 
@@ -149,8 +148,7 @@
 
 <category>
 	<pattern>* FOUND ^ TOUR * <iset words="LIKE, LOVE, INTERESTED" /> ^ </pattern>
-	<template>Now you just need to select a date and join or create a group of at least 5 people. <br/>
-	Enjoy your experience!</template>
+	<template>Now you just need to select a date and join or create a group of at least 5 people. Enjoy your experience!</template>
 </category>
 
 <category>

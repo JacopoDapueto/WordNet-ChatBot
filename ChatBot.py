@@ -2,6 +2,7 @@
 import sys
 import os
 import nltk
+from nltk.grammar import nonterminals
 from nltk.tokenize import RegexpTokenizer
 from nltk.stem import WordNetLemmatizer
 from nltk.corpus import wordnet as wn
@@ -12,36 +13,14 @@ from programy.clients.embed.basic import EmbeddedDataFileBot
 from programy.clients.embed.configfile import EmbeddedConfigFileBot
 
 # the default responses if no pattern matches
-default_patterns = ["Can you repeat, please?", "I don’t understand", "Can you say that more clearly?"] 
+default_patterns = ["Can you repeat, please?", "I don’t understand", "Can you say that more clearly?" ] 
+nonsocomechiamarlo = "It's a pity we've no tours regarding"
 
 # possible words that make sense to be substituted, for efficiency purpose
 noun_list = ["tour", "art", "discipline", "city", "lodging", "sightseeing", "excursion", "abroad", "guide", "tariff", "hi"]
 verb_list = ["organize", "book", "suggest", "rate", "lead"]
 
 def main():
-
-    # define folders containing the main files
-    files = {'aiml': ['y-bot/storage/categories'],
-         'learnf': ['y-bot/storage/categories/learnf'],
-         'properties': 'y-bot/storage/properties/properties.txt',
-         'defaults': 'y-bot/storage/properties/defaults.txt',
-         'sets': ['y-bot/storage/sets'],
-         'maps': ['y-bot/storage/maps'],
-         'rdfs': ['y-bot/storage/rdfs'],
-         'denormals': 'y-bot/storage/lookups/denormal.txt',
-         'normals': 'y-bot/storage/lookups/normal.txt',
-         'genders': 'y-bot/storage/lookups/gender.txt',
-         'persons': 'y-bot/storage/lookups/person.txt',
-         'person2s': 'y-bot/storage/lookups/person2.txt',
-         'regexes': 'y-bot/storage/regex/regex-templates.txt',
-         'spellings': 'y-bot/storage/spelling/corpus.txt',
-         'preprocessors': 'y-bot/storage/processing/preprocessors.conf',
-         'postprocessors': 'y-bot/storage/processing/postprocessors.conf',
-         'postquestionprocessors': 'y-bot/storage/processing/postquestionprocessors.conf'
-         }
-
-
-    chatbot = EmbeddedDataFileBot(files, defaults=True) 
 
     chatbot = EmbeddedConfigFileBot("y-bot/config.yaml")
 
@@ -56,8 +35,8 @@ def main():
         if response: 
 
             # if no pattern matches it may be applied a learning
-            if response in default_patterns: 
-        
+            if response in default_patterns or nonsocomechiamarlo in response: 
+                
                 learned = learn_pattern(chatbot, client_context, message)
 
                 # if a new pattern is learned then retrieve the new response of that pattern
