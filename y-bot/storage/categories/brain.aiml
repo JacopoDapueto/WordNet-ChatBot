@@ -93,42 +93,38 @@
 
 <!--START: Categories to learn Lexical semantics -->
 
- <category>
-        <pattern>RELATION * IS SYNONYM OF ^ </pattern>
-        <template>
-            <think>
-                <set name="firstword"><star index="1"/></set>
-                <set name="secondword"><star index="2"/></set>
-            </think>
-                Passo di qua: <get name="firstword"/> , <get name="secondword"/> 
+
+<category>
+    <pattern>RELATION * IS SYNONYM OF ^</pattern>
+
+    <template>
             <learnf>
                 <category>
                     <pattern>
-                        <eval><get name="firstword"/></eval>
+                        <eval><star/></eval>
                     </pattern>
                     <template>
-                        <srai><eval><get name="secondword"/></eval></srai>
+                        <eval><srai><star index="2"/></srai></eval>
                     </template>
                 </category>
             </learnf>
         </template>
-  </category>
+</category>
+
+
+
 
 <category>
 	<pattern>RELATION * IS HYPONYM OF ^</pattern>
 
 	<template>
-            <think>
-                <set name="firstword"><star/></set>
-                <set name="secondword"><star index="2"/></set>
-            </think>
             <learnf>
                 <category>
                     <pattern>
-                        <eval><get name="firstword"/></eval>
+                        <eval><star/></eval>
                     </pattern>
                     <template>
-                        <srai><eval><get name="secondword"/></eval></srai>
+                        <eval><srai><star index="2"/></srai></eval>
                     </template>
                 </category>
             </learnf>
@@ -139,23 +135,16 @@
 	<pattern>RELATION * IS HYPERNYM OF ^</pattern>
 
 	<template>
-            <think>
-                <set name="firstword"><star/></set>
-                <set name="secondword"><star index="2"/></set>
-            </think>
-
-
             <learnf>
                 <category>
                     <pattern>
-                        <eval><get name="firstword"/></eval>
+                        <eval><star/></eval>
                     </pattern>
                     <template>
-                        <srai><eval><get name="secondword"/></eval></srai>
+                        <eval><srai><star index="2"/></srai></eval>
                     </template>
                 </category>
             </learnf>
-
         </template>
 </category>
 

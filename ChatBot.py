@@ -45,10 +45,10 @@ def main():
 
     chatbot = EmbeddedConfigFileBot("y-bot/config.yaml")
 
+    # use a user for testing
     client_context = chatbot.create_client_context("testuser")
 
-    i = 0
-    while i < 2:
+    while True:
         message = input("> You: ")
         response = chatbot.process_question(client_context, message)
     
@@ -64,12 +64,10 @@ def main():
                 if learned: 
                     
                     response = chatbot.process_question(client_context, message)
-                    #print("eccomi qua: ", response)
 
             # in any case print the response 
             print("> Guido: {}".format(response))
 
-        i = i + 1
         # message to exit
         if message == "quit":
             break
@@ -128,13 +126,17 @@ def can_be_learned(chatbot, client_context, message, base_message, relation):
 
     # first check that such a pattern already exist
     new_response = chatbot.process_question(client_context, base_message)
-    print("gen gne: ", new_response)
+
     # the new category can be learned
     if new_response not in default_patterns:
-        #print(message + synonym_string + base_message)
+
+        # disable splitting to avoid erroneous pattern to be learned
         chatbot.process_question(client_context, disable_splitting)
-        #print(chatbot.ask_question("(" + message + ")" + synonym_string + "(" + base_message + ")"))
-        print("non è possibile: ", chatbot.process_question(client_context, "relation " + message + relation + base_message ))
+
+        # learnf the category: message will be reduced to base_message
+        chatbot.process_question(client_context, "relation " + message + relation + base_message )
+
+        # enable sentence splitting again
         chatbot.process_question(client_context, enable_splitting)
         return True
 
