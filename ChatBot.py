@@ -8,48 +8,10 @@ from nltk.stem import WordNetLemmatizer
 from nltk.corpus import wordnet as wn
 
 
-# Library used to build the chatbot
-from programy.clients.embed.basic import EmbeddedDataFileBot
-from programy.clients.embed.configfile import EmbeddedConfigFileBot
-
-# the default responses if no pattern matches
-default_patterns = ["Can you repeat, please?", "I don’t understand", "Can you say that more clearly?" ] 
-nonsocomechiamarlo = "It's a pity we've no tours regarding"
 
 # possible words that make sense to be substituted, for efficiency purpose
 noun_list = ["tour", "art", "discipline", "city", "lodging", "sightseeing", "excursion", "abroad", "guide", "tariff", "hi"]
 verb_list = ["organize", "book", "suggest", "rate", "lead"]
-
-def main():
-
-    chatbot = EmbeddedConfigFileBot("y-bot/config.yaml")
-
-    # use a user for testing
-    client_context = chatbot.create_client_context("testuser")
-
-    while True:
-        message = input("> You: ")
-        response = chatbot.process_question(client_context, message)
-    
-        # if response is not None
-        if response: 
-
-            # if no pattern matches it may be applied a learning
-            if response in default_patterns or nonsocomechiamarlo in response: 
-                
-                learned = learn_pattern(chatbot, client_context, message)
-
-                # if a new pattern is learned then retrieve the new response of that pattern
-                if learned: 
-                    
-                    response = chatbot.process_question(client_context, message)
-
-            # in any case print the response 
-            print("> Guido: {}".format(response))
-
-        # message to exit
-        if message == "quit":
-            break
 
 
 
@@ -107,7 +69,9 @@ def can_be_learned(chatbot, client_context, message, base_message, relation):
     new_response = chatbot.process_question(client_context, base_message)
 
     # the new category can be learned
-    if new_response not in default_patterns:
+    if not not_recognise(new_response):
+
+        print("alò")
 
         # disable splitting to avoid erroneous pattern to be learned
         chatbot.process_question(client_context, disable_splitting)
@@ -268,6 +232,17 @@ def replace_collocation(lemma_names, word, baseline, message):
     return False, ""
 
 
+# return if the message is not recognise by the chatbot as something meaningful
+def not_recognise(response):
+
+    # the default responses if no pattern matches
+    default_patterns = ["Can you repeat, please?", "I don’t understand", "Can you say that more clearly?" ] 
+    interest_pattern = "It's a pity we've no tours regarding"
+    
+    return (response in default_patterns or interest_pattern in response)
+
+
+# return if in the message there is a collocation present in the synset
 def isThere_collocation(word, baseline, message):
 
     # in the corpus the collocations are separated by _
@@ -281,10 +256,5 @@ def isThere_collocation(word, baseline, message):
             return True
 
     return False
-
-
-# run main
-if __name__ == "__main__":
-    main()
 
 

@@ -16,7 +16,7 @@
 
 <category>
 	<pattern>WHO ARE YOU</pattern>
-	<template>I am Guido, are you a guide o an explorer?</template>
+	<template>I am <bot name="name"/>, are you a guide o an explorer?</template>
 </category>
 
 <category>
@@ -43,6 +43,21 @@
     <template>My brain contains <size /> categories.</template>
 </category>
 
+<category>
+    <pattern>I HAVE TO LEAVE ^</pattern>
+    <template><srai>BYE <star/> </srai></template>
+</category>
+
+<category>
+    <pattern>SEE YOU LATER ^</pattern>
+    <template><srai>BYE <star/></srai></template>
+</category>
+
+<category>
+    <pattern><iset words="BYE, GOODBYE" /> ^</pattern>
+    <template>Ok, bye bye!</template>
+</category>
+
 
 <!-- END: Basic/Initial interaction -->
 
@@ -56,7 +71,7 @@
 
 <category>
 	<pattern>WHY * GUIDO</pattern>
-	<template>Guido is a heritage lovers community connecting visitors who are willing to enjoy together a tour and share the cost of a guide.<br/> <srai>HOW CAN YOU HELP ME</srai></template>
+	<template><bot name="name"/> is a heritage lovers community connecting visitors who are willing to enjoy together a tour and share the cost of a guide.<br/> <srai>HOW CAN YOU HELP ME</srai></template>
 </category>
 
 <category>
@@ -84,7 +99,7 @@
 <category>
     <pattern>WHICH ^ SERVICES ^ PROVIDE</pattern>
     <template>
-        Guido helps you to find a guided tour wherever you are, whereby you can join in a group to save money and time
+        <bot name="name"/> helps you to find a guided tours wherever you are, whereby you can join in a group to save money and time
     </template>
 </category>
 

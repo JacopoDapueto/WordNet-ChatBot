@@ -127,12 +127,12 @@ console:
 
   bots:
     bot:
-      initial_question: Hi, how can I help you today?
+      initial_question: Hi i'm Guido, I can help you to find a guided tours wherever you are, whereby you can join in a group to save money and time.
       initial_question_srai: YINITIALQUESTION
       default_response: Sorry, I don't have an answer for that!
       default_response_srai: YEMPTY
       empty_string: YEMPTY
-      exit_response: So long, and thanks for the fish!
+      exit_response: Bye bye!
       exit_response_srai: YEXITRESPONSE
 
       override_properties: true

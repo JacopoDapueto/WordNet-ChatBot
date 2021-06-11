@@ -19,4 +19,7 @@
 
 <category><pattern> I FOUND THE CIRCUIT I WAS INTERESTED IN</pattern><topic>*</topic><that>*</that><template>Now you just need to select a date and join or create a group of at least 5 people. Enjoy your experience!</template></category>
 
+
+<category><pattern> I AM A USHER</pattern><topic>*</topic><that>*</that><template>If you want to be a guide of our community first you need to register yourself on our system and we will decide if you are okay, in this case you will be able to design your tours and propose them on the website</template></category>
+
 </aiml>
