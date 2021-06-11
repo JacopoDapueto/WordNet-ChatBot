@@ -54,7 +54,7 @@
 </category>
 
 <category>
-    <pattern><iset words="BYE, GOODBYE" /> ^</pattern>
+    <pattern><iset words="BYE, GOODBYE" /> </pattern>
     <template>Ok, bye bye!</template>
 </category>
 
