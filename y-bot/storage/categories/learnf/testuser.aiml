@@ -22,4 +22,7 @@
 
 <category><pattern> I AM A USHER</pattern><topic>*</topic><that>*</that><template>If you want to be a guide of our community first you need to register yourself on our system and we will decide if you are okay, in this case you will be able to design your tours and propose them on the website</template></category>
 
+
+<category><pattern> DO YOU CAN FIND ME A LIVING ACCOMMODATIONS</pattern><topic>*</topic><that>*</that><template>Ouh, We don't provide such a service, I'm sorry but finding an accomodation it's up to you. Our services regards only guided tours</template></category>
+
 </aiml>

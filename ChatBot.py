@@ -1,58 +1,51 @@
+
 # Useful libraries
 import sys
 import os
 import nltk
+import string
 from nltk.grammar import nonterminals
 from nltk.tokenize import RegexpTokenizer
 from nltk.stem import WordNetLemmatizer
 from nltk.corpus import wordnet as wn
 
-
-
-# possible words that make sense to be substituted, for efficiency purpose
-noun_list = ["tour", "art", "discipline", "city", "lodging", "sightseeing", "excursion", "abroad", "guide", "tariff", "hi"]
-verb_list = ["organize", "book", "suggest", "rate", "lead"]
+# Load utils
+from utils import *
 
 
 
 def learn_pattern(chatbot, client_context, message):
-
-
-    # categories in order to be able to learn
-    synonym_string = " is synonym of "
-    hyponym_string = " is hyponym of "
-    hypernym_string = " is hypernym of "
 
     # tokenizer that discard punctuation and white spaces
     tokenizer = RegexpTokenizer(r'\w+')
     words_list = tokenizer.tokenize(message)
 
     # find synonym
-    is_syn, base_message = find_lexical_relation(words_list, message, "synonym")
+    is_syn, base_message = find_lexical_relation(words_list, message, Relations.SYNONYM)
 
     # learn the new pattern and return 
     if is_syn:
-        learned = can_be_learned(chatbot, client_context, message, base_message, synonym_string)
+        learned = can_be_learned(chatbot, client_context, message, base_message, Relations.synonym_string)
 
         if learned:
             return True
         
     # find hyponym
-    is_hypo, base_message = find_lexical_relation(words_list, message, "hyponym")
+    is_hypo, base_message = find_lexical_relation(words_list, message, Relations.HYPONYM)
 
     # learn the new pattern and return 
     if is_hypo:
-        learned = can_be_learned(chatbot, client_context, message, base_message, hyponym_string)
+        learned = can_be_learned(chatbot, client_context, message, base_message, Relations.hyponym_string)
 
         if learned:
             return True
 
     # find hypernym
-    is_hyper, base_message = find_lexical_relation(words_list, message, "hypernym")
+    is_hyper, base_message = find_lexical_relation(words_list, message, Relations.HYPERNYM)
 
     # learn the new pattern and return 
     if is_hyper:
-        learned = can_be_learned(chatbot, client_context, message, base_message, hypernym_string)
+        learned = can_be_learned(chatbot, client_context, message, base_message, Relations.hypernym_string)
 
         if learned:
             return True
@@ -61,9 +54,7 @@ def learn_pattern(chatbot, client_context, message):
 
 def can_be_learned(chatbot, client_context, message, base_message, relation):
 
-    # categories to enable/disable sentence splitting
-    enable_splitting = "set the splitter on"
-    disable_splitting = "set the splitter off"
+    
 
     # first check that such a pattern already exist
     new_response = chatbot.process_question(client_context, base_message)
@@ -71,23 +62,26 @@ def can_be_learned(chatbot, client_context, message, base_message, relation):
     # the new category can be learned
     if not not_recognise(new_response):
 
-        print("alò")
 
         # disable splitting to avoid erroneous pattern to be learned
-        chatbot.process_question(client_context, disable_splitting)
+        chatbot.process_question(client_context, CategoriesOfInterest.disable_splitting)
+
+        message = message.translate(dict((ord(char), None) for char in string.punctuation))
+        base_message = base_message.translate(dict((ord(char), None) for char in string.punctuation))
+        #print(message)
 
         # learnf the category: message will be reduced to base_message
         chatbot.process_question(client_context, "relation " + message + relation + base_message )
 
         # enable sentence splitting again
-        chatbot.process_question(client_context, enable_splitting)
+        chatbot.process_question(client_context, CategoriesOfInterest.enable_splitting)
         return True
 
 
     return False
 
 
-def find_lexical_relation(words_list, message, type="synonym"):
+def find_lexical_relation(words_list, message, type=Relations.SYNONYM):
 
 
     # Lemming using WordNet 
@@ -105,13 +99,13 @@ def find_lexical_relation(words_list, message, type="synonym"):
     # Lexical relation 
     
     # find relation for Nouns
-    is_rel, new_message = lexical_relation(words_noun_list, noun_list, message, wn.NOUN, type)
+    is_rel, new_message = lexical_relation(words_noun_list, TermsOfInterest.noun_list, message, wn.NOUN, type)
 
     if is_rel:
         return True, new_message
 
     # find relation for Verbs
-    is_rel, new_message = lexical_relation(words_verb_list, verb_list, message, wn.VERB, type)
+    is_rel, new_message = lexical_relation(words_verb_list, TermsOfInterest.verb_list, message, wn.VERB, type)
 
     if is_rel:
         return True, new_message
@@ -121,7 +115,7 @@ def find_lexical_relation(words_list, message, type="synonym"):
 
 
 # return True is there is a lexical relation and return also the sentence the chatbot is already able to recognise
-def lexical_relation(words_list, baseline_words, message, key = wn.NOUN, type="synonym" ):
+def lexical_relation(words_list, baseline_words, message, key = wn.NOUN, type=Relations.SYNONYM ):
 
     for word in words_list:
     
@@ -133,13 +127,13 @@ def lexical_relation(words_list, baseline_words, message, key = wn.NOUN, type="s
             # check if there is a synset containing both relating "word" and "baseline"
             for synset in synset_list:
 
-                if type == "synonym":
+                if type == Relations.SYNONYM:
                     replaced , new_message = replace_synonymy(word, baseline, message, synset)
 
-                if type == "hyponym":
+                if type == Relations.HYPONYM:
                     replaced , new_message = replace_hyponymy(word, baseline, message, synset)
 
-                if type == "hypernym":
+                if type == Relations.HYPERNYM:
                     replaced , new_message = replace_hypernym(word, baseline, message, synset)
 
                 if replaced:
@@ -148,9 +142,6 @@ def lexical_relation(words_list, baseline_words, message, key = wn.NOUN, type="s
     
     return False, ""
   
-
-
-
 def replace_synonymy(word, baseline, message, synset):
 
     if word in synset.lemma_names():
@@ -225,7 +216,7 @@ def replace_collocation(lemma_names, word, baseline, message):
             if is_in:
 
                 # replace all instances of "word" with "baseline"
-                new_message = message.replace(lemma, baseline)
+                new_message = message.replace(lemma.replace("_", " "), baseline)
 
                 return True, new_message
 
@@ -235,24 +226,20 @@ def replace_collocation(lemma_names, word, baseline, message):
 # return if the message is not recognise by the chatbot as something meaningful
 def not_recognise(response):
 
-    # the default responses if no pattern matches
-    default_patterns = ["Can you repeat, please?", "I don’t understand", "Can you say that more clearly?" ] 
-    interest_pattern = "It's a pity we've no tours regarding"
-    
-    return (response in default_patterns or interest_pattern in response)
+    return (response in CategoriesOfInterest.default_patterns or CategoriesOfInterest.interest_pattern in response)
 
 
 # return if in the message there is a collocation present in the synset
 def isThere_collocation(word, baseline, message):
 
+
     # in the corpus the collocations are separated by _
     if("_" in baseline):
 
         baseline = baseline.replace("_", " ")
-
+        
         # the collocation is in the message
         if word in baseline and baseline in message:
-
             return True
 
     return False

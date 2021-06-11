@@ -1,11 +1,11 @@
 # load my own library
 from chatbot import *
+from utils import *
 
 # Library used to build the chatbot
 from programy.clients.embed.configfile import EmbeddedConfigFileBot
 
 
-quit_pattern = "Ok, bye bye!"
 
 def main():
 
@@ -16,10 +16,21 @@ def main():
 
     print("> Guido: {}".format(chatbot.process_question(client_context, "Hi")))
 
+    print (dir(chatbot))
+
+
     while True:
+
+        # get the message from the user and let the chatbot digest it
         message = input("> You: ")
         response = chatbot.process_question(client_context, message)
-    
+
+        conversation = chatbot.get_conversation(clientid)
+        current_question = conversation.current_question()
+        current_sentence = current_question.current_sentence()
+
+        print(current_question, current_sentence)
+
         # if response is not None
         if response: 
 
@@ -37,7 +48,7 @@ def main():
             print("> Guido: {}".format(response))
 
         # message to exit
-        if response == quit_pattern:
+        if response == CategoriesOfInterest.quit_pattern:
             break
 
 
