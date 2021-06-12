@@ -62,13 +62,13 @@ def can_be_learned(chatbot, client_context, message, base_message, relation):
     # the new category can be learned
     if not not_recognise(new_response):
 
-
-        # disable splitting to avoid erroneous pattern to be learned
-        chatbot.process_question(client_context, CategoriesOfInterest.disable_splitting)
-
+        # removing punctuation from the messages
         message = message.translate(dict((ord(char), None) for char in string.punctuation))
         base_message = base_message.translate(dict((ord(char), None) for char in string.punctuation))
         #print(message)
+
+        # disable splitting to avoid erroneous pattern to be learned
+        chatbot.process_question(client_context, CategoriesOfInterest.disable_splitting)
 
         # learnf the category: message will be reduced to base_message
         chatbot.process_question(client_context, "relation " + message + relation + base_message )
