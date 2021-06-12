@@ -16,14 +16,9 @@ def main():
 
     #print("> Guido: {}".format(chatbot.process_question(client_context, "Hi")))
 
-    print (dir(chatbot))
-
-    print()
-
-
     while True:
 
-        # get the message from the user and let the chatbot digest it
+        # get the message from the user and let the chatbot digests it
         message = input("> You: ")
 
         # split the message and possibily learn new patterns
@@ -46,9 +41,9 @@ def main():
 def split_and_learn_sentences(chatbot, client_context, message):
 
     # split the sentence into smaller sentences according to the punctuation
-    sencteces_list = client_context.bot.sentence_splitter.split(message)
+    senteces_list = client_context.bot.sentence_splitter.split(message)
 
-    for sentence in sencteces_list:
+    for sentence in senteces_list:
         response = chatbot.process_question(client_context, sentence)
 
          # if response is not None
