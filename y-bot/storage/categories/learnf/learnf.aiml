@@ -67,6 +67,8 @@
 
 <category><pattern> I AM LOOKING FOR RUBBERNECKING IN GENOA</pattern><topic>*</topic><that>*</that><template>We provide sighseeing in Genoa thanks to local guides, such trips include urban walks and they usually belong to the Architecture and Gastronomy disciplines</template></category>
 
+<category><pattern> ARE THERE TOURS OVERSEAS</pattern><topic>*</topic><that>*</that><template>Yes! We have some tours placed in Paris, they can be carried out both in italian and french</template></category>
+
 
 </aiml>
 

@@ -91,6 +91,9 @@ def find_lexical_relation(word, message, type=Relations.SYNONYM):
     # Lemmin words as Verbs
     word_verb = Lemmatization_word(word, "v")
 
+    # Lemmin words as Adj
+    word_verb = Lemmatization_word(word, "a")
+
     # converts all characters into lowercase
     message = message.lower()
 
@@ -108,6 +111,11 @@ def find_lexical_relation(word, message, type=Relations.SYNONYM):
     if is_rel:
         return True, new_message
 
+    # find relation for Verbs
+    is_rel, new_message = lexical_relation(word_verb, TermsOfInterest.adj_list, message, wn.ADJ, type)
+
+    if is_rel:
+        return True, new_message
 
     return False, ""
 
