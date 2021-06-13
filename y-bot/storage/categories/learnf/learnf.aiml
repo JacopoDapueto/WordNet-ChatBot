@@ -1,5 +1,72 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <aiml version="2.0">
 
+
+<category><pattern> HELLO</pattern><topic>*</topic><that>*</that><template>Hi! I am Guido, are you a guide o an explorer?</template></category>
+
+<category><pattern> HULLO</pattern><topic>*</topic><that>*</that><template>Hi! I am Guido, are you a guide o an explorer?</template></category>
+
+<category><pattern> CAN YOU FIND ME A HOUSING</pattern><topic>*</topic><that>*</that><template>Ouh, We don't provide such a service, I'm sorry but finding an accomodation it's up to you. Our services regards only guided tours</template></category>
+
+<category><pattern> DO YOU HAVE SOMETHING TO ADVISE</pattern><topic>*</topic><that>*</that><template>Do you have any particular interest?</template></category>
+
+<category><pattern> I LIKE PAINTING</pattern><topic>*</topic><that>*</that><template>For example we provide guided tours in museums</template></category>
+
+<category><pattern> CAN YOU ADVISE SOMETHING TO US</pattern><topic>*</topic><that>*</that><template>Do you have any particular interest?</template></category>
+
+<category><pattern> I WANT TO FIND A CIRCUIT IN ROME</pattern><topic>*</topic><that>*</that><template>Oh, There are no tours in that place</template></category>
+
+<category><pattern> I WANT TO FIND A CIRCUIT IN GENOA</pattern><topic>*</topic><that>*</that><template>Have a look at the available tours in Genoa</template></category>
+
+<category><pattern> I FOUND THE CIRCUIT I WAS INTERESTED IN</pattern><topic>*</topic><that>*</that><template>Now you just need to select a date and join or create a group of at least 5 people. Enjoy your experience!</template></category>
+
+
+<category><pattern> I AM A USHER</pattern><topic>*</topic><that>*</that><template>If you want to be a guide of our community first you need to register yourself on our system and we will decide if you are okay, in this case you will be able to design your tours and propose them on the website</template></category>
+
+
+<category><pattern> DO YOU CAN FIND ME A LIVING ACCOMMODATIONS</pattern><topic>*</topic><that>*</that><template>Ouh, We don't provide such a service, I'm sorry but finding an accomodation it's up to you. Our services regards only guided tours</template></category>
+
+
+<category><pattern> HOW CAN I CONDUCT A TOUR</pattern><topic>*</topic><that>*</that><template>First you should be a guide belonging to our community and then you'll be able to a tour into the system and to manage the partecipants</template></category>
+
+
+<category><pattern> HOW CAN I CONDUCT A CIRCUIT</pattern><topic>*</topic><that>*</that><template>First you should be a guide belonging to our community and then you'll be able to a tour into the system and to manage the partecipants</template></category>
+
+
+
+<category><pattern> HOW CAN I RANK A TOUR</pattern><topic>*</topic><that>*</that><template>You can rate a tour after you partecipate to it, just go to web page dedicated to it and you'll be given the possibility to assign a vote from 1 to 5 and eventually leave a comment</template></category>
+
+
+<category><pattern> HOW CAN I RANK A CIRCUIT</pattern><topic>*</topic><that>*</that><template>You can rate a tour after you partecipate to it, just go to web page dedicated to it and you'll be given the possibility to assign a vote from 1 to 5 and eventually leave a comment</template></category>
+
+
+<category><pattern> ARE THERE ANY PLEASURE TRIP</pattern><topic>*</topic><that>*</that><template>Including in our tour there are excursions like the natural trail from Agerola to Nocelle in Campania</template></category>
+
+
+
+<category><pattern> IS THERE A PLEASURE TRIP IN MILAN</pattern><topic>*</topic><that>*</that><template>It could be, let's check out on the web page. Usually they are related to Nature, Archeology disciplines</template></category>
+
+
+<category><pattern> CAN I DELETE A RESERVATION FOR A TOUR</pattern><topic>*</topic><that>*</that><template>Only if the tour has not yet been confirmed, you can cancel partipation by writing to the email of the related guide</template></category>
+
+
+<category><pattern> CAN I DELETE A BOOKING FOR A TOUR</pattern><topic>*</topic><that>*</that><template>Only if the tour has not yet been confirmed, you can cancel partipation by writing to the email of the related guide</template></category>
+
+
+<category><pattern> HOW CAN I JOIN THE COMMUNITY AS A SCOUT</pattern><topic>*</topic><that>*</that><template>If you want to be a guide of our community first you need to register yourself on our system and we will decide if you are okay, in this case you will be able to design your tours and propose them on the website</template></category>
+
+
+
+<category><pattern> HOW CAN I JOIN THE COMMUNITY AS A SCOUT</pattern><topic>*</topic><that>*</that><template>If you want to be a guide of our community first you need to register yourself on our system and we will decide if you are okay, in this case you will be able to design your tours and propose them on the website</template></category>
+
+
+
+<category><pattern> HOW DO I DIRECT A TOUR</pattern><topic>*</topic><that>*</that><template>I'm sorry we have no tour there. The available cities providing are Genoa, Milan, Abruzzo, Florence, Puglia, Piemonte, Campania and Paris</template></category>
+
+<category><pattern> HOW DO I CONDUCT A CIRCUIT</pattern><topic>*</topic><that>*</that><template>I'm sorry we have no tour there. The available cities providing are Genoa, Milan, Abruzzo, Florence, Puglia, Piemonte, Campania and Paris</template></category>
+
+<category><pattern> I AM LOOKING FOR RUBBERNECKING IN GENOA</pattern><topic>*</topic><that>*</that><template>We provide sighseeing in Genoa thanks to local guides, such trips include urban walks and they usually belong to the Architecture and Gastronomy disciplines</template></category>
+
+
 </aiml>
 

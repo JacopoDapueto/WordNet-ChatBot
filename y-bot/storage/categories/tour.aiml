@@ -226,6 +226,12 @@
 	<template>Ouh we don't offer tours in <star index="2"/> yet</template>
 </category>
 
+
+<category>
+	<pattern> * EXCURSION IN <set>locations</set></pattern>
+	<template><srai>ARE THERE ANY EXCURSION IN <star index="2"/></srai></template>
+</category>
+
 <category>
 	<pattern>ARE THERE ANY EXCURSION IN <set>locations</set></pattern>
 	<template>

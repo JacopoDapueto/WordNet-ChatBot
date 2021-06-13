@@ -20,41 +20,44 @@ def learn_pattern(chatbot, client_context, message):
     tokenizer = RegexpTokenizer(r'\w+')
     words_list = tokenizer.tokenize(message)
 
-    # find synonym
-    is_syn, base_message = find_lexical_relation(words_list, message, Relations.SYNONYM)
 
-    # learn the new pattern and return 
-    if is_syn:
-        learned = can_be_learned(chatbot, client_context, message, base_message, Relations.synonym_string)
+    # find synonym for each word
 
-        if learned:
-            return True
+    for word in words_list:
+        is_syn, base_message = find_lexical_relation(word, message, Relations.SYNONYM)
+
+        # learn the new pattern and return 
+        if is_syn:
+            learned = can_be_learned(chatbot, client_context, message, base_message, Relations.synonym_string)
+
+            if learned:
+                return True
         
-    # find hyponym
-    is_hypo, base_message = find_lexical_relation(words_list, message, Relations.HYPONYM)
+    # find hyponym for each word
+    for word in words_list:
+        is_hypo, base_message = find_lexical_relation(word, message, Relations.HYPONYM)
 
-    # learn the new pattern and return 
-    if is_hypo:
-        learned = can_be_learned(chatbot, client_context, message, base_message, Relations.hyponym_string)
+        # learn the new pattern and return 
+        if is_hypo:
+            learned = can_be_learned(chatbot, client_context, message, base_message, Relations.hyponym_string)
 
-        if learned:
-            return True
+            if learned:
+                return True
 
-    # find hypernym
-    is_hyper, base_message = find_lexical_relation(words_list, message, Relations.HYPERNYM)
+    # find hypernym for each word
+    for word in words_list:
+        is_hyper, base_message = find_lexical_relation(word, message, Relations.HYPERNYM)
 
-    # learn the new pattern and return 
-    if is_hyper:
-        learned = can_be_learned(chatbot, client_context, message, base_message, Relations.hypernym_string)
+        # learn the new pattern and return 
+        if is_hyper:
+            learned = can_be_learned(chatbot, client_context, message, base_message, Relations.hypernym_string)
 
-        if learned:
-            return True
+            if learned:
+                return True
 
     return False
 
 def can_be_learned(chatbot, client_context, message, base_message, relation):
-
-    
 
     # first check that such a pattern already exist
     new_response = chatbot.process_question(client_context, base_message)
@@ -77,21 +80,16 @@ def can_be_learned(chatbot, client_context, message, base_message, relation):
         chatbot.process_question(client_context, CategoriesOfInterest.enable_splitting)
         return True
 
-
     return False
 
 
-def find_lexical_relation(words_list, message, type=Relations.SYNONYM):
-
-
-    # Lemming using WordNet 
-    lemmatizer = WordNetLemmatizer()
+def find_lexical_relation(word, message, type=Relations.SYNONYM):
 
     # Lemming words as Nouns
-    words_noun_list = Lemmatization(lemmatizer, words_list, "n")
+    word_noun = Lemmatization_word(word, "n")
 
     # Lemmin words as Verbs
-    words_verb_list = Lemmatization(lemmatizer, words_list, "v")
+    word_verb = Lemmatization_word(word, "v")
 
     # converts all characters into lowercase
     message = message.lower()
@@ -99,13 +97,13 @@ def find_lexical_relation(words_list, message, type=Relations.SYNONYM):
     # Lexical relation 
     
     # find relation for Nouns
-    is_rel, new_message = lexical_relation(words_noun_list, TermsOfInterest.noun_list, message, wn.NOUN, type)
+    is_rel, new_message = lexical_relation(word_noun, TermsOfInterest.noun_list, message, wn.NOUN, type)
 
     if is_rel:
         return True, new_message
 
     # find relation for Verbs
-    is_rel, new_message = lexical_relation(words_verb_list, TermsOfInterest.verb_list, message, wn.VERB, type)
+    is_rel, new_message = lexical_relation(word_verb, TermsOfInterest.verb_list, message, wn.VERB, type)
 
     if is_rel:
         return True, new_message
@@ -115,29 +113,32 @@ def find_lexical_relation(words_list, message, type=Relations.SYNONYM):
 
 
 # return True is there is a lexical relation and return also the sentence the chatbot is already able to recognise
-def lexical_relation(words_list, baseline_words, message, key = wn.NOUN, type=Relations.SYNONYM ):
+def lexical_relation(word, baseline_words, message, key = wn.NOUN, type=Relations.SYNONYM ):
 
-    for word in words_list:
     
-        # check if "word" is related with any word of interest in baseline_words
-        
-        for baseline in baseline_words:
-            synset_list = wn.synsets(baseline, pos=key)
+    # check if "word" is related with any word of interest in baseline_words
+    for baseline in baseline_words:
 
-            # check if there is a synset containing both relating "word" and "baseline"
-            for synset in synset_list:
+        lemma = Lemmatization_word(baseline, key)
 
-                if type == Relations.SYNONYM:
-                    replaced , new_message = replace_synonymy(word, baseline, message, synset)
+        synset_list = wn.synsets(lemma, pos=key)
 
-                if type == Relations.HYPONYM:
-                    replaced , new_message = replace_hyponymy(word, baseline, message, synset)
 
-                if type == Relations.HYPERNYM:
-                    replaced , new_message = replace_hypernym(word, baseline, message, synset)
+        # check if there is a synset containing both relating "word" and "baseline"
+        for synset in synset_list:
 
-                if replaced:
-                    return True, new_message
+            if type == Relations.SYNONYM:
+                replaced , new_message = replace_synonymy(word, baseline, message, synset)
+
+            if type == Relations.HYPONYM:
+                replaced , new_message = replace_hyponymy(word, baseline, message, synset)
+
+            if type == Relations.HYPERNYM:
+                replaced , new_message = replace_hypernym(word, baseline, message, synset)
+
+            if replaced:
+
+                return True, new_message
 
     
     return False, ""
@@ -201,10 +202,19 @@ def replace_hypernym(word, baseline, message, synset):
 
     return False, ""
 
-def Lemmatization(lemmatizer, word_list, pos):
+def Lemmatization_list(word_list, pos):
+
+    # Lemming using WordNet 
+    lemmatizer = WordNetLemmatizer()
 
     return [lemmatizer.lemmatize(word, pos = pos) for word in word_list]
 
+
+def Lemmatization_word(word, pos):
+
+    # Lemming using WordNet 
+    lemmatizer = WordNetLemmatizer()
+    return lemmatizer.lemmatize(word, pos = pos)
 
 
 def replace_collocation(lemma_names, word, baseline, message):
@@ -216,7 +226,7 @@ def replace_collocation(lemma_names, word, baseline, message):
             if is_in:
 
                 # replace all instances of "word" with "baseline"
-                new_message = message.replace(lemma.replace("_", " "), baseline)
+                new_message = message.replace(lemma.replace("_", " ") , baseline)
 
                 return True, new_message
 
@@ -236,12 +246,17 @@ def isThere_collocation(word, baseline, message):
     # in the corpus the collocations are separated by _
     if("_" in baseline):
 
-        baseline = baseline.replace("_", " ")
-        
+        baseline = baseline.replace("_", " ")    
+
         # the collocation is in the message
         if word in baseline and baseline in message:
             return True
 
     return False
+    
+
+
+
+
 
 

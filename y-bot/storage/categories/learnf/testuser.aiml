@@ -1,28 +1,5 @@
 <aiml version="2.0">
 
-
-<category><pattern> HELLO</pattern><topic>*</topic><that>*</that><template>Hi! I am Guido, are you a guide o an explorer?</template></category>
-
-<category><pattern> HULLO</pattern><topic>*</topic><that>*</that><template>Hi! I am Guido, are you a guide o an explorer?</template></category>
-
-<category><pattern> CAN YOU FIND ME A HOUSING</pattern><topic>*</topic><that>*</that><template>Ouh, We don't provide such a service, I'm sorry but finding an accomodation it's up to you. Our services regards only guided tours</template></category>
-
-<category><pattern> DO YOU HAVE SOMETHING TO ADVISE</pattern><topic>*</topic><that>*</that><template>Do you have any particular interest?</template></category>
-
-<category><pattern> I LIKE PAINTING</pattern><topic>*</topic><that>*</that><template>For example we provide guided tours in museums</template></category>
-
-<category><pattern> CAN YOU ADVISE SOMETHING TO US</pattern><topic>*</topic><that>*</that><template>Do you have any particular interest?</template></category>
-
-<category><pattern> I WANT TO FIND A CIRCUIT IN ROME</pattern><topic>*</topic><that>*</that><template>Oh, There are no tours in that place</template></category>
-
-<category><pattern> I WANT TO FIND A CIRCUIT IN GENOA</pattern><topic>*</topic><that>*</that><template>Have a look at the available tours in Genoa</template></category>
-
-<category><pattern> I FOUND THE CIRCUIT I WAS INTERESTED IN</pattern><topic>*</topic><that>*</that><template>Now you just need to select a date and join or create a group of at least 5 people. Enjoy your experience!</template></category>
-
-
-<category><pattern> I AM A USHER</pattern><topic>*</topic><that>*</that><template>If you want to be a guide of our community first you need to register yourself on our system and we will decide if you are okay, in this case you will be able to design your tours and propose them on the website</template></category>
-
-
-<category><pattern> DO YOU CAN FIND ME A LIVING ACCOMMODATIONS</pattern><topic>*</topic><that>*</that><template>Ouh, We don't provide such a service, I'm sorry but finding an accomodation it's up to you. Our services regards only guided tours</template></category>
+	
 
 </aiml>

@@ -7,7 +7,7 @@ import aiml
 import sys
 import os
 
-noun_list = ["tour", "art", "lodging", "book"]
+noun_list = ["tour", "art", "lodging", "book", "information"]
 
 print("_" in "franco_pino")
 print("FRANCO_pinO".replace("_", " "))
