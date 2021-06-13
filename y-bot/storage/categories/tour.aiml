@@ -60,7 +60,7 @@
 </category>
 
 <category>
-		<pattern> * <iset words="LIKE, LOVE, INTERESTED" /> ^ <set>disciplines</set></pattern>
+		<pattern> * <iset words="LIKE, LOVE, INTERESTED" /> ^ <set>disciplines</set> ^</pattern>
 		<template>
 			A lot of people in our community love <set name="topic"><star index="4"/></set> too! <srai>I LIKE <star index="4"/></srai>
 		</template>
@@ -256,7 +256,7 @@
 </category>
 
 <category>
-	<pattern>* HOW MUCH * PAY ^</pattern>
+	<pattern>HOW MUCH * PAY ^</pattern>
 	<template><srai>HOW WILL I KNOW HOW MUCH TO PAY</srai></template>
 </category>
 

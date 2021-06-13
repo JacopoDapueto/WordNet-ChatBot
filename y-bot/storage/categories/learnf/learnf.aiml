@@ -6,6 +6,8 @@
 
 <category><pattern> HULLO</pattern><topic>*</topic><that>*</that><template>Hi! I am Guido, are you a guide o an explorer?</template></category>
 
+<category><pattern> GOOD DAY</pattern><topic>*</topic><that>*</that><template>Ok, bye bye!</template></category>
+
 <category><pattern> CAN YOU FIND ME A HOUSING</pattern><topic>*</topic><that>*</that><template>Ouh, We don't provide such a service, I'm sorry but finding an accomodation it's up to you. Our services regards only guided tours</template></category>
 
 <category><pattern> DO YOU HAVE SOMETHING TO ADVISE</pattern><topic>*</topic><that>*</that><template>Do you have any particular interest?</template></category>
@@ -68,6 +70,31 @@
 <category><pattern> I AM LOOKING FOR RUBBERNECKING IN GENOA</pattern><topic>*</topic><that>*</that><template>We provide sighseeing in Genoa thanks to local guides, such trips include urban walks and they usually belong to the Architecture and Gastronomy disciplines</template></category>
 
 <category><pattern> ARE THERE TOURS OVERSEAS</pattern><topic>*</topic><that>*</that><template>Yes! We have some tours placed in Paris, they can be carried out both in italian and french</template></category>
+
+
+<category><pattern> I LIKE CREATION</pattern><topic>*</topic><that>*</that><template>For example we provide guided tours in art galleries</template></category>
+
+<category><pattern> IS THERE A GUARANTEED MAXIMUM DUTY I WILL PAY FOR A TOUR</pattern><topic>*</topic><that>*</that><template>Ideally we would never want to charge more than 8-10 euros per person/hour of the tour</template></category>
+
+
+
+<category><pattern> WHEN WILL I RECEIVE RATIFICATION OF THE TOUR</pattern><topic>*</topic><that>*</that><template>Confirmation of the start of the tour will be sent by sms or by email when at least 5 participants have been added to the tour</template></category>
+
+
+
+<category><pattern> I FOUND THE TOUR A WAS CONCERNED WITH</pattern><topic>*</topic><that>*</that><template>Now you just need to select a date and join or create a group of at least 5 people. Enjoy your experience!</template></category>
+
+
+
+<category><pattern> HOW WILL I KNOW HOW MUCH TO PAY OFF</pattern><topic>*</topic><that>*</that><template>You will know this at the start of the tour. To start with you have the guarantee of an adaptable tariff because if there are too few participants, the tour will not take place.</template></category>
+
+
+
+<category><pattern> WHEN WILL I HAVE CONFIRMATION OF THE TOUR</pattern><topic>*</topic><that>*</that><template>Confirmation of the start of the tour will be sent by sms or by email when at least 5 participants have been added to the tour</template></category>
+
+
+
+<category><pattern> WHEN WILL I OBTAIN CONFIRMATION OF THE TOUR</pattern><topic>*</topic><that>*</that><template>Confirmation of the start of the tour will be sent by sms or by email when at least 5 participants have been added to the tour</template></category>
 
 
 </aiml>

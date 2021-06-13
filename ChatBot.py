@@ -68,7 +68,6 @@ def can_be_learned(chatbot, client_context, message, base_message, relation):
         # removing punctuation from the messages
         message = message.translate(dict((ord(char), None) for char in string.punctuation))
         base_message = base_message.translate(dict((ord(char), None) for char in string.punctuation))
-        #print(message)
 
         # disable splitting to avoid erroneous pattern to be learned
         chatbot.process_question(client_context, CategoriesOfInterest.disable_splitting)

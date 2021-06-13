@@ -2,9 +2,9 @@
 class TermsOfInterest:
     
     # possible words that make sense to be substituted, for efficiency purpose
-    noun_list = ["tour", "art", "discipline", "city", "lodging", "sightseeing", "excursion", "guide", "tariff", "reservation", "informations","hi"]
-    verb_list = ["organize", "book", "suggest", "rate", "lead", "receive", "cancel", "go"] 
-    adj_list = ["abroad"]
+    noun_list = ["tour", "art", "discipline", "city", "lodging", "sightseeing", "excursion", "guide", "tariff", "reservation", "informations", "confirmation","hi", "goodbye"]
+    verb_list = ["organize", "book", "suggest", "rate", "lead", "receive", "cancel", "go", "love", "pay"] 
+    adj_list = ["abroad", "interested"]
 
 
 class Relations:
