@@ -7,7 +7,7 @@ import aiml
 import sys
 import os
 
-noun_list = ["tour", "art", "lodging", "book", "information"]
+noun_list = ["tour", "art", "lodging", "book", "information", "architecture"]
 
 print("_" in "franco_pino")
 print("FRANCO_pinO".replace("_", " "))
@@ -44,4 +44,4 @@ for word in noun_list:
 
     print()
     print("Hyponyms")
-    print([s.hyponyms() for s in syn])
+    print([ s.hyponyms() for s in syn])

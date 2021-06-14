@@ -4,7 +4,7 @@ console:
 
   scheduler:
     name: Scheduler1
-    debug_level: 50
+    debug_level: 500
     add_listeners: False
     remove_all_jobs: False
 
@@ -137,10 +137,10 @@ console:
 
       override_properties: true
 
-      max_question_recursion: 1000
-      max_question_timeout: 60
-      max_search_depth: 100
-      max_search_timeout: 60
+      max_question_recursion: 10000
+      max_question_timeout: 600
+      max_search_depth: 1000
+      max_search_timeout: 600
 
       spelling:
         load: true
