@@ -38,7 +38,7 @@
 
 
 	<category>
-		<pattern>THE TICKETS OF THE MUSEUM IS INCLUDED IN THE TARIFF</pattern>
+		<pattern>THE TICKET OF THE MUSEUM IS INCLUDED IN THE TARIFF</pattern>
 		<template>No, the tariff includes only the guide. So you have to pay the ticker yourself</template>
 	</category>
 	

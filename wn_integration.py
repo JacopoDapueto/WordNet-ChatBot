@@ -24,7 +24,7 @@ def learn_pattern(chatbot, client_context, message):
 
         # learn the new pattern and return 
         if is_syn:
-            learned = can_be_learned(chatbot, client_context, message, base_message, Relations.synonym_string)
+            learned = is_learned(chatbot, client_context, message, base_message, Relations.synonym_string)
 
             if learned:
                 return True
@@ -35,7 +35,7 @@ def learn_pattern(chatbot, client_context, message):
 
         # learn the new pattern and return 
         if is_hypo:
-            learned = can_be_learned(chatbot, client_context, message, base_message, Relations.hyponym_string)
+            learned = is_learned(chatbot, client_context, message, base_message, Relations.hyponym_string)
 
             if learned:
                 return True
@@ -46,20 +46,20 @@ def learn_pattern(chatbot, client_context, message):
 
         # learn the new pattern and return 
         if is_hyper:
-            learned = can_be_learned(chatbot, client_context, message, base_message, Relations.hypernym_string)
+            learned = is_learned(chatbot, client_context, message, base_message, Relations.hypernym_string)
 
             if learned:
                 return True
 
     return False
 
-def can_be_learned(chatbot, client_context, message, base_message, relation):
+def is_learned(chatbot, client_context, message, base_message, relation):
 
     # first check that such a pattern already exist
     new_response = chatbot.process_question(client_context, base_message)
 
     # the new category can be learned
-    if not not_recognise(new_response):
+    if can_be_learned(new_response):
 
         # removing punctuation from the messages
         message = message.translate(dict((ord(char), None) for char in string.punctuation))
@@ -87,7 +87,7 @@ def find_lexical_relation(word, message, type=Relations.SYNONYM):
     word_verb = Lemmatization_word(word, "v")
 
     # Lemmin words as Adj
-    word_verb = Lemmatization_word(word, "a")
+    word_adj = Lemmatization_word(word, "a")
 
     # converts all characters into lowercase
     message = message.lower()
@@ -95,19 +95,20 @@ def find_lexical_relation(word, message, type=Relations.SYNONYM):
     # Lexical relation 
     
     # find relation for Nouns
-    is_rel, new_message = lexical_relation(word_noun, TermsOfInterest.noun_list, message, wn.NOUN, type)
+    is_rel, new_message = lexical_relation(word, word_noun, TermsOfInterest.noun_list, message, wn.NOUN, type)
+
+    if is_rel:
+        print(new_message)
+        return True, new_message
+
+    # find relation for Verbs
+    is_rel, new_message = lexical_relation(word, word_verb, TermsOfInterest.verb_list, message, wn.VERB, type)
 
     if is_rel:
         return True, new_message
 
     # find relation for Verbs
-    is_rel, new_message = lexical_relation(word_verb, TermsOfInterest.verb_list, message, wn.VERB, type)
-
-    if is_rel:
-        return True, new_message
-
-    # find relation for Verbs
-    is_rel, new_message = lexical_relation(word_verb, TermsOfInterest.adj_list, message, wn.ADJ, type)
+    is_rel, new_message = lexical_relation(word, word_adj, TermsOfInterest.adj_list, message, wn.ADJ, type)
 
     if is_rel:
         return True, new_message
@@ -116,7 +117,7 @@ def find_lexical_relation(word, message, type=Relations.SYNONYM):
 
 
 # return True is there is a lexical relation and return also the sentence the chatbot is already able to recognise
-def lexical_relation(word, baseline_words, message, key = wn.NOUN, type=Relations.SYNONYM ):
+def lexical_relation(word, word_lemm, baseline_words, message, key = wn.NOUN, type=Relations.SYNONYM ):
 
     
     # check if "word" is related with any word of interest in baseline_words
@@ -131,13 +132,13 @@ def lexical_relation(word, baseline_words, message, key = wn.NOUN, type=Relation
         for synset in synset_list:
 
             if type == Relations.SYNONYM:
-                replaced , new_message = replace_synonymy(word, baseline, message, synset)
+                replaced , new_message = replace_synonymy(word, word_lemm, baseline, message, synset)
 
             if type == Relations.HYPONYM:
-                replaced , new_message = replace_hyponymy(word, baseline, message, synset)
+                replaced , new_message = replace_hyponymy(word,  word_lemm, baseline, message, synset)
 
             if type == Relations.HYPERNYM:
-                replaced , new_message = replace_hypernym(word, baseline, message, synset)
+                replaced , new_message = replace_hypernym(word,  word_lemm, baseline, message, synset)
 
             if replaced:
 
@@ -146,9 +147,9 @@ def lexical_relation(word, baseline_words, message, key = wn.NOUN, type=Relation
     
     return False, ""
   
-def replace_synonymy(word, baseline, message, synset):
+def replace_synonymy(word, word_lemm, baseline, message, synset):
 
-    if word in synset.lemma_names():
+    if word_lemm in synset.lemma_names():
 
         # replace all instances of "word" with "baseline"
         new_message = message.replace(word, baseline)
@@ -156,19 +157,21 @@ def replace_synonymy(word, baseline, message, synset):
         return True, new_message
 
     # if no correspondence found it may be a collocation
-    replaced, new_message = replace_collocation(synset.lemma_names(), word, baseline, message)
+    replaced, new_message = replace_collocation(synset.lemma_names(), word, word_lemm, baseline, message)
 
+    
     if replaced:
+
         return True, new_message
 
     return False, ""
 
-def replace_hyponymy(word, baseline, message, synset):
+def replace_hyponymy(word, word_lemm, baseline, message, synset):
 
     hypos = synset.hyponyms()
     for hypo in hypos:
 
-        if word in hypo.lemma_names():
+        if word_lemm in hypo.lemma_names():
 
             # replace all instances of "word" with "baseline"
             new_message = message.replace(word, baseline)
@@ -177,19 +180,20 @@ def replace_hyponymy(word, baseline, message, synset):
                     
     # if no correspondence found it may be a collocation
     for hypo in hypos:
-       replaced, new_message = replace_collocation(hypo.lemma_names(), word, baseline, message)
+       replaced, new_message = replace_collocation(hypo.lemma_names(), word, word_lemm, baseline, message)
 
-       if replaced:
+       
+       if replaced: 
             return True, new_message
 
     return False, ""
 
-def replace_hypernym(word, baseline, message, synset):
+def replace_hypernym(word, word_lemm, baseline, message, synset):
 
     hypers = synset.hypernyms()
     for hyper in hypers:
 
-        if word in hyper.lemma_names():
+        if word_lemm in hyper.lemma_names():
 
             # replace all instances of "word" with "baseline"
             new_message = message.replace(word, baseline)
@@ -198,7 +202,7 @@ def replace_hypernym(word, baseline, message, synset):
 
     # if no correspondence found it may be a collocation
     for hyper in hypers:
-        replaced, new_message = replace_collocation(hyper.lemma_names(), word, baseline, message)
+        replaced, new_message = replace_collocation(hyper.lemma_names(), word, word_lemm, baseline, message)
 
         if replaced:
             return True, new_message
@@ -220,7 +224,7 @@ def Lemmatization_word(word, pos):
     return lemmatizer.lemmatize(word, pos = pos)
 
 
-def replace_collocation(lemma_names, word, baseline, message):
+def replace_collocation(lemma_names, word, word_lemm, baseline, message):
 
     for lemma in lemma_names:
     
@@ -228,18 +232,18 @@ def replace_collocation(lemma_names, word, baseline, message):
 
             if is_in:
 
+                # prepare  the collocation 
+                lem = lemma.replace("_", " ")
+                lem = lem.replace(word_lemm, word)
                 # replace all instances of "word" with "baseline"
-                new_message = message.replace(lemma.replace("_", " ") , baseline)
+                new_message = message.replace( lem, baseline)
 
                 return True, new_message
 
     return False, ""
 
 
-# return if the message is not recognise by the chatbot as something meaningful
-def not_recognise(response):
 
-    return (response in CategoriesOfInterest.default_patterns or CategoriesOfInterest.interest_pattern in response)
 
 
 # return if in the message there is a collocation present in the synset

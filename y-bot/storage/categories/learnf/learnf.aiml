@@ -81,14 +81,12 @@
         <template>If you want to be a guide of our community first you need to register yourself on our system and we will decide if you are okay, in this case you will be able to design your tours and propose them on the website</template>
     </category>
 
-
     <category>
         <pattern> DO YOU CAN FIND ME A LIVING ACCOMMODATIONS</pattern>
         <topic>*</topic>
         <that>*</that>
         <template>Ouh, We don't provide such a service, I'm sorry but finding an accomodation it's up to you. Our services regards only guided tours</template>
     </category>
-
 
     <category>
         <pattern> HOW CAN I CONDUCT A TOUR</pattern>
@@ -171,18 +169,20 @@
 
 
     <category>
-        <pattern> HOW DO I DIRECT A TOUR</pattern>
-        <topic>*</topic>
-        <that>*</that>
-        <template>I'm sorry we have no tour there. The available cities providing are Genoa, Milan, Abruzzo, Florence, Puglia, Piemonte, Campania and Paris</template>
-    </category>
-
-    <category>
         <pattern> HOW DO I CONDUCT A CIRCUIT</pattern>
         <topic>*</topic>
         <that>*</that>
-        <template>I'm sorry we have no tour there. The available cities providing are Genoa, Milan, Abruzzo, Florence, Puglia, Piemonte, Campania and Paris</template>
+        <template>First you should be a guide belonging to our community and then you'll be able to a tour into the system and to manage the partecipants</template>
     </category>
+
+
+    <category>
+        <pattern> HOW DO I CONDUCT A TOUR</pattern>
+        <topic>*</topic>
+        <that>*</that>
+        <template>First you should be a guide belonging to our community and then you'll be able to a tour into the system and to manage the partecipants</template>
+    </category>
+
 
     <category>
         <pattern> I AM LOOKING FOR RUBBERNECKING IN GENOA</pattern>
@@ -263,14 +263,6 @@
 
 
     <category>
-        <pattern> HOW DO YOU PICK OUT THE USHER</pattern>
-        <topic>*</topic>
-        <that>*</that>
-        <template>I'm sorry we have no tour there. The available cities providing are Genoa, Milan, Abruzzo, Florence, Puglia, Piemonte, Campania and Paris</template>
-    </category>
-
-
-    <category>
         <pattern> HOW CAN I HOLD A TOUR</pattern>
         <topic>*</topic>
         <that>*</that>
@@ -301,5 +293,273 @@
         <template>You can choose a sighseeing of a city, like in Genoa, or you can opt to visit the architecure museum in Milan</template>
     </category>
 
+
+    <category>
+        <pattern> THE TICKET OF THE MUSEUM IS INCLUDED IN THE DUTY</pattern>
+        <topic>*</topic>
+        <that>*</that>
+        <template>No, the tariff includes only the guide. So you have to pay the ticker yourself</template>
+    </category>
+
+
+    <category>
+        <pattern> HOW WILL I KNOW HOW MUCH TO GIVE</pattern>
+        <topic>*</topic>
+        <that>*</that>
+        <template>You will know this at the start of the tour. To start with you have the guarantee of an adaptable tariff because if there are too few participants, the tour will not take place.</template>
+    </category>
+
+
+    <category>
+        <pattern> CAN YOU TELL ME MORE ABOUT THE HERITAGE SUBJECT</pattern>
+        <topic>*</topic>
+        <that>*</that>
+        <template>We provide tours involving different topics: such as art, architecture, history, archeology, science, nature and gastronomy.</template>
+    </category>
+
+
+    <category>
+        <pattern> HOW CAN I BOOK A CIRCUIT</pattern>
+        <topic>*</topic>
+        <that>*</that>
+        <template>Once you find the tour you like, select a date and your native language so that you will be put together with poeple speaking your preferred language. Now you just need to invite friends in order to save money!</template>
+    </category>
+
+
+    <category>
+        <pattern> HOW CAN I HOLD A CIRCUIT</pattern>
+        <topic>*</topic>
+        <that>*</that>
+        <template>Once you find the tour you like, select a date and your native language so that you will be put together with poeple speaking your preferred language. Now you just need to invite friends in order to save money!</template>
+    </category>
+
+
+    <category>
+        <pattern> CAN YOU TELL ME THE AVAILABLE METROPOLIS</pattern>
+        <topic>*</topic>
+        <that>*</that>
+        <template>One of the available cities is Florence</template>
+    </category>
+
+
+    <category>
+        <pattern> WE ENJOY ART</pattern>
+        <topic>*</topic>
+        <that>*</that>
+        <template>A lot of people in our community love Art too! For example we provide guided tours in art galleries</template>
+    </category>
+
+
+    <category>
+        <pattern> I TRAVEL TO PARIS</pattern>
+        <topic>*</topic>
+        <that>*</that>
+        <template>Great! There are many tours in Paris you can join!</template>
+    </category>
+
+    <category>
+        <pattern> I MOVE TO GENOA</pattern>
+        <topic>*</topic>
+        <that>*</that>
+        <template>Great! Have a look at the available tours in Genoa</template>
+    </category>
+
+
+    <category>
+        <pattern> I MOVED TO GENOA</pattern>
+        <topic>*</topic>
+        <that>*</that>
+        <template>Great! Have a look at the available tours in Genoa</template>
+    </category>
+
+
+    <category>
+        <pattern> I AM READY FOR THE CIRCUIT</pattern>
+        <topic>*</topic>
+        <that>*</that>
+        <template>Wow, enjoy your experience and make new friends!</template>
+    </category>
+
+
+    <category>
+        <pattern> CAN YOU FIND ME A LIVING ACCOMMODATIONS</pattern>
+        <topic>*</topic>
+        <that>*</that>
+        <template>Ouh, We don't provide such a service, I'm sorry but finding an accomodation it's up to you. Our services regards only guided tours</template>
+    </category>
+
+
+    <category>
+        <pattern> I WANT TO CONTACT A GUIDE FOR INFO ABOUT A TOUR</pattern>
+        <topic>*</topic>
+        <that>*</that>
+        <template>Each professional guide of our community has its own profile containing the email you can contact them with</template>
+    </category>
+
+    <category>
+        <pattern> IS IT POSSIBLE TO CANCEL A BOOKING FOR A TOUR</pattern>
+        <topic>*</topic>
+        <that>*</that>
+        <template>Only if the tour has not yet been confirmed, you can cancel partipation by writing to the email of the related guide</template>
+    </category>
+
+    <category>
+        <pattern> IS IT POSSIBLE TO DELETE A BOOKING FOR A TOUR</pattern>
+        <topic>*</topic>
+        <that>*</that>
+        <template>Only if the tour has not yet been confirmed, you can cancel partipation by writing to the email of the related guide</template>
+    </category>
+
+
+    <category>
+        <pattern> WHEN WILL I GET CONFIRMATION OF A TOUR</pattern>
+        <topic>*</topic>
+        <that>*</that>
+        <template>Confirmation of the start of the tour will be sent by sms or by email when at least 5 participants have been added to the tour</template>
+    </category>
+
+
+    <category>
+        <pattern> WHEN WILL I GET CONFIRMATION OF A TOUR</pattern>
+        <topic>*</topic>
+        <that>*</that>
+        <template>Confirmation of the start of the tour will be sent by sms or by email when at least 5 participants have been added to the tour</template>
+    </category>
+
+
+    <category>
+        <pattern> WHEN WILL I GET CONFIRMATION OF A CIRCUIT</pattern>
+        <topic>*</topic>
+        <that>*</that>
+        <template>Confirmation of the start of the tour will be sent by sms or by email when at least 5 participants have been added to the tour</template>
+    </category>
+
+
+    <category>
+        <pattern> WHEN WILL I GET VERIFICATION OF A TOUR</pattern>
+        <topic>*</topic>
+        <that>*</that>
+        <template>Confirmation of the start of the tour will be sent by sms or by email when at least 5 participants have been added to the tour</template>
+    </category>
+
+
+    <category>
+        <pattern> WHEN WILL I GET VERIFICATION OF A CIRCUIT</pattern>
+        <topic>*</topic>
+        <that>*</that>
+        <template>Confirmation of the start of the tour will be sent by sms or by email when at least 5 participants have been added to the tour</template>
+    </category>
+
+
+    <category>
+        <pattern> HOW CAN I VALUE A TOUR</pattern>
+        <topic>*</topic>
+        <that>*</that>
+        <template>You can rate a tour after you partecipate to it, just go to web page dedicated to it and you'll be given the possibility to assign a vote from 1 to 5 and eventually leave a comment</template>
+    </category>
+
+    <category>
+        <pattern> HOW CAN I VALUE A CIRCUIT</pattern>
+        <topic>*</topic>
+        <that>*</that>
+        <template>You can rate a tour after you partecipate to it, just go to web page dedicated to it and you'll be given the possibility to assign a vote from 1 to 5 and eventually leave a comment</template>
+    </category>
+
+
+    <category>
+        <pattern> HOW CAN I GRADE A TOUR</pattern>
+        <topic>*</topic>
+        <that>*</that>
+        <template>You can rate a tour after you partecipate to it, just go to web page dedicated to it and you'll be given the possibility to assign a vote from 1 to 5 and eventually leave a comment</template>
+    </category>
+
+    <category>
+        <pattern> HOW CAN I GRADE A CIRCUIT</pattern>
+        <topic>*</topic>
+        <that>*</that>
+        <template>You can rate a tour after you partecipate to it, just go to web page dedicated to it and you'll be given the possibility to assign a vote from 1 to 5 and eventually leave a comment</template>
+    </category>
+
+
+    <category>
+        <pattern> HOW DO YOU SELECT THE GUIDES</pattern>
+        <topic>*</topic>
+        <that>*</that>
+        <template>The guides of our community are all professionals, they could be a Licensed Tourist Guide or a Licensed Mountain Guide, according to the theme of the visit which you have chosen</template>
+    </category>
+
+
+    <category>
+        <pattern> I WANT TO CONTACT A GUIDE FOR DATA ABOUT A TOUR</pattern>
+        <topic>*</topic>
+        <that>*</that>
+        <template>Each professional guide of our community has its own profile containing the email you can contact them with</template>
+    </category>
+
+
+    <category>
+        <pattern> I WANT TO CONTACT A GUIDE FOR DATA ABOUT A CIRCUIT</pattern>
+        <topic>*</topic>
+        <that>*</that>
+        <template>Each professional guide of our community has its own profile containing the email you can contact them with</template>
+    </category>
+
+
+    <category>
+        <pattern> I WANT TO BOOK A CIRCUIT</pattern>
+        <topic>*</topic>
+        <that>*</that>
+        <template>Once you find the tour you like, select a date and your native language so that you will be put together with poeple speaking your preferred language. Now you just need to invite friends in order to save money!</template>
+    </category>
+
+    <category>
+        <pattern> HOW DO YOU PICK OUT THE GUIDE</pattern>
+        <topic>*</topic>
+        <that>*</that>
+        <template>The guides of our community are all professionals, they could be a Licensed Tourist Guide or a Licensed Mountain Guide, according to the theme of the visit which you have chosen</template>
+    </category>
+
+    <category>
+        <pattern> HOW DO YOU PICK OUT THE USHER</pattern>
+        <topic>*</topic>
+        <that>*</that>
+        <template>The guides of our community are all professionals, they could be a Licensed Tourist Guide or a Licensed Mountain Guide, according to the theme of the visit which you have chosen</template>
+    </category>
+
+
+    <category>
+        <pattern> WHAT IS BUILDING</pattern>
+        <topic>*</topic>
+        <that>*</that>
+        <template>If you like architecture there are trips in cities which are meant to be an exploration of the buildings that make those cities marvellous</template>
+    </category>
+
+
+    <category>
+        <pattern> I AM CONCERNED WITH ART</pattern>
+        <topic>*</topic>
+        <that>*</that>
+        <template>A lot of people in our community love Art too! For example we provide guided tours in museums</template>
+    </category>
+    <category>
+        <pattern> I AM CONCERNED ABOUT MILAN</pattern>
+        <topic>*</topic>
+        <that>*</that>
+        <template>There are many tours in Milan you can join!</template>
+    </category>
+
+    <category>
+        <pattern> I AM AN USHER</pattern>
+        <topic>*</topic>
+        <that>*</that>
+        <template>If you want to be a guide of our community first you need to register yourself on our system and we will decide if you are okay, in this case you will be able to design your tours and propose them on the website</template>
+    </category>
+
+    <category>
+        <pattern> I AM CONCERNED WITH ROME</pattern>
+        <topic>*</topic>
+        <that>*</that>
+        <template>It's a pity we have no tours regarding rome</template>
+    </category>
 
 </aiml>

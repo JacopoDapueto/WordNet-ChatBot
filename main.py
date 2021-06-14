@@ -1,5 +1,5 @@
 # load my own library
-from chatbot import *
+from wn_integration import *
 from utils import *
 
 # Library used to build the chatbot
@@ -14,7 +14,7 @@ def main():
     # use a user for testing
     client_context = chatbot.create_client_context("testuser")
 
-    #print("> Guido: {}".format(chatbot.process_question(client_context, "Hi")))
+    print("> Guido: {}".format(chatbot.process_question(client_context, "Hi")))
 
     while True:
 

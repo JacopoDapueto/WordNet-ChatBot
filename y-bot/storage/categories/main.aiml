@@ -84,20 +84,23 @@
 	</template>
 </category>
 
+<!--
 <category>
 	<pattern>* WANT * TOUR * </pattern>
 	<template>Oh, There are no tours in that place</template>
 </category>
-
+-->
 <category>
 	<pattern>* GO ^ <set>locations</set></pattern>
 	<template>Great! <srai><star/> LIKE <star index="2"/> <star index="3"/></srai></template>
 </category>
 
+<!--
 <category>
 	<pattern>* GO ^ </pattern>
 	<template>I'm sorry we have no tour there. <srai>TELL ME AVAILABLE CITIES</srai></template>
 </category>
+-->
 
 <category>
 	<pattern>WHERE *</pattern>
@@ -180,7 +183,7 @@
 
 
 <category>
-	<pattern> # HOW ^ GET TO ^ <set>locations</set></pattern>
+	<pattern> HOW ^ GET TO ^ <set>locations</set></pattern>
 	<template>I cannot find a means of transport to get to <star index="4"/></template>
 </category>
 
@@ -294,12 +297,12 @@
 
 
 <category>
-	<pattern>WHO ARE THE GUIDES</pattern>
+	<pattern>WHO ARE THE GUIDE</pattern>
 	<template><srai>HOW DO YOU CHOOSE THE GUIDES</srai></template>
 </category>
 
 <category>
-	<pattern>HOW DO YOU CHOOSE THE GUIDES</pattern>
+	<pattern>HOW DO YOU CHOOSE THE GUIDE</pattern>
 	<template>
 		The guides of our community are all professionals, they could be a Licensed Tourist Guide or a Licensed Mountain Guide, according to the theme of the visit which you have chosen
 	</template>
@@ -331,7 +334,7 @@
 </category>
 
 <category>
-	<pattern>I AM A GUIDE</pattern>
+	<pattern>I AM ^ GUIDE</pattern>
 	<template><srai>HOW CAN I JOIN THE COMMUNITY AS A GUIDE</srai></template>
 </category>
 
@@ -348,4 +351,3 @@
 </category>
 
 </aiml>
-

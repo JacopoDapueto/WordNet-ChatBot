@@ -20,7 +20,7 @@
 </category>
 
 <category>
-    <pattern>I AM AN EXPLORER</pattern>
+    <pattern>I AM ^ EXPLORER</pattern>
     <that>I AM GUIDO ARE YOU A GUIDE O AN EXPLORER</that>
     <template>
         <think><set name="type">EXPLORER</set></think>
@@ -29,7 +29,7 @@
 </category>
 
 <category>
-    <pattern>I AM A GUIDE</pattern>
+    <pattern>I AM ^ GUIDE</pattern>
     <that>I AM GUIDO ARE YOU A GUIDE O AN EXPLORER</that>
     <template>
         <think><set name="type">GUIDE</set></think>
@@ -198,4 +198,3 @@
 
 
 </aiml>
-

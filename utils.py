@@ -2,7 +2,7 @@
 class TermsOfInterest:
     
     # possible words that make sense to be substituted, for efficiency purpose
-    noun_list = ["tour", "art", "discipline", "city", "lodging", "sightseeing", "excursion", "guide", "tariff", "reservation", "informations", "confirmation", "architecture", "hi", "goodbye"]
+    noun_list = ["tour", "art", "discipline", "city", "lodging", "sightseeing", "excursion", "guide", "tariff", "reservation", "information", "confirmation", "architecture", "hi", "goodbye"]
     verb_list = ["organize", "book", "suggest", "rate", "lead", "receive", "cancel", "go", "love", "pay", "choose"] 
     adj_list = ["abroad", "interested"]
 
@@ -32,3 +32,13 @@ class CategoriesOfInterest:
 
     # the pattern used to quit the chatbot
     quit_pattern = "Ok, bye bye!"
+
+# return if the message is not recognise by the chatbot as something meaningful
+def not_recognise(response):
+
+    return (response in CategoriesOfInterest.default_patterns or CategoriesOfInterest.interest_pattern in response)
+
+
+def can_be_learned(response):
+
+    return response not in CategoriesOfInterest.default_patterns
