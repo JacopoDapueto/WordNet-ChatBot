@@ -10,6 +10,15 @@
     </category>
 
     <category>
+        <pattern> HELLO</pattern>
+        <topic>*</topic>
+        <that>*</that>
+        <template><srai>HI</srai></template>
+    </category>
+
+
+
+    <category>
         <pattern> HULLO</pattern>
         <topic>*</topic>
         <that>*</that>
