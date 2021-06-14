@@ -9,14 +9,6 @@
         <template>Hi! I am Guido, are you a guide o an explorer?</template>
     </category>
 
-    <category>
-        <pattern> HELLO</pattern>
-        <topic>*</topic>
-        <that>*</that>
-        <template><srai>HI</srai></template>
-    </category>
-
-
 
     <category>
         <pattern> HULLO</pattern>

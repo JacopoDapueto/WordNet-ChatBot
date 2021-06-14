@@ -1,10 +1,6 @@
 
 # Useful libraries
-import sys
-import os
-import nltk
 import string
-from nltk.grammar import nonterminals
 from nltk.tokenize import RegexpTokenizer
 from nltk.stem import WordNetLemmatizer
 from nltk.corpus import wordnet as wn

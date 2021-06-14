@@ -12,253 +12,6 @@
             "sentences": [
                 {
                     "words": [
-                        "goodbye"
-                    ],
-                    "response": "Ok, bye bye!",
-                    "positivity": 0.0,
-                    "subjectivity": 0.5,
-                    "matched_context": {
-                        "max_search_depth": 100,
-                        "max_search_timeout": 60,
-                        "total_search_start": "13/06/2021, 15:49:08",
-                        "sentence": "goodbye",
-                        "response": "Ok, bye bye!",
-                        "matched_nodes": [
-                            {
-                                "type": "Word",
-                                "node": "ISET words=[BYE,GOODBYE]",
-                                "words": [
-                                    "GOODBYE"
-                                ],
-                                "multi_word": true,
-                                "wild_card": false
-                            },
-                            {
-                                "type": "Word",
-                                "node": "ZEROORMORE [^]",
-                                "words": [],
-                                "multi_word": true,
-                                "wild_card": true
-                            },
-                            {
-                                "type": "Topic",
-                                "node": "ONEORMORE [*]",
-                                "words": [
-                                    "Art"
-                                ],
-                                "multi_word": true,
-                                "wild_card": true
-                            },
-                            {
-                                "type": "That",
-                                "node": "ONEORMORE [*]",
-                                "words": [
-                                    "Can",
-                                    "you",
-                                    "repeat",
-                                    "please"
-                                ],
-                                "multi_word": true,
-                                "wild_card": true
-                            }
-                        ]
-                    }
-                }
-            ],
-            "current_sentence_no": 0,
-            "properties": {}
-        },
-        {
-            "srai": false,
-            "sentences": [
-                {
-                    "words": [
-                        "set",
-                        "the",
-                        "splitter",
-                        "off"
-                    ],
-                    "response": "",
-                    "positivity": 0.0,
-                    "subjectivity": 0.5,
-                    "matched_context": {
-                        "max_search_depth": 100,
-                        "max_search_timeout": 60,
-                        "total_search_start": "13/06/2021, 15:49:08",
-                        "sentence": "set the splitter off",
-                        "response": "",
-                        "matched_nodes": [
-                            {
-                                "type": "Word",
-                                "node": "WORD [SET]",
-                                "words": [
-                                    "set"
-                                ],
-                                "multi_word": false,
-                                "wild_card": false
-                            },
-                            {
-                                "type": "Word",
-                                "node": "WORD [THE]",
-                                "words": [
-                                    "the"
-                                ],
-                                "multi_word": false,
-                                "wild_card": false
-                            },
-                            {
-                                "type": "Word",
-                                "node": "WORD [SPLITTER]",
-                                "words": [
-                                    "splitter"
-                                ],
-                                "multi_word": false,
-                                "wild_card": false
-                            },
-                            {
-                                "type": "Word",
-                                "node": "WORD [OFF]",
-                                "words": [
-                                    "off"
-                                ],
-                                "multi_word": false,
-                                "wild_card": false
-                            },
-                            {
-                                "type": "Topic",
-                                "node": "ONEORMORE [*]",
-                                "words": [
-                                    "Art"
-                                ],
-                                "multi_word": true,
-                                "wild_card": true
-                            },
-                            {
-                                "type": "That",
-                                "node": "ONEORMORE [*]",
-                                "words": [
-                                    "Ok",
-                                    "bye",
-                                    "bye"
-                                ],
-                                "multi_word": true,
-                                "wild_card": true
-                            }
-                        ]
-                    }
-                }
-            ],
-            "current_sentence_no": 0,
-            "properties": {}
-        },
-        {
-            "srai": false,
-            "sentences": [
-                {
-                    "words": [
-                        "relation",
-                        "good",
-                        "day",
-                        "is",
-                        "synonym",
-                        "of",
-                        "goodbye"
-                    ],
-                    "response": "",
-                    "positivity": 0.0,
-                    "subjectivity": 0.5,
-                    "matched_context": {
-                        "max_search_depth": 100,
-                        "max_search_timeout": 60,
-                        "total_search_start": "13/06/2021, 15:49:08",
-                        "sentence": "relation good day is synonym of goodbye",
-                        "response": "",
-                        "matched_nodes": [
-                            {
-                                "type": "Word",
-                                "node": "WORD [RELATION]",
-                                "words": [
-                                    "relation"
-                                ],
-                                "multi_word": false,
-                                "wild_card": false
-                            },
-                            {
-                                "type": "Word",
-                                "node": "ONEORMORE [*]",
-                                "words": [
-                                    "good",
-                                    "day"
-                                ],
-                                "multi_word": true,
-                                "wild_card": true
-                            },
-                            {
-                                "type": "Word",
-                                "node": "WORD [IS]",
-                                "words": [
-                                    "is"
-                                ],
-                                "multi_word": false,
-                                "wild_card": false
-                            },
-                            {
-                                "type": "Word",
-                                "node": "WORD [SYNONYM]",
-                                "words": [
-                                    "synonym"
-                                ],
-                                "multi_word": false,
-                                "wild_card": false
-                            },
-                            {
-                                "type": "Word",
-                                "node": "WORD [OF]",
-                                "words": [
-                                    "of"
-                                ],
-                                "multi_word": false,
-                                "wild_card": false
-                            },
-                            {
-                                "type": "Word",
-                                "node": "ZEROORMORE [^]",
-                                "words": [
-                                    "goodbye"
-                                ],
-                                "multi_word": true,
-                                "wild_card": true
-                            },
-                            {
-                                "type": "Topic",
-                                "node": "ONEORMORE [*]",
-                                "words": [
-                                    "Art"
-                                ],
-                                "multi_word": true,
-                                "wild_card": true
-                            },
-                            {
-                                "type": "That",
-                                "node": "ONEORMORE [*]",
-                                "words": [
-                                    "*"
-                                ],
-                                "multi_word": true,
-                                "wild_card": true
-                            }
-                        ]
-                    }
-                }
-            ],
-            "current_sentence_no": 0,
-            "properties": {}
-        },
-        {
-            "srai": false,
-            "sentences": [
-                {
-                    "words": [
                         "set",
                         "the",
                         "splitter",
@@ -9248,6 +9001,122 @@
                                     "contains",
                                     "134",
                                     "categories"
+                                ],
+                                "multi_word": true,
+                                "wild_card": true
+                            }
+                        ]
+                    }
+                }
+            ],
+            "current_sentence_no": 0,
+            "properties": {}
+        },
+        {
+            "srai": false,
+            "sentences": [
+                {
+                    "words": [
+                        "hi"
+                    ],
+                    "response": "Hi! I am Guido , are you a guide o an explorer?",
+                    "positivity": 0.0,
+                    "subjectivity": 0.5,
+                    "matched_context": {
+                        "max_search_depth": 1000,
+                        "max_search_timeout": 600,
+                        "total_search_start": "14/06/2021, 11:49:31",
+                        "sentence": "hi",
+                        "response": "Hi! I am Guido , are you a guide o an explorer?",
+                        "matched_nodes": [
+                            {
+                                "type": "Word",
+                                "node": "WORD [HI]",
+                                "words": [
+                                    "hi"
+                                ],
+                                "multi_word": false,
+                                "wild_card": false
+                            },
+                            {
+                                "type": "Topic",
+                                "node": "ONEORMORE [*]",
+                                "words": [
+                                    "Architecture"
+                                ],
+                                "multi_word": true,
+                                "wild_card": true
+                            },
+                            {
+                                "type": "That",
+                                "node": "ONEORMORE [*]",
+                                "words": [
+                                    "My",
+                                    "brain",
+                                    "contains",
+                                    "134",
+                                    "categories"
+                                ],
+                                "multi_word": true,
+                                "wild_card": true
+                            }
+                        ]
+                    }
+                }
+            ],
+            "current_sentence_no": 0,
+            "properties": {}
+        },
+        {
+            "srai": false,
+            "sentences": [
+                {
+                    "words": [
+                        "hi"
+                    ],
+                    "response": "Hi! I am Guido , are you a guide o an explorer?",
+                    "positivity": 0.0,
+                    "subjectivity": 0.5,
+                    "matched_context": {
+                        "max_search_depth": 1000,
+                        "max_search_timeout": 600,
+                        "total_search_start": "14/06/2021, 11:49:31",
+                        "sentence": "hi",
+                        "response": "Hi! I am Guido , are you a guide o an explorer?",
+                        "matched_nodes": [
+                            {
+                                "type": "Word",
+                                "node": "WORD [HI]",
+                                "words": [
+                                    "hi"
+                                ],
+                                "multi_word": false,
+                                "wild_card": false
+                            },
+                            {
+                                "type": "Topic",
+                                "node": "ONEORMORE [*]",
+                                "words": [
+                                    "Architecture"
+                                ],
+                                "multi_word": true,
+                                "wild_card": true
+                            },
+                            {
+                                "type": "That",
+                                "node": "ONEORMORE [*]",
+                                "words": [
+                                    "Hi",
+                                    "I",
+                                    "am",
+                                    "Guido",
+                                    "are",
+                                    "you",
+                                    "a",
+                                    "guide",
+                                    "o",
+                                    "an",
+                                    "explorer"
                                 ],
                                 "multi_word": true,
                                 "wild_card": true
