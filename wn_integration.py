@@ -53,6 +53,7 @@ def learn_pattern(chatbot, client_context, message):
 
     return False
 
+# return if the sentence is learned,and perform the learning
 def is_learned(chatbot, client_context, message, base_message, relation):
 
     # first check that such a pattern already exist
@@ -60,10 +61,6 @@ def is_learned(chatbot, client_context, message, base_message, relation):
 
     # the new category can be learned
     if can_be_learned(new_response):
-
-        # removing punctuation from the messages
-        message = message.translate(dict((ord(char), None) for char in string.punctuation))
-        base_message = base_message.translate(dict((ord(char), None) for char in string.punctuation))
 
         # disable splitting to avoid erroneous pattern to be learned
         chatbot.process_question(client_context, CategoriesOfInterest.disable_splitting)
@@ -77,7 +74,7 @@ def is_learned(chatbot, client_context, message, base_message, relation):
 
     return False
 
-
+# return if it find a lexical relation for one of grammar category
 def find_lexical_relation(word, message, type=Relations.SYNONYM):
 
     # Lemming words as Nouns
@@ -147,6 +144,8 @@ def lexical_relation(word, word_lemm, baseline_words, message, key = wn.NOUN, ty
     
     return False, ""
   
+
+# substitute the word in the message with its synonym 
 def replace_synonymy(word, word_lemm, baseline, message, synset):
 
     if word_lemm in synset.lemma_names():
@@ -166,6 +165,7 @@ def replace_synonymy(word, word_lemm, baseline, message, synset):
 
     return False, ""
 
+# substitute the word in the message with its hyponym 
 def replace_hyponymy(word, word_lemm, baseline, message, synset):
 
     hypos = synset.hyponyms()
@@ -188,6 +188,7 @@ def replace_hyponymy(word, word_lemm, baseline, message, synset):
 
     return False, ""
 
+# substitute the word in the message with its hypernym 
 def replace_hypernym(word, word_lemm, baseline, message, synset):
 
     hypers = synset.hypernyms()
@@ -209,6 +210,7 @@ def replace_hypernym(word, word_lemm, baseline, message, synset):
 
     return False, ""
 
+# return a list of lemmatized words
 def Lemmatization_list(word_list, pos):
 
     # Lemming using WordNet 
@@ -216,14 +218,14 @@ def Lemmatization_list(word_list, pos):
 
     return [lemmatizer.lemmatize(word, pos = pos) for word in word_list]
 
-
+# lemming a single word
 def Lemmatization_word(word, pos):
 
     # Lemming using WordNet 
     lemmatizer = WordNetLemmatizer()
     return lemmatizer.lemmatize(word, pos = pos)
 
-
+# it find and replace a collocation in the message, if any
 def replace_collocation(lemma_names, word, word_lemm, baseline, message):
 
     for lemma in lemma_names:

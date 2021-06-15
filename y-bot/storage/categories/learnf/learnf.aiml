@@ -526,14 +526,12 @@
         <template>The guides of our community are all professionals, they could be a Licensed Tourist Guide or a Licensed Mountain Guide, according to the theme of the visit which you have chosen</template>
     </category>
 
-
     <category>
         <pattern> WHAT IS BUILDING</pattern>
         <topic>*</topic>
         <that>*</that>
         <template>If you like architecture there are trips in cities which are meant to be an exploration of the buildings that make those cities marvellous</template>
     </category>
-
 
     <category>
         <pattern> I AM CONCERNED WITH ART</pattern>
