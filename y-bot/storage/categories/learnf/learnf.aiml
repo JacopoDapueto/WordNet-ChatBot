@@ -73,7 +73,6 @@
         <template>Now you just need to select a date and join or create a group of at least 5 people. Enjoy your experience!</template>
     </category>
 
-
     <category>
         <pattern> I AM A USHER</pattern>
         <topic>*</topic>
@@ -560,43 +559,452 @@
         <template>It's a pity we have no tours regarding rome</template>
     </category>
 
+    <category>
+        <pattern> I WANT TO TRAVEL TO PARIS</pattern>
+        <topic>*</topic>
+        <that>*</that>
+        <template>Great! Have a look at the available tours in Paris</template>
+    </category>
 
-<category><pattern> CAN YOU ADVISE US SOMETHING</pattern><topic>*</topic><that>*</that><template>Do you have any particular interest?</template></category>
+    <category>
+        <pattern> I WANT TO MOVE TO MILAN</pattern>
+        <topic>*</topic>
+        <that>*</that>
+        <template>Great! There are many tours in Milan you can join!</template>
+    </category>
 
-
-<category><pattern> I CARE ABOUT ART</pattern><topic>*</topic><that>*</that><template>A lot of people in our community love Art too! For example we provide guided tours in museums</template></category>
-
-
-<category><pattern> HOW CAN YOU ASSIST ME</pattern><topic>*</topic><that>*</that><template>Guido helps you to find a guided tours wherever you are, whereby you can join in a group to save money and time</template></category>
-
-<category><pattern> HOW CAN YOU SERVE ME</pattern><topic>*</topic><that>*</that><template>Guido helps you to find a guided tours wherever you are, whereby you can join in a group to save money and time</template></category>
-
-
-<category><pattern> HOW CAN YOU FACILITATE ME</pattern><topic>*</topic><that>*</that><template>Guido helps you to find a guided tours wherever you are, whereby you can join in a group to save money and time</template></category>
-
-
-<category><pattern> WHICH HELP DO YOU PROVIDE</pattern><topic>*</topic><that>*</that><template>Guido helps you to find a guided tours wherever you are, whereby you can join in a group to save money and time</template></category><category>
-
-
-<pattern> WHICH AVAIL DO YOU PROVIDE</pattern><topic>*</topic><that>*</that><template>Guido helps you to find a guided tours wherever you are, whereby you can join in a group to save money and time</template></category>
-
-
-<category><pattern> CAN YOU FIND OUT ME A HOUSING</pattern><topic>*</topic><that>*</that><template>Ouh, We don't provide such a service, I'm sorry but finding an accomodation it's up to you. Our services regards only guided tours</template></category>
-
-<category><pattern> CAN YOU FIND OUT ME A LIVING ACCOMMODATIONS</pattern><topic>*</topic><that>*</that><template>Ouh, We don't provide such a service, I'm sorry but finding an accomodation it's up to you. Our services regards only guided tours</template></category>
-
-<category><pattern> CAN YOU DISCOVER ME A HOUSING</pattern><topic>*</topic><that>*</that><template>Ouh, We don't provide such a service, I'm sorry but finding an accomodation it's up to you. Our services regards only guided tours</template></category>
-
-<category><pattern> CAN YOU DISCOVER ME A LIVING ACCOMMODATIONS</pattern><topic>*</topic><that>*</that><template>Ouh, We don't provide such a service, I'm sorry but finding an accomodation it's up to you. Our services regards only guided tours</template></category>
-
-<category><pattern> CAN YOU GET ME A HOUSING</pattern><topic>*</topic><that>*</that><template>Ouh, We don't provide such a service, I'm sorry but finding an accomodation it's up to you. Our services regards only guided tours</template></category>
-
-<category><pattern> CAN YOU GET ME A LIVING ACCOMMODATIONS</pattern><topic>*</topic><that>*</that><template>Ouh, We don't provide such a service, I'm sorry but finding an accomodation it's up to you. Our services regards only guided tours</template></category>
+    <category>
+        <pattern> I WANT TO MOVE TO PARIS</pattern>
+        <topic>*</topic>
+        <that>*</that>
+        <template>Great! There are many tours in Paris you can join!</template>
+    </category>
 
 
-<category><pattern> ARE THERE CIRCUIT ABROAD</pattern><topic>*</topic><that>*</that><template>Yes! We have some tours placed in Paris, they can be carried out both in italian and french</template></category>
+    <category>
+        <pattern> CAN YOU ADVISE US SOMETHING</pattern>
+        <topic>*</topic>
+        <that>*</that>
+        <template>Do you have any particular interest?</template>
+    </category>
 
-<category><pattern> ARE THERE CIRCUIT OVERSEAS</pattern><topic>*</topic><that>*</that><template>Yes! We have some tours placed in Paris, they can be carried out both in italian and french</template></category>
 
+    <category>
+        <pattern> I CARE ABOUT ART</pattern>
+        <topic>*</topic>
+        <that>*</that>
+        <template>A lot of people in our community love Art too! For example we provide guided tours in museums</template>
+    </category>
+
+
+    <category>
+        <pattern> HOW CAN YOU ASSIST ME</pattern>
+        <topic>*</topic>
+        <that>*</that>
+        <template>Guido helps you to find a guided tours wherever you are, whereby you can join in a group to save money and time</template>
+    </category>
+
+    <category>
+        <pattern> HOW CAN YOU SERVE ME</pattern>
+        <topic>*</topic>
+        <that>*</that>
+        <template>Guido helps you to find a guided tours wherever you are, whereby you can join in a group to save money and time</template>
+    </category>
+
+
+    <category>
+        <pattern> HOW CAN YOU FACILITATE ME</pattern>
+        <topic>*</topic>
+        <that>*</that>
+        <template>Guido helps you to find a guided tours wherever you are, whereby you can join in a group to save money and time</template>
+    </category>
+
+
+    <category>
+        <pattern> WHICH HELP DO YOU PROVIDE</pattern>
+        <topic>*</topic>
+        <that>*</that>
+        <template>Guido helps you to find a guided tours wherever you are, whereby you can join in a group to save money and time</template>
+    </category>
+    <category>
+
+
+        <pattern> WHICH AVAIL DO YOU PROVIDE</pattern>
+        <topic>*</topic>
+        <that>*</that>
+        <template>Guido helps you to find a guided tours wherever you are, whereby you can join in a group to save money and time</template>
+    </category>
+
+
+    <category>
+        <pattern> CAN YOU FIND OUT ME A HOUSING</pattern>
+        <topic>*</topic>
+        <that>*</that>
+        <template>Ouh, We don't provide such a service, I'm sorry but finding an accomodation it's up to you. Our services regards only guided tours</template>
+    </category>
+
+    <category>
+        <pattern> CAN YOU FIND OUT ME A LIVING ACCOMMODATIONS</pattern>
+        <topic>*</topic>
+        <that>*</that>
+        <template>Ouh, We don't provide such a service, I'm sorry but finding an accomodation it's up to you. Our services regards only guided tours</template>
+    </category>
+
+    <category>
+        <pattern> CAN YOU DISCOVER ME A HOUSING</pattern>
+        <topic>*</topic>
+        <that>*</that>
+        <template>Ouh, We don't provide such a service, I'm sorry but finding an accomodation it's up to you. Our services regards only guided tours</template>
+    </category>
+
+    <category>
+        <pattern> CAN YOU DISCOVER ME A LIVING ACCOMMODATIONS</pattern>
+        <topic>*</topic>
+        <that>*</that>
+        <template>Ouh, We don't provide such a service, I'm sorry but finding an accomodation it's up to you. Our services regards only guided tours</template>
+    </category>
+
+    <category>
+        <pattern> CAN YOU GET ME A HOUSING</pattern>
+        <topic>*</topic>
+        <that>*</that>
+        <template>Ouh, We don't provide such a service, I'm sorry but finding an accomodation it's up to you. Our services regards only guided tours</template>
+    </category>
+
+    <category>
+        <pattern> CAN YOU GET ME A LIVING ACCOMMODATIONS</pattern>
+        <topic>*</topic>
+        <that>*</that>
+        <template>Ouh, We don't provide such a service, I'm sorry but finding an accomodation it's up to you. Our services regards only guided tours</template>
+    </category>
+
+
+    <category>
+        <pattern> ARE THERE CIRCUIT ABROAD</pattern>
+        <topic>*</topic>
+        <that>*</that>
+        <template>Yes! We have some tours placed in Paris, they can be carried out both in italian and french</template>
+    </category>
+
+
+    <category>
+        <pattern> ARE THERE ANY OUTING IN GENOA</pattern>
+        <topic>*</topic>
+        <that>*</that>
+        <template>It could be, let's check out on the web page. Usually they are related to Nature, Archeology disciplines</template>
+    </category>
+
+
+    <category>
+        <pattern> ARE THERE ANY EXPEDITION IN GENOA</pattern>
+        <topic>*</topic>
+        <that>*</that>
+        <template>It could be, let's check out on the web page. Usually they are related to Nature, Archeology disciplines</template>
+    </category>
+
+    <category>
+        <pattern> ARE THERE CIRCUIT OVERSEAS</pattern>
+        <topic>*</topic>
+        <that>*</that>
+        <template>Yes! We have some tours placed in Paris, they can be carried out both in italian and french</template>
+    </category>
+
+
+    <category>
+        <pattern> IS THERE A GUARANTEED MAXIMUM TARIFF I WILL GIVE FOR A TOUR</pattern>
+        <topic>*</topic>
+        <that>*</that>
+        <template>Ideally we would never want to charge more than 8-10 euros per person/hour of the tour</template>
+    </category>
+
+    <category>
+        <pattern> IS THERE A GUARANTEED MAXIMUM TARIFF I WILL GIVE FOR A CIRCUIT</pattern>
+        <topic>*</topic>
+        <that>*</that>
+        <template>Ideally we would never want to charge more than 8-10 euros per person/hour of the tour</template>
+    </category>
+
+    <category>
+        <pattern> IS THERE A GUARANTEED MAXIMUM DUTY I WILL GIVE FOR A TOUR</pattern>
+        <topic>*</topic>
+        <that>*</that>
+        <template>Ideally we would never want to charge more than 8-10 euros per person/hour of the tour</template>
+    </category>
+
+
+    <category>
+        <pattern> WHAT ABOUT PAINTING</pattern>
+        <topic>*</topic>
+        <that>*</that>
+        <template>For example we provide guided tours in museums</template>
+    </category>
+
+    <category>
+        <pattern> WHAT ABOUT MOSAIC</pattern>
+        <topic>*</topic>
+        <that>*</that>
+        <template>For example we provide guided tours in art galleries</template>
+    </category>
+
+    <category>
+        <pattern> WHAT ABOUT INTERIOR DESIGN</pattern>
+        <topic>*</topic>
+        <that>*</that>
+        <template>If you like architecture there are trips in cities which are meant to be an exploration of the buildings that make those cities marvellous</template>
+    </category>
+
+
+    <category>
+        <pattern> I WANT TO RANK A TOUR</pattern>
+        <topic>*</topic>
+        <that>*</that>
+        <template>You can rate a tour after you partecipate to it, just go to web page dedicated to it and you'll be given the possibility to assign a vote from 1 to 5 and eventually leave a comment</template>
+    </category>
+
+    <category>
+        <pattern> I WANT TO RANK A CIRCUIT</pattern>
+        <topic>*</topic>
+        <that>*</that>
+        <template>You can rate a tour after you partecipate to it, just go to web page dedicated to it and you'll be given the possibility to assign a vote from 1 to 5 and eventually leave a comment</template>
+    </category>
+
+
+    <category>
+        <pattern> WHEN WILL I GET CONFIRMATION FOR A TOUR</pattern>
+        <topic>*</topic>
+        <that>*</that>
+        <template>Confirmation of the start of the tour will be sent by sms or by email when at least 5 participants have been added to the tour</template>
+    </category>
+
+    <category>
+        <pattern> WHEN WILL I GET CONFIRMATION FOR A CIRCUIT</pattern>
+        <topic>*</topic>
+        <that>*</that>
+        <template>Confirmation of the start of the tour will be sent by sms or by email when at least 5 participants have been added to the tour</template>
+    </category>
+
+    <category>
+        <pattern> WHEN WILL I GET VERIFICATION FOR A TOUR</pattern>
+        <topic>*</topic>
+        <that>*</that>
+        <template>Confirmation of the start of the tour will be sent by sms or by email when at least 5 participants have been added to the tour</template>
+    </category>
+
+    <category>
+        <pattern> I WANT TO VALUE A TOUR</pattern>
+        <topic>*</topic>
+        <that>*</that>
+        <template>You can rate a tour after you partecipate to it, just go to web page dedicated to it and you'll be given the possibility to assign a vote from 1 to 5 and eventually leave a comment</template>
+    </category>
+
+
+    <category>
+        <pattern> I WANT TO VALUE A CIRCUIT</pattern>
+        <topic>*</topic>
+        <that>*</that>
+        <template>You can rate a tour after you partecipate to it, just go to web page dedicated to it and you'll be given the possibility to assign a vote from 1 to 5 and eventually leave a comment</template>
+    </category>
+
+    <category>
+        <pattern> WHEN WILL I GET CHECK FOR A TOUR</pattern>
+        <topic>*</topic>
+        <that>*</that>
+        <template>Confirmation of the start of the tour will be sent by sms or by email when at least 5 participants have been added to the tour</template>
+    </category>
+
+    <category>
+        <pattern> WHEN WILL I GET VERIFICATION FOR A CIRCUIT</pattern>
+        <topic>*</topic>
+        <that>*</that>
+        <template>Confirmation of the start of the tour will be sent by sms or by email when at least 5 participants have been added to the tour</template>
+    </category>
+
+    <category>
+        <pattern> WHEN WILL I GET CHECK FOR A CIRCUIT</pattern>
+        <topic>*</topic>
+        <that>*</that>
+        <template>Confirmation of the start of the tour will be sent by sms or by email when at least 5 participants have been added to the tour</template>
+    </category>
+
+
+    <category>
+        <pattern> WHEN WILL I OBTAIN CONFIRMATION FOR A TOUR</pattern>
+        <topic>*</topic>
+        <that>*</that>
+        <template>Confirmation of the start of the tour will be sent by sms or by email when at least 5 participants have been added to the tour</template>
+    </category>
+
+    <category>
+        <pattern> WHICH SERVICE DO YOU OFFER</pattern>
+        <topic>*</topic>
+        <that>*</that>
+        <template>Guido helps you to find a guided tours wherever you are, whereby you can join in a group to save money and time</template>
+    </category>
+
+    <category>
+        <pattern> WHICH SERVICE DO YOU RENDER</pattern>
+        <topic>*</topic>
+        <that>*</that>
+        <template>Guido helps you to find a guided tours wherever you are, whereby you can join in a group to save money and time</template>
+    </category>
+
+
+    <category>
+        <pattern> WHEN WILL I OBTAIN CONFIRMATION FOR A CIRCUIT</pattern>
+        <topic>*</topic>
+        <that>*</that>
+        <template>Confirmation of the start of the tour will be sent by sms or by email when at least 5 participants have been added to the tour</template>
+    </category>
+
+    <category>
+        <pattern> WHEN WILL I OBTAIN CHECK FOR A TOUR</pattern>
+        <topic>*</topic>
+        <that>*</that>
+        <template>Confirmation of the start of the tour will be sent by sms or by email when at least 5 participants have been added to the tour</template>
+    </category>
+
+    <category>
+        <pattern> WHICH HELP DO YOU OFFER</pattern>
+        <topic>*</topic>
+        <that>*</that>
+        <template>Guido helps you to find a guided tours wherever you are, whereby you can join in a group to save money and time</template>
+    </category>
+
+    <category>
+        <pattern> WHEN WILL I HAVE CONFIRMATION FOR A TOUR</pattern>
+        <topic>*</topic>
+        <that>*</that>
+        <template>Confirmation of the start of the tour will be sent by sms or by email when at least 5 participants have been added to the tour</template>
+    </category>
+
+    <category>
+        <pattern> WHICH HELP DO YOU RENDER</pattern>
+        <topic>*</topic>
+        <that>*</that>
+        <template>Guido helps you to find a guided tours wherever you are, whereby you can join in a group to save money and time</template>
+    </category>
+
+    <category>
+        <pattern> WHEN WILL I HAVE CONFIRMATION FOR A CIRCUIT</pattern>
+        <topic>*</topic>
+        <that>*</that>
+        <template>Confirmation of the start of the tour will be sent by sms or by email when at least 5 participants have been added to the tour</template>
+    </category>
+
+    <category>
+        <pattern> WHAT ABOUT ARCHAEOLOGY</pattern>
+        <topic>*</topic>
+        <that>*</that>
+        <template>In italy we have many archeological sites we can explore with experts!</template>
+    </category>
+
+    <category>
+        <pattern> WHEN WILL I HAVE CHECK FOR A CIRCUIT</pattern>
+        <topic>*</topic>
+        <that>*</that>
+        <template>Confirmation of the start of the tour will be sent by sms or by email when at least 5 participants have been added to the tour</template>
+    </category>
+
+    <category>
+        <pattern> WHEN WILL I HAVE VERIFICATION FOR A TOUR</pattern>
+        <topic>*</topic>
+        <that>*</that>
+        <template>Confirmation of the start of the tour will be sent by sms or by email when at least 5 participants have been added to the tour</template>
+    </category>
+
+    <category>
+        <pattern> TELL ABOUT THE HERITAGE FIELD</pattern>
+        <topic>*</topic>
+        <that>*</that>
+        <template>We provide tours involving different topics: such as art, architecture, history, archeology, science, nature and gastronomy.</template>
+    </category>
+
+
+    <category>
+        <pattern> TELL ME WHAT HERITAGE SUBJECT ARE</pattern>
+        <topic>*</topic>
+        <that>*</that>
+        <template>We provide tours involving different topics: such as art, architecture, history, archeology, science, nature and gastronomy.</template>
+    </category>
+
+
+    <category>
+        <pattern> WHAT ARE THE HERITAGE SUBJECTS</pattern>
+        <topic>*</topic>
+        <that>*</that>
+        <template>We provide tours involving different topics: such as art, architecture, history, archeology, science, nature and gastronomy.</template>
+    </category>
+
+    <category>
+        <pattern> WHAT ARE THE HERITAGE FIELDS</pattern>
+        <topic>*</topic>
+        <that>*</that>
+        <template>We provide tours involving different topics: such as art, architecture, history, archeology, science, nature and gastronomy.</template>
+    </category>
+
+
+    <category>
+        <pattern> WHEN WILL I HAVE VERIFICATION FOR A CIRCUIT</pattern>
+        <topic>*</topic>
+        <that>*</that>
+        <template>Confirmation of the start of the tour will be sent by sms or by email when at least 5 participants have been added to the tour</template>
+    </category>
+
+    <category>
+        <pattern> I AM AN ADVENTURER</pattern>
+        <topic>*</topic>
+        <that>*</that>
+        <template>I am here to help you in finding a guided tour led by a professional guide</template>
+    </category>
+
+    <category>
+        <pattern> I LIKE ARCHAEOLOGY</pattern>
+        <topic>*</topic>
+        <that>*</that>
+        <template>If you are keen on archeology you must partecipate to one of the proposed guided visits in one of the most famous archeological site in the world! Pompei, in Campania.
+        </template>
+    </category>
+
+    <category>
+        <pattern> I FOUND THE TOUR I WAS CONCERNED WITH</pattern>
+        <topic>*</topic>
+        <that>*</that>
+        <template>Now you just need to select a date and join or create a group of at least 5 people. Enjoy your experience!</template>
+    </category>
+
+    <category>
+        <pattern> I FOUND THE CIRCUIT I WAS CONCERNED WITH</pattern>
+        <topic>*</topic>
+        <that>*</that>
+        <template>Now you just need to select a date and join or create a group of at least 5 people. Enjoy your experience!</template>
+    </category>
+
+    <category>
+        <pattern> CAN YOU DISCOVER ME A TOUR</pattern>
+        <topic>*</topic>
+        <that>*</that>
+        <template>Choose the tour that best suits you</template>
+    </category>
+
+    <category>
+        <pattern> CAN YOU DISCOVER ME A CIRCUIT</pattern>
+        <topic>*</topic>
+        <that>*</that>
+        <template>Choose the tour that best suits you</template>
+    </category>
+
+    <category>
+        <pattern> CAN YOU RETRIEVE ME A TOUR</pattern>
+        <topic>*</topic>
+        <that>*</that>
+        <template>Choose the tour that best suits you</template>
+    </category>
+
+    <category>
+        <pattern> CAN YOU COME UP WITH A TOUR</pattern>
+        <topic>*</topic>
+        <that>*</that>
+        <template>Choose the tour that best suits you</template>
+    </category>
 
 </aiml>

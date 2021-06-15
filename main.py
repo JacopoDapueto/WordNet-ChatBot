@@ -14,12 +14,12 @@ def main():
     # use a user for testing
     client_context = chatbot.create_client_context("testuser")
 
-    print("> Guido: {}".format(chatbot.process_question(client_context, "Hi")))
+    print( "\033[94m> Guido: \033[0m{}".format(chatbot.process_question(client_context, "Hi")))
 
     while True:
 
         # get the message from the user and let the chatbot digests it
-        message = input("> You: ")
+        message = input("\033[95m> You: \033[0m")
 
         # split the message and possibily learn new patterns
         split_and_learn_sentences(chatbot, client_context, message)
@@ -29,7 +29,8 @@ def main():
 
         if response:
             # in any case print the response 
-            print("> Guido: {}".format(response))
+            print("\033[94m> Guido: \033[0m{}".format(response))
+            print()
 
         # message to exit
         if response == CategoriesOfInterest.quit_pattern:
@@ -44,6 +45,7 @@ def split_and_learn_sentences(chatbot, client_context, message):
 
     # split the sentence into smaller sentences according to the punctuation
     senteces_list = client_context.bot.sentence_splitter.split(pre_processed_sentence) 
+
 
     for sentence in senteces_list:
         response = chatbot.process_question(client_context, sentence)

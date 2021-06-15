@@ -1,6 +1,5 @@
 
 # Useful libraries
-import string
 from nltk.tokenize import RegexpTokenizer
 from nltk.stem import WordNetLemmatizer
 from nltk.corpus import wordnet as wn
@@ -18,7 +17,6 @@ def learn_pattern(chatbot, client_context, message):
 
 
     # find synonym for each word
-
     for word in words_list:
         is_syn, base_message = find_lexical_relation(word, message, Relations.SYNONYM)
 
@@ -59,7 +57,6 @@ def is_learned(chatbot, client_context, message, base_message, relation):
     # first check that such a pattern already exist
     new_response = chatbot.process_question(client_context, base_message)
 
-    print(base_message)
     # the new category can be learned
     if can_be_learned(new_response):
 
@@ -96,7 +93,6 @@ def find_lexical_relation(word, message, type=Relations.SYNONYM):
     is_rel, new_message = lexical_relation(word, word_noun, TermsOfInterest.noun_list, message, wn.NOUN, type)
 
     if is_rel:
-        print(new_message)
         return True, new_message
 
     # find relation for Verbs
@@ -129,6 +125,7 @@ def lexical_relation(word, word_lemm, baseline_words, message, key = wn.NOUN, ty
         # check if there is a synset containing both relating "word" and "baseline"
         for synset in synset_list:
 
+
             if type == Relations.SYNONYM:
                 replaced , new_message = replace_synonymy(word, word_lemm, baseline, message, synset)
 
@@ -149,6 +146,7 @@ def lexical_relation(word, word_lemm, baseline_words, message, key = wn.NOUN, ty
 # substitute the word in the message with its synonym 
 def replace_synonymy(word, word_lemm, baseline, message, synset):
 
+    
     if word_lemm in synset.lemma_names():
 
         # replace all instances of "word" with "baseline"

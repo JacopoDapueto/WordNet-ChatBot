@@ -130,7 +130,7 @@
 </category>
 
 <category>
-	<pattern>* HERITAGE DISCIPLINE</pattern>
+	<pattern>* HERITAGE DISCIPLINE ^</pattern>
 	<template><srai>CAN YOU TELL MORE ABOUT THE HERITAGE DISCIPLINE</srai></template>
 </category>
 
@@ -146,7 +146,7 @@
 
 <category>
 	<pattern>* FIND ^ <iset words="TOUR, ACTIVITY" /> ^ </pattern>
-	<template>Choose the tour that best suits you</template>
+	<template>I cannot select a tour on your behalf, choose the tour that best suits you!</template>
 </category>
 
 <category>
@@ -214,7 +214,6 @@
 <category>
 	<pattern>* SIGHTSEEING ^ <set>locations</set></pattern>
 	<template> <srai> <star index="1"/>LOOKING FOR SIGHTSEEING IN <star index="3"/></srai></template>
-
 </category>
 
 <category>

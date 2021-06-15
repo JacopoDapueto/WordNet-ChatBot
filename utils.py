@@ -3,8 +3,8 @@ class TermsOfInterest:
     # Ground terms
 
     # possible words that make sense to be substituted, for efficiency purpose
-    noun_list = ["tour", "art", "discipline", "city", "lodging", "sightseeing", "excursion", "guide", "tariff", "reservation", "information", "confirmation", "architecture", "service","hi", "goodbye"]
-    verb_list = ["organize", "book", "suggest", "rate", "lead", "receive", "cancel", "go", "love", "pay", "choose", "like", "help", "find"] 
+    noun_list = ["tour", "art", "discipline", "city", "lodging", "sightseeing", "excursion", "guide", "tariff", "reservation", "information", "confirmation", "architecture", "service", "archeology", "explorer", "hi", "goodbye"]
+    verb_list = ["organize", "book", "suggest", "rate", "lead", "receive", "cancel", "go", "love", "pay", "choose", "like", "help", "find", "provide"] 
     adj_list = ["abroad", "interested"]
 
 
