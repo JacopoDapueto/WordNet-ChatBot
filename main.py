@@ -40,8 +40,10 @@ def main():
 # and it check if each chunck can be learned as new pattern
 def split_and_learn_sentences(chatbot, client_context, message):
 
+    pre_processed_sentence = client_context.bot.pre_process_text(client_context, message, srai=False)
+
     # split the sentence into smaller sentences according to the punctuation
-    senteces_list = client_context.bot.sentence_splitter.split(message)
+    senteces_list = client_context.bot.sentence_splitter.split(pre_processed_sentence) 
 
     for sentence in senteces_list:
         response = chatbot.process_question(client_context, sentence)

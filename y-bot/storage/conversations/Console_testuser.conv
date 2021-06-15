@@ -12,388 +12,6 @@
             "sentences": [
                 {
                     "words": [
-                        "i",
-                        "rate",
-                        "concerned",
-                        "with",
-                        "geography"
-                    ],
-                    "response": "Can you repeat, please?",
-                    "positivity": 0.0,
-                    "subjectivity": 0.5,
-                    "matched_context": {
-                        "max_search_depth": 1000,
-                        "max_search_timeout": 600,
-                        "total_search_start": "14/06/2021, 17:36:04",
-                        "sentence": "i rate concerned with geography",
-                        "response": "Can you repeat, please?",
-                        "matched_nodes": [
-                            {
-                                "type": "Word",
-                                "node": "ONEORMORE [*]",
-                                "words": [
-                                    "i",
-                                    "rate",
-                                    "concerned",
-                                    "with",
-                                    "geography"
-                                ],
-                                "multi_word": true,
-                                "wild_card": true
-                            },
-                            {
-                                "type": "Topic",
-                                "node": "ONEORMORE [*]",
-                                "words": [
-                                    "Art"
-                                ],
-                                "multi_word": true,
-                                "wild_card": true
-                            },
-                            {
-                                "type": "That",
-                                "node": "ONEORMORE [*]",
-                                "words": [
-                                    "It",
-                                    "s",
-                                    "a",
-                                    "pity",
-                                    "we",
-                                    "have",
-                                    "no",
-                                    "tours",
-                                    "regarding",
-                                    "with",
-                                    "geography"
-                                ],
-                                "multi_word": true,
-                                "wild_card": true
-                            }
-                        ]
-                    }
-                }
-            ],
-            "current_sentence_no": 0,
-            "properties": {}
-        },
-        {
-            "srai": false,
-            "sentences": [
-                {
-                    "words": [
-                        "i",
-                        "am",
-                        "concerned",
-                        "with",
-                        "geography"
-                    ],
-                    "response": "I don\u2019t understand",
-                    "positivity": 0.0,
-                    "subjectivity": 0.5,
-                    "matched_context": {
-                        "max_search_depth": 1000,
-                        "max_search_timeout": 600,
-                        "total_search_start": "14/06/2021, 17:36:04",
-                        "sentence": "i am concerned with geography",
-                        "response": "I don\u2019t understand",
-                        "matched_nodes": [
-                            {
-                                "type": "Word",
-                                "node": "ONEORMORE [*]",
-                                "words": [
-                                    "i",
-                                    "am",
-                                    "concerned",
-                                    "with",
-                                    "geography"
-                                ],
-                                "multi_word": true,
-                                "wild_card": true
-                            },
-                            {
-                                "type": "Topic",
-                                "node": "ONEORMORE [*]",
-                                "words": [
-                                    "Art"
-                                ],
-                                "multi_word": true,
-                                "wild_card": true
-                            },
-                            {
-                                "type": "That",
-                                "node": "ONEORMORE [*]",
-                                "words": [
-                                    "Can",
-                                    "you",
-                                    "repeat",
-                                    "please"
-                                ],
-                                "multi_word": true,
-                                "wild_card": true
-                            }
-                        ]
-                    }
-                }
-            ],
-            "current_sentence_no": 0,
-            "properties": {}
-        },
-        {
-            "srai": false,
-            "sentences": [
-                {
-                    "words": [
-                        "i",
-                        "am",
-                        "concerned"
-                    ],
-                    "response": "Can you repeat, please?",
-                    "positivity": 0.0,
-                    "subjectivity": 0.5,
-                    "matched_context": {
-                        "max_search_depth": 1000,
-                        "max_search_timeout": 600,
-                        "total_search_start": "14/06/2021, 17:36:34",
-                        "sentence": "i am concerned",
-                        "response": "Can you repeat, please?",
-                        "matched_nodes": [
-                            {
-                                "type": "Word",
-                                "node": "ONEORMORE [*]",
-                                "words": [
-                                    "i",
-                                    "am",
-                                    "concerned"
-                                ],
-                                "multi_word": true,
-                                "wild_card": true
-                            },
-                            {
-                                "type": "Topic",
-                                "node": "ONEORMORE [*]",
-                                "words": [
-                                    "Art"
-                                ],
-                                "multi_word": true,
-                                "wild_card": true
-                            },
-                            {
-                                "type": "That",
-                                "node": "ONEORMORE [*]",
-                                "words": [
-                                    "I",
-                                    "don\u2019t",
-                                    "understand"
-                                ],
-                                "multi_word": true,
-                                "wild_card": true
-                            }
-                        ]
-                    }
-                }
-            ],
-            "current_sentence_no": 0,
-            "properties": {}
-        },
-        {
-            "srai": false,
-            "sentences": [
-                {
-                    "words": [
-                        "i",
-                        "am",
-                        "interested"
-                    ],
-                    "response": "It's a pity we have no tours regarding",
-                    "positivity": 0.0,
-                    "subjectivity": 0.5,
-                    "matched_context": {
-                        "max_search_depth": 1000,
-                        "max_search_timeout": 600,
-                        "total_search_start": "14/06/2021, 17:36:34",
-                        "sentence": "i am interested",
-                        "response": "It's a pity we have no tours regarding",
-                        "matched_nodes": [
-                            {
-                                "type": "Word",
-                                "node": "ONEORMORE [*]",
-                                "words": [
-                                    "i",
-                                    "am"
-                                ],
-                                "multi_word": true,
-                                "wild_card": true
-                            },
-                            {
-                                "type": "Word",
-                                "node": "ISET words=[LIKE,LOVE,INTERESTED]",
-                                "words": [
-                                    "INTERESTED"
-                                ],
-                                "multi_word": true,
-                                "wild_card": false
-                            },
-                            {
-                                "type": "Word",
-                                "node": "ZEROORMORE [^]",
-                                "words": [],
-                                "multi_word": true,
-                                "wild_card": true
-                            },
-                            {
-                                "type": "Topic",
-                                "node": "ONEORMORE [*]",
-                                "words": [
-                                    "Art"
-                                ],
-                                "multi_word": true,
-                                "wild_card": true
-                            },
-                            {
-                                "type": "That",
-                                "node": "ONEORMORE [*]",
-                                "words": [
-                                    "Can",
-                                    "you",
-                                    "repeat",
-                                    "please"
-                                ],
-                                "multi_word": true,
-                                "wild_card": true
-                            }
-                        ]
-                    }
-                }
-            ],
-            "current_sentence_no": 0,
-            "properties": {}
-        },
-        {
-            "srai": false,
-            "sentences": [
-                {
-                    "words": [
-                        "i",
-                        "rate",
-                        "concerned"
-                    ],
-                    "response": "Can you repeat, please?",
-                    "positivity": 0.0,
-                    "subjectivity": 0.5,
-                    "matched_context": {
-                        "max_search_depth": 1000,
-                        "max_search_timeout": 600,
-                        "total_search_start": "14/06/2021, 17:36:34",
-                        "sentence": "i rate concerned",
-                        "response": "Can you repeat, please?",
-                        "matched_nodes": [
-                            {
-                                "type": "Word",
-                                "node": "ONEORMORE [*]",
-                                "words": [
-                                    "i",
-                                    "rate",
-                                    "concerned"
-                                ],
-                                "multi_word": true,
-                                "wild_card": true
-                            },
-                            {
-                                "type": "Topic",
-                                "node": "ONEORMORE [*]",
-                                "words": [
-                                    "Art"
-                                ],
-                                "multi_word": true,
-                                "wild_card": true
-                            },
-                            {
-                                "type": "That",
-                                "node": "ONEORMORE [*]",
-                                "words": [
-                                    "It",
-                                    "s",
-                                    "a",
-                                    "pity",
-                                    "we",
-                                    "have",
-                                    "no",
-                                    "tours",
-                                    "regarding"
-                                ],
-                                "multi_word": true,
-                                "wild_card": true
-                            }
-                        ]
-                    }
-                }
-            ],
-            "current_sentence_no": 0,
-            "properties": {}
-        },
-        {
-            "srai": false,
-            "sentences": [
-                {
-                    "words": [
-                        "i",
-                        "am",
-                        "concerned"
-                    ],
-                    "response": "I don\u2019t understand",
-                    "positivity": 0.0,
-                    "subjectivity": 0.5,
-                    "matched_context": {
-                        "max_search_depth": 1000,
-                        "max_search_timeout": 600,
-                        "total_search_start": "14/06/2021, 17:36:34",
-                        "sentence": "i am concerned",
-                        "response": "I don\u2019t understand",
-                        "matched_nodes": [
-                            {
-                                "type": "Word",
-                                "node": "ONEORMORE [*]",
-                                "words": [
-                                    "i",
-                                    "am",
-                                    "concerned"
-                                ],
-                                "multi_word": true,
-                                "wild_card": true
-                            },
-                            {
-                                "type": "Topic",
-                                "node": "ONEORMORE [*]",
-                                "words": [
-                                    "Art"
-                                ],
-                                "multi_word": true,
-                                "wild_card": true
-                            },
-                            {
-                                "type": "That",
-                                "node": "ONEORMORE [*]",
-                                "words": [
-                                    "Can",
-                                    "you",
-                                    "repeat",
-                                    "please"
-                                ],
-                                "multi_word": true,
-                                "wild_card": true
-                            }
-                        ]
-                    }
-                }
-            ],
-            "current_sentence_no": 0,
-            "properties": {}
-        },
-        {
-            "srai": false,
-            "sentences": [
-                {
-                    "words": [
                         "concerned"
                     ],
                     "response": "I don\u2019t understand",
@@ -7266,6 +6884,585 @@
                                     "contains",
                                     "165",
                                     "categories"
+                                ],
+                                "multi_word": true,
+                                "wild_card": true
+                            }
+                        ]
+                    }
+                }
+            ],
+            "current_sentence_no": 0,
+            "properties": {}
+        },
+        {
+            "srai": false,
+            "sentences": [
+                {
+                    "words": [
+                        "Hi"
+                    ],
+                    "response": "Hi! I am Guido , are you a guide o an explorer?",
+                    "positivity": 0.0,
+                    "subjectivity": 0.5,
+                    "matched_context": {
+                        "max_search_depth": 1000,
+                        "max_search_timeout": 600,
+                        "total_search_start": "15/06/2021, 10:18:57",
+                        "sentence": "Hi",
+                        "response": "Hi! I am Guido , are you a guide o an explorer?",
+                        "matched_nodes": [
+                            {
+                                "type": "Word",
+                                "node": "WORD [HI]",
+                                "words": [
+                                    "Hi"
+                                ],
+                                "multi_word": false,
+                                "wild_card": false
+                            },
+                            {
+                                "type": "Topic",
+                                "node": "ONEORMORE [*]",
+                                "words": [
+                                    "Art"
+                                ],
+                                "multi_word": true,
+                                "wild_card": true
+                            },
+                            {
+                                "type": "That",
+                                "node": "ONEORMORE [*]",
+                                "words": [
+                                    "My",
+                                    "brain",
+                                    "contains",
+                                    "165",
+                                    "categories"
+                                ],
+                                "multi_word": true,
+                                "wild_card": true
+                            }
+                        ]
+                    }
+                }
+            ],
+            "current_sentence_no": 0,
+            "properties": {}
+        },
+        {
+            "srai": false,
+            "sentences": [
+                {
+                    "words": [
+                        "Hi"
+                    ],
+                    "response": "Hi! I am Guido , are you a guide o an explorer?",
+                    "positivity": 0.0,
+                    "subjectivity": 0.5,
+                    "matched_context": {
+                        "max_search_depth": 1000,
+                        "max_search_timeout": 600,
+                        "total_search_start": "15/06/2021, 10:19:25",
+                        "sentence": "Hi",
+                        "response": "Hi! I am Guido , are you a guide o an explorer?",
+                        "matched_nodes": [
+                            {
+                                "type": "Word",
+                                "node": "WORD [HI]",
+                                "words": [
+                                    "Hi"
+                                ],
+                                "multi_word": false,
+                                "wild_card": false
+                            },
+                            {
+                                "type": "Topic",
+                                "node": "ONEORMORE [*]",
+                                "words": [
+                                    "Art"
+                                ],
+                                "multi_word": true,
+                                "wild_card": true
+                            },
+                            {
+                                "type": "That",
+                                "node": "ONEORMORE [*]",
+                                "words": [
+                                    "Hi",
+                                    "I",
+                                    "am",
+                                    "Guido",
+                                    "are",
+                                    "you",
+                                    "a",
+                                    "guide",
+                                    "o",
+                                    "an",
+                                    "explorer"
+                                ],
+                                "multi_word": true,
+                                "wild_card": true
+                            }
+                        ]
+                    }
+                }
+            ],
+            "current_sentence_no": 0,
+            "properties": {}
+        },
+        {
+            "srai": false,
+            "sentences": [
+                {
+                    "words": [
+                        "i",
+                        "am",
+                        "a",
+                        "guide"
+                    ],
+                    "response": "If you want to be a guide of our community first you need to register yourself on our system and we will decide if you are okay, in this case you will be able to design your tours and propose them on the website",
+                    "positivity": 0.0,
+                    "subjectivity": 0.5,
+                    "matched_context": {
+                        "max_search_depth": 1000,
+                        "max_search_timeout": 600,
+                        "total_search_start": "15/06/2021, 10:19:30",
+                        "sentence": "i am a guide",
+                        "response": "If you want to be a guide of our community first you need to register yourself on our system and we will decide if you are okay, in this case you will be able to design your tours and propose them on the website",
+                        "matched_nodes": [
+                            {
+                                "type": "Word",
+                                "node": "WORD [I]",
+                                "words": [
+                                    "i"
+                                ],
+                                "multi_word": false,
+                                "wild_card": false
+                            },
+                            {
+                                "type": "Word",
+                                "node": "WORD [AM]",
+                                "words": [
+                                    "am"
+                                ],
+                                "multi_word": false,
+                                "wild_card": false
+                            },
+                            {
+                                "type": "Word",
+                                "node": "ZEROORMORE [^]",
+                                "words": [
+                                    "a"
+                                ],
+                                "multi_word": true,
+                                "wild_card": true
+                            },
+                            {
+                                "type": "Word",
+                                "node": "WORD [GUIDE]",
+                                "words": [
+                                    "guide"
+                                ],
+                                "multi_word": false,
+                                "wild_card": false
+                            },
+                            {
+                                "type": "Topic",
+                                "node": "ONEORMORE [*]",
+                                "words": [
+                                    "Art"
+                                ],
+                                "multi_word": true,
+                                "wild_card": true
+                            },
+                            {
+                                "type": "That",
+                                "node": "ONEORMORE [*]",
+                                "words": [
+                                    "Hi",
+                                    "I",
+                                    "am",
+                                    "Guido",
+                                    "are",
+                                    "you",
+                                    "a",
+                                    "guide",
+                                    "o",
+                                    "an",
+                                    "explorer"
+                                ],
+                                "multi_word": true,
+                                "wild_card": true
+                            }
+                        ]
+                    }
+                }
+            ],
+            "current_sentence_no": 0,
+            "properties": {}
+        },
+        {
+            "srai": false,
+            "sentences": [
+                {
+                    "words": [
+                        "i",
+                        "am",
+                        "a",
+                        "guide"
+                    ],
+                    "response": "If you want to be a guide of our community first you need to register yourself on our system and we will decide if you are okay, in this case you will be able to design your tours and propose them on the website",
+                    "positivity": 0.0,
+                    "subjectivity": 0.5,
+                    "matched_context": {
+                        "max_search_depth": 1000,
+                        "max_search_timeout": 600,
+                        "total_search_start": "15/06/2021, 10:19:30",
+                        "sentence": "i am a guide",
+                        "response": "If you want to be a guide of our community first you need to register yourself on our system and we will decide if you are okay, in this case you will be able to design your tours and propose them on the website",
+                        "matched_nodes": [
+                            {
+                                "type": "Word",
+                                "node": "WORD [I]",
+                                "words": [
+                                    "i"
+                                ],
+                                "multi_word": false,
+                                "wild_card": false
+                            },
+                            {
+                                "type": "Word",
+                                "node": "WORD [AM]",
+                                "words": [
+                                    "am"
+                                ],
+                                "multi_word": false,
+                                "wild_card": false
+                            },
+                            {
+                                "type": "Word",
+                                "node": "ZEROORMORE [^]",
+                                "words": [
+                                    "a"
+                                ],
+                                "multi_word": true,
+                                "wild_card": true
+                            },
+                            {
+                                "type": "Word",
+                                "node": "WORD [GUIDE]",
+                                "words": [
+                                    "guide"
+                                ],
+                                "multi_word": false,
+                                "wild_card": false
+                            },
+                            {
+                                "type": "Topic",
+                                "node": "ONEORMORE [*]",
+                                "words": [
+                                    "Art"
+                                ],
+                                "multi_word": true,
+                                "wild_card": true
+                            },
+                            {
+                                "type": "That",
+                                "node": "ONEORMORE [*]",
+                                "words": [
+                                    "If",
+                                    "you",
+                                    "want",
+                                    "to",
+                                    "be",
+                                    "a",
+                                    "guide",
+                                    "of",
+                                    "our",
+                                    "community",
+                                    "first",
+                                    "you",
+                                    "need",
+                                    "to",
+                                    "register",
+                                    "yourself",
+                                    "on",
+                                    "our",
+                                    "system",
+                                    "and",
+                                    "we",
+                                    "will",
+                                    "decide",
+                                    "if",
+                                    "you",
+                                    "are",
+                                    "okay",
+                                    "in",
+                                    "this",
+                                    "case",
+                                    "you",
+                                    "will",
+                                    "be",
+                                    "able",
+                                    "to",
+                                    "design",
+                                    "your",
+                                    "tours",
+                                    "and",
+                                    "propose",
+                                    "them",
+                                    "on",
+                                    "the",
+                                    "website"
+                                ],
+                                "multi_word": true,
+                                "wild_card": true
+                            }
+                        ]
+                    }
+                }
+            ],
+            "current_sentence_no": 0,
+            "properties": {}
+        },
+        {
+            "srai": false,
+            "sentences": [
+                {
+                    "words": [
+                        "i",
+                        "am",
+                        "an",
+                        "usher"
+                    ],
+                    "response": "If you want to be a guide of our community first you need to register yourself on our system and we will decide if you are okay, in this case you will be able to design your tours and propose them on the website",
+                    "positivity": 0.0,
+                    "subjectivity": 0.5,
+                    "matched_context": {
+                        "max_search_depth": 1000,
+                        "max_search_timeout": 600,
+                        "total_search_start": "15/06/2021, 10:30:03",
+                        "sentence": "i am an usher",
+                        "response": "If you want to be a guide of our community first you need to register yourself on our system and we will decide if you are okay, in this case you will be able to design your tours and propose them on the website",
+                        "matched_nodes": [
+                            {
+                                "type": "Word",
+                                "node": "WORD [I]",
+                                "words": [
+                                    "i"
+                                ],
+                                "multi_word": false,
+                                "wild_card": false
+                            },
+                            {
+                                "type": "Word",
+                                "node": "WORD [AM]",
+                                "words": [
+                                    "am"
+                                ],
+                                "multi_word": false,
+                                "wild_card": false
+                            },
+                            {
+                                "type": "Word",
+                                "node": "WORD [AN]",
+                                "words": [
+                                    "an"
+                                ],
+                                "multi_word": false,
+                                "wild_card": false
+                            },
+                            {
+                                "type": "Word",
+                                "node": "WORD [USHER]",
+                                "words": [
+                                    "usher"
+                                ],
+                                "multi_word": false,
+                                "wild_card": false
+                            },
+                            {
+                                "type": "Topic",
+                                "node": "ONEORMORE [*]",
+                                "words": [
+                                    "Art"
+                                ],
+                                "multi_word": true,
+                                "wild_card": true
+                            },
+                            {
+                                "type": "That",
+                                "node": "ONEORMORE [*]",
+                                "words": [
+                                    "If",
+                                    "you",
+                                    "want",
+                                    "to",
+                                    "be",
+                                    "a",
+                                    "guide",
+                                    "of",
+                                    "our",
+                                    "community",
+                                    "first",
+                                    "you",
+                                    "need",
+                                    "to",
+                                    "register",
+                                    "yourself",
+                                    "on",
+                                    "our",
+                                    "system",
+                                    "and",
+                                    "we",
+                                    "will",
+                                    "decide",
+                                    "if",
+                                    "you",
+                                    "are",
+                                    "okay",
+                                    "in",
+                                    "this",
+                                    "case",
+                                    "you",
+                                    "will",
+                                    "be",
+                                    "able",
+                                    "to",
+                                    "design",
+                                    "your",
+                                    "tours",
+                                    "and",
+                                    "propose",
+                                    "them",
+                                    "on",
+                                    "the",
+                                    "website"
+                                ],
+                                "multi_word": true,
+                                "wild_card": true
+                            }
+                        ]
+                    }
+                }
+            ],
+            "current_sentence_no": 0,
+            "properties": {}
+        },
+        {
+            "srai": false,
+            "sentences": [
+                {
+                    "words": [
+                        "i",
+                        "am",
+                        "an",
+                        "usher"
+                    ],
+                    "response": "If you want to be a guide of our community first you need to register yourself on our system and we will decide if you are okay, in this case you will be able to design your tours and propose them on the website",
+                    "positivity": 0.0,
+                    "subjectivity": 0.5,
+                    "matched_context": {
+                        "max_search_depth": 1000,
+                        "max_search_timeout": 600,
+                        "total_search_start": "15/06/2021, 10:30:03",
+                        "sentence": "i am an usher",
+                        "response": "If you want to be a guide of our community first you need to register yourself on our system and we will decide if you are okay, in this case you will be able to design your tours and propose them on the website",
+                        "matched_nodes": [
+                            {
+                                "type": "Word",
+                                "node": "WORD [I]",
+                                "words": [
+                                    "i"
+                                ],
+                                "multi_word": false,
+                                "wild_card": false
+                            },
+                            {
+                                "type": "Word",
+                                "node": "WORD [AM]",
+                                "words": [
+                                    "am"
+                                ],
+                                "multi_word": false,
+                                "wild_card": false
+                            },
+                            {
+                                "type": "Word",
+                                "node": "WORD [AN]",
+                                "words": [
+                                    "an"
+                                ],
+                                "multi_word": false,
+                                "wild_card": false
+                            },
+                            {
+                                "type": "Word",
+                                "node": "WORD [USHER]",
+                                "words": [
+                                    "usher"
+                                ],
+                                "multi_word": false,
+                                "wild_card": false
+                            },
+                            {
+                                "type": "Topic",
+                                "node": "ONEORMORE [*]",
+                                "words": [
+                                    "Art"
+                                ],
+                                "multi_word": true,
+                                "wild_card": true
+                            },
+                            {
+                                "type": "That",
+                                "node": "ONEORMORE [*]",
+                                "words": [
+                                    "If",
+                                    "you",
+                                    "want",
+                                    "to",
+                                    "be",
+                                    "a",
+                                    "guide",
+                                    "of",
+                                    "our",
+                                    "community",
+                                    "first",
+                                    "you",
+                                    "need",
+                                    "to",
+                                    "register",
+                                    "yourself",
+                                    "on",
+                                    "our",
+                                    "system",
+                                    "and",
+                                    "we",
+                                    "will",
+                                    "decide",
+                                    "if",
+                                    "you",
+                                    "are",
+                                    "okay",
+                                    "in",
+                                    "this",
+                                    "case",
+                                    "you",
+                                    "will",
+                                    "be",
+                                    "able",
+                                    "to",
+                                    "design",
+                                    "your",
+                                    "tours",
+                                    "and",
+                                    "propose",
+                                    "them",
+                                    "on",
+                                    "the",
+                                    "website"
                                 ],
                                 "multi_word": true,
                                 "wild_card": true
