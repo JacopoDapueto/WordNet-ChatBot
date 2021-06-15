@@ -560,4 +560,43 @@
         <template>It's a pity we have no tours regarding rome</template>
     </category>
 
+
+<category><pattern> CAN YOU ADVISE US SOMETHING</pattern><topic>*</topic><that>*</that><template>Do you have any particular interest?</template></category>
+
+
+<category><pattern> I CARE ABOUT ART</pattern><topic>*</topic><that>*</that><template>A lot of people in our community love Art too! For example we provide guided tours in museums</template></category>
+
+
+<category><pattern> HOW CAN YOU ASSIST ME</pattern><topic>*</topic><that>*</that><template>Guido helps you to find a guided tours wherever you are, whereby you can join in a group to save money and time</template></category>
+
+<category><pattern> HOW CAN YOU SERVE ME</pattern><topic>*</topic><that>*</that><template>Guido helps you to find a guided tours wherever you are, whereby you can join in a group to save money and time</template></category>
+
+
+<category><pattern> HOW CAN YOU FACILITATE ME</pattern><topic>*</topic><that>*</that><template>Guido helps you to find a guided tours wherever you are, whereby you can join in a group to save money and time</template></category>
+
+
+<category><pattern> WHICH HELP DO YOU PROVIDE</pattern><topic>*</topic><that>*</that><template>Guido helps you to find a guided tours wherever you are, whereby you can join in a group to save money and time</template></category><category>
+
+
+<pattern> WHICH AVAIL DO YOU PROVIDE</pattern><topic>*</topic><that>*</that><template>Guido helps you to find a guided tours wherever you are, whereby you can join in a group to save money and time</template></category>
+
+
+<category><pattern> CAN YOU FIND OUT ME A HOUSING</pattern><topic>*</topic><that>*</that><template>Ouh, We don't provide such a service, I'm sorry but finding an accomodation it's up to you. Our services regards only guided tours</template></category>
+
+<category><pattern> CAN YOU FIND OUT ME A LIVING ACCOMMODATIONS</pattern><topic>*</topic><that>*</that><template>Ouh, We don't provide such a service, I'm sorry but finding an accomodation it's up to you. Our services regards only guided tours</template></category>
+
+<category><pattern> CAN YOU DISCOVER ME A HOUSING</pattern><topic>*</topic><that>*</that><template>Ouh, We don't provide such a service, I'm sorry but finding an accomodation it's up to you. Our services regards only guided tours</template></category>
+
+<category><pattern> CAN YOU DISCOVER ME A LIVING ACCOMMODATIONS</pattern><topic>*</topic><that>*</that><template>Ouh, We don't provide such a service, I'm sorry but finding an accomodation it's up to you. Our services regards only guided tours</template></category>
+
+<category><pattern> CAN YOU GET ME A HOUSING</pattern><topic>*</topic><that>*</that><template>Ouh, We don't provide such a service, I'm sorry but finding an accomodation it's up to you. Our services regards only guided tours</template></category>
+
+<category><pattern> CAN YOU GET ME A LIVING ACCOMMODATIONS</pattern><topic>*</topic><that>*</that><template>Ouh, We don't provide such a service, I'm sorry but finding an accomodation it's up to you. Our services regards only guided tours</template></category>
+
+
+<category><pattern> ARE THERE CIRCUIT ABROAD</pattern><topic>*</topic><that>*</that><template>Yes! We have some tours placed in Paris, they can be carried out both in italian and french</template></category>
+
+<category><pattern> ARE THERE CIRCUIT OVERSEAS</pattern><topic>*</topic><that>*</that><template>Yes! We have some tours placed in Paris, they can be carried out both in italian and french</template></category>
+
+
 </aiml>

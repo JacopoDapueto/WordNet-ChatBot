@@ -59,6 +59,7 @@ def is_learned(chatbot, client_context, message, base_message, relation):
     # first check that such a pattern already exist
     new_response = chatbot.process_question(client_context, base_message)
 
+    print(base_message)
     # the new category can be learned
     if can_be_learned(new_response):
 

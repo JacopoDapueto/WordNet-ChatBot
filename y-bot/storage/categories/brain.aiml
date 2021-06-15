@@ -75,8 +75,8 @@
 </category>
 
 <category>
-    <pattern>HOW * HELP ^</pattern>
-    <template><srai>WHICH SERVICES DO YOU PROVIDE</srai></template>
+    <pattern>HOW CAN YOU HELP ME</pattern>
+    <template><srai>WHICH SERVICE DO YOU PROVIDE</srai></template>
 </category>
 
 
@@ -97,7 +97,7 @@
 </category>
 
 <category>
-    <pattern>WHICH ^ SERVICES ^ PROVIDE</pattern>
+    <pattern>WHICH ^ SERVICE ^ PROVIDE</pattern>
     <template>
         <bot name="name"/> helps you to find a guided tours wherever you are, whereby you can join in a group to save money and time
     </template>
