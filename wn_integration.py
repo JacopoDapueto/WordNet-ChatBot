@@ -15,65 +15,32 @@ def learn_pattern(chatbot, client_context, message):
     tokenizer = RegexpTokenizer(r'\w+')
     words_list = tokenizer.tokenize(message)
 
-
     # find synonym for each word
     for word in words_list:
-        is_syn, base_message = find_lexical_relation(word, message, Relations.SYNONYM)
+        learned, base_message = find_lexical_relation(chatbot, client_context, word, message, Relations.SYNONYM)
 
-        # learn the new pattern and return 
-        if is_syn:
-            learned = is_learned(chatbot, client_context, message, base_message, Relations.synonym_string)
-
-            if learned:
-                return True
+        if learned:
+            return True
         
     # find hyponym for each word
     for word in words_list:
-        is_hypo, base_message = find_lexical_relation(word, message, Relations.HYPONYM)
+        learned, base_message = find_lexical_relation(chatbot, client_context, word, message, Relations.HYPONYM)
 
-        # learn the new pattern and return 
-        if is_hypo:
-            learned = is_learned(chatbot, client_context, message, base_message, Relations.hyponym_string)
-
-            if learned:
-                return True
+        if learned:
+            return True
 
     # find hypernym for each word
     for word in words_list:
-        is_hyper, base_message = find_lexical_relation(word, message, Relations.HYPERNYM)
+        learned, base_message = find_lexical_relation(chatbot, client_context, word, message, Relations.HYPERNYM)
 
-        # learn the new pattern and return 
-        if is_hyper:
-            learned = is_learned(chatbot, client_context, message, base_message, Relations.hypernym_string)
-
-            if learned:
-                return True
+        if learned:
+            return True
 
     return False
 
-# return if the sentence is learned,and perform the learning
-def is_learned(chatbot, client_context, message, base_message, relation):
-
-    # first check that such a pattern already exist
-    new_response = chatbot.process_question(client_context, base_message)
-
-    # the new category can be learned
-    if can_be_learned(new_response):
-
-        # disable splitting to avoid erroneous pattern to be learned
-        chatbot.process_question(client_context, CategoriesOfInterest.disable_splitting)
-
-        # learnf the category: message will be reduced to base_message
-        chatbot.process_question(client_context, "relation " + message + relation + base_message )
-
-        # enable sentence splitting again
-        chatbot.process_question(client_context, CategoriesOfInterest.enable_splitting)
-        return True
-
-    return False
 
 # return if it find a lexical relation for one of grammar category
-def find_lexical_relation(word, message, type=Relations.SYNONYM):
+def find_lexical_relation(chatbot, client_context, word, message, type=Relations.SYNONYM):
 
     # Lemming words as Nouns
     word_noun = Lemmatization_word(word, "n")
@@ -87,31 +54,31 @@ def find_lexical_relation(word, message, type=Relations.SYNONYM):
     # converts all characters into lowercase
     message = message.lower()
 
-    # Lexical relation 
+    # Lexical relations
     
     # find relation for Nouns
-    is_rel, new_message = lexical_relation(word, word_noun, TermsOfInterest.noun_list, message, wn.NOUN, type)
+    learned, new_message = lexical_relation(word, word_noun, TermsOfInterest.noun_list , chatbot, client_context , message, wn.NOUN, type)
 
-    if is_rel:
+    if learned:
         return True, new_message
 
     # find relation for Verbs
-    is_rel, new_message = lexical_relation(word, word_verb, TermsOfInterest.verb_list, message, wn.VERB, type)
+    learned, new_message = lexical_relation(word, word_verb, TermsOfInterest.verb_list, chatbot, client_context ,message, wn.VERB, type)
 
-    if is_rel:
+    if learned:
         return True, new_message
 
     # find relation for Verbs
-    is_rel, new_message = lexical_relation(word, word_adj, TermsOfInterest.adj_list, message, wn.ADJ, type)
+    learned, new_message = lexical_relation(word, word_adj, TermsOfInterest.adj_list, chatbot, client_context, message, wn.ADJ, type)
 
-    if is_rel:
+    if learned:
         return True, new_message
 
     return False, ""
 
 
 # return True is there is a lexical relation and return also the sentence the chatbot is already able to recognise
-def lexical_relation(word, word_lemm, baseline_words, message, key = wn.NOUN, type=Relations.SYNONYM ):
+def lexical_relation(word, word_lemm, baseline_words, chatbot, client_context , message, key = wn.NOUN, type=Relations.SYNONYM ):
 
     
     # check if "word" is related with any word of interest in baseline_words
@@ -127,26 +94,55 @@ def lexical_relation(word, word_lemm, baseline_words, message, key = wn.NOUN, ty
 
 
             if type == Relations.SYNONYM:
+                relation = Relations.synonym_string
                 replaced , new_message = replace_synonymy(word, word_lemm, baseline, message, synset)
 
             if type == Relations.HYPONYM:
+                relation = Relations.hyponym_string
+
                 replaced , new_message = replace_hyponymy(word,  word_lemm, baseline, message, synset)
 
             if type == Relations.HYPERNYM:
+                relation = Relations.hypernym_string
                 replaced , new_message = replace_hypernym(word,  word_lemm, baseline, message, synset)
 
             if replaced:
+                
+                learned = is_learned(chatbot, client_context, message, new_message, relation)
 
-                return True, new_message
+                if learned:
+                    return True, new_message
 
     
     return False, ""
+
+    # return if the sentence is learned,and perform the learning
+def is_learned(chatbot, client_context, message, base_message, relation):
+
+    # first check that such a pattern already exist
+    new_response = chatbot.process_question(client_context, base_message)
+
+    print(base_message)
+    # the new category can be learned
+    if can_be_learned(new_response):
+
+        # disable splitting to avoid erroneous pattern to be learned
+        chatbot.process_question(client_context, CategoriesOfInterest.disable_splitting)
+
+        # learnf the category: message will be reduced to base_message
+        chatbot.process_question(client_context, "relation " + message + relation + base_message )
+
+        # enable sentence splitting again
+        chatbot.process_question(client_context, CategoriesOfInterest.enable_splitting)
+        return True
+
+    return False
+
   
 
 # substitute the word in the message with its synonym 
 def replace_synonymy(word, word_lemm, baseline, message, synset):
 
-    
     if word_lemm in synset.lemma_names():
 
         # replace all instances of "word" with "baseline"

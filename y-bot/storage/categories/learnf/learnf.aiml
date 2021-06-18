@@ -790,6 +790,8 @@
         <template>Confirmation of the start of the tour will be sent by sms or by email when at least 5 participants have been added to the tour</template>
     </category>
 
+    <category><pattern> HE GOES TO GENOA</pattern><topic>*</topic><that>*</that><template>Great! There are many tours in Genoa you can join!</template></category>
+
     <category>
         <pattern> I WANT TO VALUE A TOUR</pattern>
         <topic>*</topic>
@@ -979,6 +981,8 @@
         <template>Now you just need to select a date and join or create a group of at least 5 people. Enjoy your experience!</template>
     </category>
 
+    <category><pattern> HOW DO I PLAN A TOUR</pattern><topic>*</topic><that>*</that><template>First you should be a guide belonging to our community and then you'll be able to register a tour into the system and to manage the partecipants</template></category>
+
     <category>
         <pattern> CAN YOU DISCOVER ME A TOUR</pattern>
         <topic>*</topic>
@@ -1006,5 +1010,20 @@
         <that>*</that>
         <template>Choose the tour that best suits you</template>
     </category>
+
+
+<category><pattern> I DESIRE A TOUR IN MILAN</pattern><topic>*</topic><that>*</that><template>Have a look at the available tours in Milan</template></category>
+
+
+<category><pattern> I NEED A TOUR IN MILAN</pattern><topic>*</topic><that>*</that><template>There are many tours in Milan you can join!</template></category>
+
+
+<category><pattern> HOW CAN I GET TOGETHER THE COMMUNITY AS A GUIDE</pattern><topic>*</topic><that>*</that><template>If you want to be a guide of our community first you need to register yourself on our system and we will decide if you are okay, in this case you will be able to design your tours and propose them on the website</template></category>
+
+
+><category><pattern> I WENT TO GENOA</pattern><topic>*</topic><that>*</that><template>Great! There are many tours in Genoa you can join!</template></category>
+
+<category><pattern> I LIKE FISHING</pattern><topic>*</topic><that>*</that><template>It's a pity we have no tours regarding fishing</template></category>
+
 
 </aiml>
