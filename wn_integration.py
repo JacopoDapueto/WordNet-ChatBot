@@ -245,8 +245,6 @@ def replace_collocation(lemma_names, word, word_lemm, baseline, message):
 
 
 
-
-
 # return if in the message there is a collocation present in the synset
 def isThere_collocation(word, baseline, message):
 
