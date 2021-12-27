@@ -1,4 +1,4 @@
-# ChatBot
+# WordNet-ChatBot
 
 Project of NLP. Implementation of a chatbot with capabilities of recognizing lexical relations thanks to the [Wordnet](https://wordnet.princeton.edu/) database.
 It is implemented in **AIML 2.0** that thanks to its semplicity it’s possible to define a limited number of patterns the software is able to recognize and to answer.
