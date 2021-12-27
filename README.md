@@ -11,6 +11,8 @@ It is able to learn lexical relations of a finite set of *words* that play a rol
 The python implementation is provided by [program-y](https://github.com/keiffster/program-y).
 
 ### Requirements
+
+Install the requirements and download the wordnet database.
 ```
 pip3 install -r requirements.txt
 ```
@@ -19,6 +21,7 @@ pip3 install -r requirements.txt
 python3 -m nltk.downloader wordnet 
 ```
 
+Then the code is ready to be executed.
 ```
 python3 main.py 
 ```
